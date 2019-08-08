@@ -1,0 +1,705 @@
+config_section,line_number,value
+acl,0,"show saved-config inc-defaults section ""acl"""
+acl,1,!
+acl,2,acl
+acl,3,reset
+acl,4,off
+acl,5,exit
+acl,6,!
+administrator,0,"show saved-config inc-defaults section ""administrator"""
+administrator,1,!
+administrator,2,administrator
+administrator,3,reset
+administrator,4,!
+administrator,5,privilege-name
+administrator,6,"level 0  ""read-only"""
+administrator,7,"level 1  ""read-write"""
+administrator,8,"level 2  ""2"""
+administrator,9,"level 3  ""3"""
+administrator,10,"level 4  ""4"""
+administrator,11,"level 5  ""5"""
+administrator,12,"level 6  ""6"""
+administrator,13,"level 7  ""7"""
+administrator,14,exit
+administrator,15,"edit admin password enc ""$1$30c0e241$LVn1syCzqY0L9Vjkx6pnI0"" privilege read-write"
+administrator,16,!
+administrator,17,radius
+administrator,18,primary     secret enc
+administrator,19,primary     port   1812
+administrator,20,primary     server
+administrator,21,secondary   secret enc
+administrator,22,secondary   port   1812
+administrator,23,secondary   server
+administrator,24,timeout     600
+administrator,25,auth-type   chap
+administrator,26,disable
+administrator,27,exit
+administrator,28,!
+administrator,29,privilege-section
+administrator,30,"acl           ""read-write"""
+administrator,31,"admin         ""read-write"""
+administrator,32,"boot-env      ""read-write"""
+administrator,33,"cdp           ""read-write"""
+administrator,34,"cluster       ""read-write"""
+administrator,35,"console       ""read-write"""
+administrator,36,"contact-info  ""read-write"""
+administrator,37,"date-time     ""read-write"""
+administrator,38,"description   ""read-write"""
+administrator,39,"dhcp-server   ""read-write"""
+administrator,40,"dns           ""read-write"""
+administrator,41,"file          ""read-write"""
+administrator,42,"filter        ""read-write"""
+administrator,43,"gig           ""read-write"""
+administrator,44,"group         ""read-write"""
+administrator,45,"iap           ""read-write"""
+administrator,46,"lldp          ""read-only"""
+administrator,47,"location      ""read-write"""
+administrator,48,"management    ""read-write"""
+administrator,49,"mdm           ""read-write"""
+administrator,50,"netflow       ""read-write"""
+administrator,51,"auth          ""read-write"""
+administrator,52,"proxy-fwd     ""read-write"""
+administrator,53,"radius-server ""read-write"""
+administrator,54,"reboot        ""read-write"""
+administrator,55,"reset         ""read-write"""
+administrator,56,"roam-assist   ""read-write"""
+administrator,57,"run-tests     ""read-write"""
+administrator,58,"security      ""read-write"""
+administrator,59,"snmp          ""read-write"""
+administrator,60,"ssid          ""read-write"""
+administrator,61,"sta-assurance ""read-write"""
+administrator,62,"syslog        ""read-write"""
+administrator,63,"tunnel        ""read-write"""
+administrator,64,"vlan          ""read-write"""
+administrator,65,"wifi-tag      ""read-write"""
+administrator,66,exit
+administrator,67,exit
+administrator,68,!
+authentication-server,0,"show saved-config inc-defaults section ""authentication-server"""
+authentication-server,1,!
+authentication-server,2,authentication-server  ! (global settings)
+authentication-server,3,use external-radius
+authentication-server,4,!
+authentication-server,5,active-directory
+authentication-server,6,domain-admin
+authentication-server,7,domain-controller
+authentication-server,8,workgroup
+authentication-server,9,realm
+authentication-server,10,exit
+authentication-server,11,!
+authentication-server,12,external
+authentication-server,13,primary              secret enc
+authentication-server,14,primary              port   1812
+authentication-server,15,primary              server
+authentication-server,16,secondary            secret enc
+authentication-server,17,secondary            port   1812
+authentication-server,18,secondary            server
+authentication-server,19,timeout              600
+authentication-server,20,das-port             3799
+authentication-server,21,das-time-window      300
+authentication-server,22,das-event-timestamp  optional
+authentication-server,23,called-sta-id-format bssid-ssid
+authentication-server,24,sta-mac-format       lower
+authentication-server,25,nas-identifier
+authentication-server,26,!
+authentication-server,27,accounting
+authentication-server,28,primary            secret enc
+authentication-server,29,primary            port   1813
+authentication-server,30,primary            server
+authentication-server,31,secondary          secret enc
+authentication-server,32,secondary          port   1813
+authentication-server,33,secondary          server
+authentication-server,34,interval           300
+authentication-server,35,off
+authentication-server,36,exit
+authentication-server,37,exit
+authentication-server,38,!
+authentication-server,39,internal
+authentication-server,40,reset
+authentication-server,41,exit
+authentication-server,42,exit
+authentication-server,43,!
+cdp,0,"show saved-config inc-defaults section ""cdp"""
+cdp,1,!
+cdp,2,cdp
+cdp,3,interval  60
+cdp,4,hold-time 180
+cdp,5,on
+cdp,6,exit
+cdp,7,!
+cluster,0,"show saved-config inc-defaults section ""cluster"""
+cluster,1,!
+cluster,2,cluster
+cluster,3,reset
+cluster,4,exit
+cluster,5,!
+date-time,0,"show saved-config inc-defaults section ""date-time"""
+date-time,1,!
+date-time,2,date-time
+date-time,3,timezone      -8 0
+date-time,4,dst-adjust    on
+date-time,5,ntp primary   yahoo.com
+date-time,6,ntp primary   auth    md5
+date-time,7,ntp primary   key-id  12345
+date-time,8,ntp primary   key enc d67bd3146c
+date-time,9,ntp secondary pool.ntp.org
+date-time,10,ntp secondary auth    none
+date-time,11,ntp secondary key-id  2
+date-time,12,ntp secondary key enc
+date-time,13,ntp           on
+date-time,14,exit
+date-time,15,!
+dhcp-server,0,"show saved-config inc-defaults section ""dhcp-server"""
+dhcp-server,1,!
+dhcp-server,2,dhcp-server
+dhcp-server,3,reset
+dhcp-server,4,exit
+dhcp-server,5,!
+dns,0,"show saved-config inc-defaults section ""dns"""
+dns,1,!
+dns,2,dns
+dns,3,domain   xirrus.com
+dns,4,server1  208.67.222.222
+dns,5,server2  208.67.220.220
+dns,6,server3
+dns,7,use-dhcp off
+dns,8,exit
+dns,9,!
+filter,0,"show saved-config inc-defaults section ""filter"""
+filter,1,!
+filter,2,filter
+filter,3,reset
+filter,4,stateful   enable
+filter,5,track-apps enable
+filter,6,enable
+filter,7,exit
+filter,8,!
+group,0,"show saved-config inc-defaults section ""group"""
+group,1,!
+group,2,group
+group,3,reset
+group,4,exit
+group,5,!
+group  ! (filter mappings),0,"show saved-config inc-defaults section ""group  ! (filter mappings)"""
+group  ! (filter mappings),1,!
+interface bond1,0,"show saved-config inc-defaults section ""interface bond1"""
+interface bond1,1,!
+interface bond1,2,interface bond1
+interface bond1,3,bond-mode    link-backup
+interface bond1,4,active-vlans all
+interface bond1,5,mirror       off
+interface bond1,6,exit
+interface bond1,7,!
+interface bond2,0,"show saved-config inc-defaults section ""interface bond2"""
+interface bond2,1,!
+interface bond2,2,interface bond2
+interface bond2,3,bond-mode    link-backup
+interface bond2,4,active-vlans all
+interface bond2,5,mirror       off
+interface bond2,6,exit
+interface bond2,7,!
+interface gig2,0,"show saved-config inc-defaults section ""interface gig2"""
+interface gig2,1,!
+interface gig2,2,interface gig2
+interface gig2,3,autoneg      on
+interface gig2,4,mtu          1500
+interface gig2,5,led          on
+interface gig2,6,bond         bond1
+interface gig2,7,up
+interface gig2,8,exit
+interface gig2,9,!
+lldp,0,"show saved-config inc-defaults section ""lldp"""
+lldp,1,!
+lldp,2,lldp
+lldp,3,interval      30
+lldp,4,hold-time     120
+lldp,5,off
+lldp,6,request-power off
+lldp,7,exit
+lldp,8,!
+location-reporting,0,"show saved-config inc-defaults section ""location-reporting"""
+location-reporting,1,!
+location-reporting,2,location-reporting
+location-reporting,3,url
+location-reporting,4,cust-key  enc
+location-reporting,5,period    15
+location-reporting,6,per-radio disable
+location-reporting,7,disable
+location-reporting,8,exit
+location-reporting,9,!
+management,0,"show saved-config inc-defaults section ""management"""
+management,1,!
+management,2,management
+management,3,xircon    timeout 300
+management,4,xircon    port    22612
+management,5,xircon    on
+management,6,!
+management,7,telnet    timeout 1000
+management,8,telnet    port    23
+management,9,telnet    on
+management,10,!
+management,11,ssh       timeout 300
+management,12,ssh       port    22
+management,13,ssh       on
+management,14,!
+management,15,https     timeout 300
+management,16,https     port    443
+management,17,https     on
+management,18,!
+management,19,standby   mode    off
+management,20,standby   target
+management,21,!
+management,23,fips              off
+management,24,pci-audit         off
+management,25,reauth-period     0
+management,26,max-auth-attempts 3
+management,27,network-assurance period 300
+management,28,network-assurance on
+management,29,activation interval 5
+management,30,!
+management,31,banner pre-login  none
+management,32,banner post-login none
+management,33,!
+management,34,cloud enable
+management,35,cloud server    stomp-dev.cloud.xirrus.com
+management,36,cloud retry     5
+management,37,cloud timeout   50
+management,38,cloud scheme    wss
+management,39,cloud port      443
+management,40,exit
+management,41,!
+mdm,0,"show saved-config inc-defaults section ""mdm"""
+mdm,1,!
+mdm,2,mdm
+mdm,3,airwatch api url
+mdm,4,airwatch api key
+mdm,5,airwatch api username
+mdm,6,airwatch api password enc
+mdm,7,airwatch api timeout      5
+mdm,8,airwatch api poll-period  5
+mdm,9,airwatch api access-error block
+mdm,10,airwatch redirect-url
+mdm,11,exit
+mdm,12,!
+netflow,0,"show saved-config inc-defaults section ""netflow"""
+netflow,1,!
+netflow,2,netflow
+netflow,3,collector host
+netflow,4,collector port 2055
+netflow,5,off
+netflow,6,exit
+netflow,7,!
+roaming-assist,0,"show saved-config inc-defaults section ""roaming-assist"""
+roaming-assist,1,!
+roaming-assist,2,roaming-assist
+roaming-assist,3,disable
+roaming-assist,4,period    120
+roaming-assist,5,threshold 0
+roaming-assist,6,data-rate 20
+roaming-assist,7,devices   phone tablet player
+roaming-assist,8,exit
+roaming-assist,9,!
+security wep  ! (global-settings),0,"show saved-config inc-defaults section ""security wep  ! (global-settings)"""
+security wep  ! (global-settings),1,!
+security wpa  ! (global-settings),0,"show saved-config inc-defaults section ""security wpa  ! (global-settings)"""
+security wpa  ! (global-settings),1,!
+snmp,0,"show saved-config inc-defaults section ""snmp"""
+snmp,1,!
+snmp,2,snmp
+snmp,3,!
+snmp,4,v2
+snmp,5,community read-write enc 9f2092522cbc
+snmp,6,community read-only  enc 9f2092522cbce0773720c333b1106f85
+snmp,7,on
+snmp,8,exit
+snmp,9,!
+snmp,10,v3
+snmp,11,user read-write      name xirrus-rw
+snmp,12,user read-write      auth-password enc 9f2092522cbc927725
+snmp,13,user read-write      priv-password enc 9f2092522cbc927725
+snmp,14,user read-only       name xirrus-ro
+snmp,15,user read-only       auth-password enc 9f2092522cbc92773d
+snmp,16,user read-only       priv-password enc 9f2092522cbc92773d
+snmp,17,authentication       sha
+snmp,18,privacy              aes
+snmp,19,on
+snmp,20,exit
+snmp,21,!
+snmp,22,trap
+snmp,23,host  1   xirrus-auto
+snmp,24,host  2
+snmp,25,host  3
+snmp,26,host  4
+snmp,27,port  1   162
+snmp,28,port  2   162
+snmp,29,port  3   162
+snmp,30,port  4   162
+snmp,31,auth      enable
+snmp,32,keepalive 1
+snmp,33,exit
+snmp,34,exit
+snmp,35,!
+snmp,0,"show saved-config inc-defaults section ""snmp"""
+snmp,1,!
+snmp,2,snmp
+snmp,3,!
+snmp,4,v2
+snmp,5,community read-write enc 9f2092522cbc
+snmp,6,community read-only  enc 9f2092522cbce0773720c333b1106f85
+snmp,7,on
+snmp,8,exit
+snmp,9,!
+snmp,10,v3
+snmp,11,user read-write      name xirrus-rw
+snmp,12,user read-write      auth-password enc 9f2092522cbc927725
+snmp,13,user read-write      priv-password enc 9f2092522cbc927725
+snmp,14,user read-only       name xirrus-ro
+snmp,15,user read-only       auth-password enc 9f2092522cbc92773d
+snmp,16,user read-only       priv-password enc 9f2092522cbc92773d
+snmp,17,authentication       sha
+snmp,18,privacy              aes
+snmp,19,on
+snmp,20,exit
+snmp,21,!
+snmp,22,trap
+snmp,23,host  1   xirrus-auto
+snmp,24,host  2
+snmp,25,host  3
+snmp,26,host  4
+snmp,27,port  1   162
+snmp,28,port  2   162
+snmp,29,port  3   162
+snmp,30,port  4   162
+snmp,31,auth      enable
+snmp,32,keepalive 1
+snmp,33,exit
+snmp,34,exit
+snmp,35,!
+ssid,0,"show saved-config inc-defaults section ""ssid"""
+ssid,1,!
+ssid,2,ssid
+ssid,3,reset
+ssid,4,"edit ""xirrus"" disable"
+ssid,5,!
+ssid,6,"add  ""multi"""
+ssid,7,band        both
+ssid,8,broadcast   on
+ssid,9,vlan        none
+ssid,10,qos         0
+ssid,11,dhcp        none
+ssid,12,fast-roam   layer 2-only
+ssid,13,time-on     always
+ssid,14,time-off    never
+ssid,15,days-on     all
+ssid,16,stations    unlimited
+ssid,17,traffic     limit-ssid pps  unlimited
+ssid,18,traffic     limit-ssid kbps unlimited
+ssid,19,traffic     limit-sta  pps  unlimited
+ssid,20,traffic     limit-sta  kbps unlimited
+ssid,21,encryption  none unique-settings
+ssid,22,auth        open
+ssid,23,web-page    redirect    off
+ssid,24,mdm-auth    none
+ssid,25,acl
+ssid,26,reset
+ssid,27,off
+ssid,28,exit
+ssid,29,fallback    none
+ssid,30,dhcp-opt    disable
+ssid,31,disable
+ssid,32,exit
+ssid,33,!
+ssid,34,"add  ""multi1"""
+ssid,35,band        both
+ssid,36,broadcast   on
+ssid,37,vlan        none
+ssid,38,qos         0
+ssid,39,dhcp        none
+ssid,40,fast-roam   layer 2-only
+ssid,41,time-on     always
+ssid,42,time-off    never
+ssid,43,days-on     all
+ssid,44,stations    unlimited
+ssid,45,traffic     limit-ssid pps  unlimited
+ssid,46,traffic     limit-ssid kbps unlimited
+ssid,47,traffic     limit-sta  pps  unlimited
+ssid,48,traffic     limit-sta  kbps unlimited
+ssid,49,encryption  none unique-settings
+ssid,50,auth        open
+ssid,51,web-page    redirect    off
+ssid,52,mdm-auth    none
+ssid,53,acl
+ssid,54,reset
+ssid,55,off
+ssid,56,exit
+ssid,57,fallback    none
+ssid,58,dhcp-opt    disable
+ssid,59,disable
+ssid,60,exit
+ssid,61,!
+ssid,62,"add  ""multi2"""
+ssid,63,band        both
+ssid,64,broadcast   on
+ssid,65,vlan        none
+ssid,66,qos         0
+ssid,67,dhcp        none
+ssid,68,fast-roam   layer 2-only
+ssid,69,time-on     always
+ssid,70,time-off    never
+ssid,71,days-on     all
+ssid,72,stations    unlimited
+ssid,73,traffic     limit-ssid pps  unlimited
+ssid,74,traffic     limit-ssid kbps unlimited
+ssid,75,traffic     limit-sta  pps  unlimited
+ssid,76,traffic     limit-sta  kbps unlimited
+ssid,77,encryption  wpa-both unique-settings
+ssid,78,auth        802-1x
+ssid,79,passphrase  enc
+ssid,80,eap         on
+ssid,81,psk         off
+ssid,82,aes         on
+ssid,83,tkip        off
+ssid,84,authentication-server use external-radius
+ssid,85,authentication-server external  primary    secret enc d67bd3146c
+ssid,86,authentication-server external  primary    port   1812
+ssid,87,authentication-server external  primary    server 10.100.23.168
+ssid,88,authentication-server external  secondary  secret enc
+ssid,89,authentication-server external  secondary  port   1812
+ssid,90,authentication-server external  secondary  server
+ssid,91,authentication-server external  timeout    30
+ssid,92,authentication-server external  accounting off
+ssid,93,authentication-server external  accounting primary    secret enc d67bd3146c
+ssid,94,authentication-server external  accounting primary    port   1813
+ssid,95,authentication-server external  accounting primary    server 10.100.23.168
+ssid,96,authentication-server external  accounting secondary  secret enc
+ssid,97,authentication-server external  accounting secondary  port   1813
+ssid,98,authentication-server external  accounting secondary  server
+ssid,99,authentication-server external  accounting interval  300
+ssid,100,web-page    redirect    off
+ssid,101,mdm-auth    none
+ssid,102,acl
+ssid,103,reset
+ssid,104,off
+ssid,105,exit
+ssid,106,fallback    none
+ssid,107,dhcp-opt    disable
+ssid,108,disable
+ssid,109,exit
+ssid,110,!
+ssid,111,"add  ""multi3"""
+ssid,112,band        both
+ssid,113,broadcast   on
+ssid,114,vlan        none
+ssid,115,qos         0
+ssid,116,dhcp        none
+ssid,117,fast-roam   layer 2-only
+ssid,118,time-on     always
+ssid,119,time-off    never
+ssid,120,days-on     all
+ssid,121,stations    unlimited
+ssid,122,traffic     limit-ssid pps  unlimited
+ssid,123,traffic     limit-ssid kbps unlimited
+ssid,124,traffic     limit-sta  pps  unlimited
+ssid,125,traffic     limit-sta  kbps unlimited
+ssid,126,encryption  none unique-settings
+ssid,127,auth        open
+ssid,128,web-page    redirect    off
+ssid,129,mdm-auth    none
+ssid,130,acl
+ssid,131,reset
+ssid,132,off
+ssid,133,exit
+ssid,134,fallback    none
+ssid,135,dhcp-opt    disable
+ssid,136,disable
+ssid,137,exit
+ssid,138,!
+ssid,139,"add  ""multi4"""
+ssid,140,band        both
+ssid,141,broadcast   on
+ssid,142,vlan        none
+ssid,143,qos         0
+ssid,144,dhcp        none
+ssid,145,fast-roam   layer 2-only
+ssid,146,time-on     always
+ssid,147,time-off    never
+ssid,148,days-on     all
+ssid,149,stations    unlimited
+ssid,150,traffic     limit-ssid pps  unlimited
+ssid,151,traffic     limit-ssid kbps unlimited
+ssid,152,traffic     limit-sta  pps  unlimited
+ssid,153,traffic     limit-sta  kbps unlimited
+ssid,154,encryption  none unique-settings
+ssid,155,auth        open
+ssid,156,web-page    redirect    off
+ssid,157,mdm-auth    none
+ssid,158,acl
+ssid,159,reset
+ssid,160,off
+ssid,161,exit
+ssid,162,fallback    none
+ssid,163,dhcp-opt    disable
+ssid,164,disable
+ssid,165,exit
+ssid,166,!
+ssid,167,"add  ""multi5"""
+ssid,168,band        both
+ssid,169,broadcast   on
+ssid,170,vlan        none
+ssid,171,qos         0
+ssid,172,dhcp        none
+ssid,173,fast-roam   layer 2-only
+ssid,174,time-on     always
+ssid,175,time-off    never
+ssid,176,days-on     all
+ssid,177,stations    unlimited
+ssid,178,traffic     limit-ssid pps  unlimited
+ssid,179,traffic     limit-ssid kbps unlimited
+ssid,180,traffic     limit-sta  pps  unlimited
+ssid,181,traffic     limit-sta  kbps unlimited
+ssid,182,encryption  none unique-settings
+ssid,183,auth        open
+ssid,184,web-page    redirect    off
+ssid,185,mdm-auth    none
+ssid,186,acl
+ssid,187,reset
+ssid,188,off
+ssid,189,exit
+ssid,190,fallback    none
+ssid,191,dhcp-opt    disable
+ssid,192,disable
+ssid,193,exit
+ssid,194,!
+ssid,195,"add  ""multi6"""
+ssid,196,band        both
+ssid,197,broadcast   on
+ssid,198,vlan        none
+ssid,199,qos         0
+ssid,200,dhcp        none
+ssid,201,fast-roam   layer 2-only
+ssid,202,time-on     always
+ssid,203,time-off    never
+ssid,204,days-on     all
+ssid,205,stations    unlimited
+ssid,206,traffic     limit-ssid pps  unlimited
+ssid,207,traffic     limit-ssid kbps unlimited
+ssid,208,traffic     limit-sta  pps  unlimited
+ssid,209,traffic     limit-sta  kbps unlimited
+ssid,210,encryption  none unique-settings
+ssid,211,auth        open
+ssid,212,web-page    redirect    off
+ssid,213,mdm-auth    none
+ssid,214,acl
+ssid,215,reset
+ssid,216,off
+ssid,217,exit
+ssid,218,fallback    none
+ssid,219,dhcp-opt    disable
+ssid,220,disable
+ssid,221,exit
+ssid,222,!
+ssid,223,"add  ""multi7"""
+ssid,224,band        both
+ssid,225,broadcast   on
+ssid,226,vlan        none
+ssid,227,qos         0
+ssid,228,dhcp        none
+ssid,229,fast-roam   layer 2-only
+ssid,230,time-on     always
+ssid,231,time-off    never
+ssid,232,days-on     all
+ssid,233,stations    unlimited
+ssid,234,traffic     limit-ssid pps  unlimited
+ssid,235,traffic     limit-ssid kbps unlimited
+ssid,236,traffic     limit-sta  pps  unlimited
+ssid,237,traffic     limit-sta  kbps unlimited
+ssid,238,encryption  none unique-settings
+ssid,239,auth        open
+ssid,240,web-page    redirect    off
+ssid,241,mdm-auth    none
+ssid,242,acl
+ssid,243,reset
+ssid,244,off
+ssid,245,exit
+ssid,246,fallback    none
+ssid,247,dhcp-opt    disable
+ssid,248,disable
+ssid,249,exit
+ssid,250,!
+ssid,251,"del  ""xirrus"""
+ssid,252,exit
+ssid,253,!
+ssid,254,ssid   ! (iap mappings)
+ssid,255,"edit ""multi""  active-iaps all"
+ssid,256,"edit ""multi1"" active-iaps all"
+ssid,257,"edit ""multi2"" active-iaps all"
+ssid,258,"edit ""multi3"" active-iaps all"
+ssid,259,"edit ""multi4"" active-iaps all"
+ssid,260,"edit ""multi5"" active-iaps all"
+ssid,261,"edit ""multi6"" active-iaps all"
+ssid,262,"edit ""multi7"" active-iaps all"
+ssid,263,exit
+ssid,264,!
+ssid,265,ssid   ! (filter mappings)
+ssid,266,"edit ""multi""  filter-list """""
+ssid,267,"edit ""multi1"" filter-list """""
+ssid,268,"edit ""multi2"" filter-list """""
+ssid,269,"edit ""multi3"" filter-list """""
+ssid,270,"edit ""multi4"" filter-list """""
+ssid,271,"edit ""multi5"" filter-list """""
+ssid,272,"edit ""multi6"" filter-list """""
+ssid,273,"edit ""multi7"" filter-list """""
+ssid,274,exit
+ssid,275,!
+ssid   ! (filter mappings),0,"show saved-config inc-defaults section ""ssid   ! (filter mappings)"""
+ssid   ! (filter mappings),1,!
+ssid   ! (filter mappings),2,ssid   ! (filter mappings)
+ssid   ! (filter mappings),3,"edit ""multi""  filter-list """""
+ssid   ! (filter mappings),4,"edit ""multi1"" filter-list """""
+ssid   ! (filter mappings),5,"edit ""multi2"" filter-list """""
+ssid   ! (filter mappings),6,"edit ""multi3"" filter-list """""
+ssid   ! (filter mappings),7,"edit ""multi4"" filter-list """""
+ssid   ! (filter mappings),8,"edit ""multi5"" filter-list """""
+ssid   ! (filter mappings),9,"edit ""multi6"" filter-list """""
+ssid   ! (filter mappings),10,"edit ""multi7"" filter-list """""
+ssid   ! (filter mappings),11,exit
+ssid   ! (filter mappings),12,!
+station-assurance,0,"show saved-config inc-defaults section ""station-assurance"""
+station-assurance,1,!
+station-assurance,2,station-assurance
+station-assurance,3,enable
+station-assurance,4,period         60
+station-assurance,5,assoc-time     20
+station-assurance,6,auth-failures  10
+station-assurance,7,error-rate     20
+station-assurance,8,retry-rate     35
+station-assurance,9,data-rate      10
+station-assurance,10,rssi          -85
+station-assurance,11,snr            10
+station-assurance,12,distance      2000
+station-assurance,13,exit
+station-assurance,14,!
+tunnel,0,"show saved-config inc-defaults section ""tunnel"""
+tunnel,1,!
+tunnel,2,tunnel
+tunnel,3,reset
+tunnel,4,exit
+tunnel,5,!
+vlan,0,"show saved-config inc-defaults section ""vlan"""
+vlan,1,!
+vlan,2,vlan
+vlan,3,reset
+vlan,4,!
+vlan,5,default-route  none
+vlan,6,native-vlan    none
+vlan,7,exit
+vlan,8,!
+wifi-tag,0,"show saved-config inc-defaults section ""wifi-tag"""
+wifi-tag,1,!
+wifi-tag,2,wifi-tag
+wifi-tag,3,udp-port       1144
+wifi-tag,4,tag-channel-bg none
+wifi-tag,5,disable
+wifi-tag,6,server
+wifi-tag,7,exit
+wifi-tag,8,!

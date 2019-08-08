@@ -1,0 +1,28 @@
+ {
+     
+      "baseMacAddress": "00:0f:7d:0e:1c:b8",
+      "baseIapMacAddress": "00:0f:7d:b0:4b:00",
+      "ipAddress": "10.100.83.241",
+      "netmask": "255.255.255.0",
+      "gateway": "10.100.83.1",
+      "actualIpAddress": "10.100.83.241",
+      "actualNetmask": "255.255.255.0",
+      "actualGateway": "10.100.83.1",
+      "serialNumber": "XR402240E1CB8",
+      "arrayModel": "XR4830",
+      "manufacturer": "Xirrus",
+      "aosVersion": "7.1",
+      "licenseKey": "1RVK7-CCYYB-TM2VP-K48UB",
+      "licensedAosVersion": "7.1",
+      "location": "SQA Automation Rack",
+      "hostName": "XR402240E1CB8",
+      "activationStatus": "NOT_ACTIVATED",
+      "onlineStatus": "DOWN",
+      "recentActivation": null,
+      "clients": null,
+      "txBytes": null,
+      "rxBytes": null,
+      "totalBytes": null,
+      "country": null,
+      "tags": []
+    }

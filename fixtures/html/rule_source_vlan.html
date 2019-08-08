@@ -1,0 +1,7 @@
+<div id="rule_source_vlan" class="tagControl hasInput tagControlContainer" data-bind="tagControl: { default: $parent.sourceVlanNumber, tags: $parent.sourceVlanOverrides, trigger: function () { $parent.toggleVlanSlideout(true) } }"><div data-bind="template: { name: chooseTemplate, afterRender: updateTooltip }"><input class="default" type="text" value="Primary" disabled="">
+<div class="spinner">
+    <input type="text" min="1" max="4094" data-bind="value: defaultVlan, spinner: 1, clickBubble: false" class="spinner"><span class="spinner_controls"><a class="spinner_up up_arr">▲</a><a class="spinner_down down_arr">▼</a></span>
+</div>
+<!-- ko if: !inGrid -->
+    <span class="modalTrigger button orange" data-bind="click: trigger, localize:{ 'title': 'tagcontrol.tooltip' }" title="Click here to add tags and edit VLANs">+</span>
+<!-- /ko --></div></div>

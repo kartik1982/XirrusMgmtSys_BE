@@ -1,0 +1,14 @@
+{
+  
+  "pollingPeriod": "360",
+  "accessError": "ALLOW",
+  "userName": "alejandrones",
+  "password": {
+    "isSet": "true",
+    "value": "Xirrus!23"
+  },
+  "key": "airwatch-auto-key",
+  "timeout": "20",
+  "redirectUrl": "xto-robin.xirrus.com:8080",
+  "url": "airwatch-auto.com"
+}

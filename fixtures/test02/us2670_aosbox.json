@@ -1,0 +1,17 @@
+{
+ 
+  "defaultVersionId": "3c77e5e0-7115-11e4-abe9-22000a9e26a9",
+  "description": "sqa-US2670",
+  "defaultVersionName": "7.1.0-5138",
+  "name": "sqa-US2670",
+  "versionRestrictions": [
+    {
+
+      "model": "XR600_V3",
+      "maximumVersionId": "dde98970-80a0-11e4-b206-22000a9e26a9",
+      "minimumVersionName": "7.3.1-5624",
+      "minimumVersionId": "dde98970-80a0-11e4-b206-22000a9e26a9",
+      "maximumVersionName": "7.3.1-5624"
+    }
+  ]
+}

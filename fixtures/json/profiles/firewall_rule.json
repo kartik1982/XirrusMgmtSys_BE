@@ -1,0 +1,22 @@
+{
+         
+          "ruleType": "FIREWALL",
+          "name": "Block Firewall 1",
+          "source": {
+           
+            "endpointType": "IP_V4",
+            "ipAddress": "10.100.59.1",
+            "ipAddressMask": "255.255.255.255",
+            "inverse": false
+          },
+          "destination": {
+           
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "BLOCK",
+          "schedule": null,
+          "protocolLayer": "LAYER_3",
+          "protocol": "ANY",
+          "portRangeStart": 0
+        }

@@ -1,0 +1,27 @@
+<div id="policy_schedule_modal" data-bind="modal: { trigger: scheduleModalIsShown, cancel_function: cancelScheduleModal }" class="modal ui-draggable" data-index="8" data-open="true" style="position: relative; top: 30px; left: 587px;">
+        <div class="modalTitle">
+            <span id="schedule_title" data-bind="localize: selectedRule() ? 'profile.config.policies.rules.schedule' : 'profile.config.policies.schedule'">Schedule Policy</span>
+        </div>
+        <div class="modalContent" data-bind="with: selectedRule() ? selectedRule : selectedPolicy">
+            <div class="warning" data-bind="visible: ($parent.selectedRule() &amp;&amp; $parent.selectedPolicy() ? $parent.selectedPolicy().scheduling.isScheduled() : true), localize: { html: { key: (type.value === 'FIREWALL' || type.value === 'APP_CONTROL') ? 'profile.config.policies.rules.schedule.warning' : 'profile.config.policies.scheduling.warning', params: { time: $parent.getScheduleText($parent.selectedPolicy, true) } } }">The policy schedule takes precedence over the rule schedules and may override them. Make sure that rules are scheduled within the policy schedule.</div>
+            <div class="label" data-bind="localize: 'profile.config.policies.scheduling.daysActive'">Days Active: </div>
+            <div id="scheduleDaypicker" data-bind="daypicker: scheduling.days" class="daypicker"><input type="checkbox" id="scheduleDaypicker_day_0" name="scheduleDaypicker_day_0" value="0" tabindex="110"><label for="scheduleDaypicker_day_0"><span>Su</span></label><input type="checkbox" id="scheduleDaypicker_day_1" name="scheduleDaypicker_day_1" value="1" tabindex="120"><label for="scheduleDaypicker_day_1"><span>M</span></label><input type="checkbox" id="scheduleDaypicker_day_2" name="scheduleDaypicker_day_2" value="2" tabindex="130"><label for="scheduleDaypicker_day_2"><span>Tu</span></label><input type="checkbox" id="scheduleDaypicker_day_3" name="scheduleDaypicker_day_3" value="3" tabindex="140"><label for="scheduleDaypicker_day_3"><span>W</span></label><input type="checkbox" id="scheduleDaypicker_day_4" name="scheduleDaypicker_day_4" value="4" tabindex="150"><label for="scheduleDaypicker_day_4"><span>Th</span></label><input type="checkbox" id="scheduleDaypicker_day_5" name="scheduleDaypicker_day_5" value="5" tabindex="160"><label for="scheduleDaypicker_day_5"><span>F</span></label><input type="checkbox" id="scheduleDaypicker_day_6" name="scheduleDaypicker_day_6" value="6" tabindex="170"><label for="scheduleDaypicker_day_6"><span>Sa</span></label></div>
+
+            <div id="timePickersContainer" data-bind="visible: $parent.checkSchedule(scheduling.days())" style="display: none;">
+                <div class="label" data-bind="localize: 'profile.config.policies.scheduling.timeOn'">Time On: </div>
+                <input id="scheduleStartTime" type="text" tabindex="200" data-bind="timepicker: $parent.timepickerStep, value: scheduling.startTime, enable: !scheduling.scheduledAllDay(), event: { keydown: $parent.checkTime }" class="spinner" placeholder="HH:MM am"><span class="spinner_controls"><a href="#" class="spinner_up up_arr">▲</a><a href="#" class="spinner_down down_arr">▼</a></span>
+                <span id="scheduleTo" data-bind="localize: 'profile.config.policies.scheduling.to'">to</span>
+                <input id="scheduleEndTime" type="text" tabindex="300" data-bind="timepicker: $parent.timepickerStep, value: scheduling.endTime, enable: !scheduling.scheduledAllDay(), event: { change: $parent.checkTime }" class="spinner" placeholder="HH:MM am"><span class="spinner_controls"><a href="#" class="spinner_up up_arr">▲</a><a href="#" class="spinner_down down_arr">▼</a></span>
+                <span id="nextDayAlert" class="bubble left" data-bind="localize: 'profile.config.policies.scheduling.nextDayAlert', visible: $parent.checkForTimeOverlap(scheduling.startTime(), scheduling.endTime())" style="display: none;">This time will be considered to be during the next day.</span>
+            </div>
+
+            <div id="allDayContainer" data-bind="visible: $parent.checkSchedule(scheduling.days())" style="display: none;">
+                <input type="checkbox" tabindex="400" id="scheduleAllDay" data-bind="macChecked: scheduling.scheduledAllDay, macCheckedLabel: ko.localization.localize('profile.config.policies.scheduling.allDay')" class="mac_chk"><label class="mac_chk_label hasLabelText">All Day</label>
+            </div>
+
+            <div class="scheduleModalButtons">
+                <a tabindex="600" href="#" id="scheduleModalSubmit" class="button orange" data-bind="localize: 'profile.config.policies.scheduling.submit', click: $parent.submitSchedule">Schedule</a>
+                <a tabindex="500" href="#" id="scheduleModalCancel" class="button" data-bind="localize: 'cancel', click: $parent.cancelScheduleModal">Cancel</a>
+            </div>
+        </div>
+    <a class="modal-close" href="#" tabindex="9999" id="policy_schedule_modal_closemodalbtn"></a></div>

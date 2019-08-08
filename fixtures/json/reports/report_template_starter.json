@@ -1,0 +1,18 @@
+{
+     
+      "name": "Basic Report Template Model",
+      "favorite": false,
+      "description": "Basic Report Template",
+      "iconUrl": null,
+      "pages": [
+
+        {
+         
+          "pageNumber": 1,
+          "description": "a title page",
+          "title": "Title Page"
+        }
+
+
+      ]
+}

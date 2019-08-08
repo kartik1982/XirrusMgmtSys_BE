@@ -1,0 +1,118 @@
+[
+
+{
+  
+     "baseMacAddress": "89:a0:28:02:e2:a0",
+      "baseIapMacAddress": "89:a0:28:2a:c3:a0",
+      "ipAddress": "10.189.83.85" ,
+      "netmask": "255.255.255.0" ,
+      "gateway": "10.189.83.1" ,
+      "actualIpAddress": "10.189.83.85",
+      "actualNetmask": "255.255.255.0",
+      "actualGateway": "10.189.83.1",
+      "serialNumber": "DSAAJ642402E2C0",
+      "arrayModel": "XR620",
+      "manufacturer": "Xirrus",
+      "aosVersion": null,
+      "licenseKey": "AJ5LF-DPJM7-NVJ6L-WQEUE",
+      "licensedAosVersion": "7.2",
+      "location": null,
+      "hostName": "DSAAJ642402E2C0",
+      "activationStatus": "ACTIVATED",
+      "penaltyType": null,
+      "onlineStatus": "UP",
+      "recentActivation": 1412022550204,
+      "reportedAosVersion": "7.0.5-4958-beta",
+      "clients": 0,
+      "txBytes": 2829143,
+      "rxBytes": 9998609,
+      "totalBytes": 12827752,
+      "country": "US",
+      "tags": []
+    },
+
+    {
+  
+     "baseMacAddress": "89:b0:28:02:5c:a0",
+    "baseIapMacAddress": "89:b0:28:23:2a:a0",
+    "ipAddress": "10.189.83.217",
+    "netmask": "255.255.255.0",
+    "gateway": "10.189.83.1",
+    "actualIpAddress": "10.189.83.217",
+    "actualNetmask": "255.255.255.0",
+    "actualGateway": "10.189.83.1",
+    "serialNumber": "DSBAJ6358925CBA",
+    "arrayModel": "XR620",
+    "manufacturer": "Xirrus",
+    "aosVersion": null,
+    "licenseKey": "AJDBX-JQG56-VFJLQ-7HEWJ",
+    "licensedAosVersion": "7.2",
+    "location": "SQA XMS",
+    "hostName": "DSBAJ6358925CBA",
+    "activationStatus": "ACTIVATED",
+    "onlineStatus": "UP",
+    "recentActivation": 1410555211865,
+    "clients": 0,
+    "txBytes": 106374828,
+    "rxBytes": 1275606742,
+    "totalBytes": 1381981570,
+    "country": "US",
+    "tags": []
+  },
+   {
+      
+      "baseMacAddress": "89:cf:7d:0e:1c:a0",
+      "baseIapMacAddress": "89:cf:7d:b0:4b:a0",
+      "ipAddress": "10.189.83.241",
+      "netmask": "255.255.255.0",
+      "gateway": "10.189.83.1",
+      "actualIpAddress": "10.189.83.241",
+      "actualNetmask": "255.255.255.0",
+      "actualGateway": "10.189.83.1",
+      "serialNumber": "DSCAJ02240E1CB8",
+      "arrayModel": "XR4830",
+      "manufacturer": "Xirrus",
+      "aosVersion": "7.1",
+      "licenseKey": "AJVK7-CCYYB-TM2VP-K48UB",
+      "licensedAosVersion": "7.1",
+      "location": "SQA Automation Rack",
+      "hostName": "DSCAJ02240E1CB8",
+      "activationStatus": "NOT_ACTIVATED",
+      "onlineStatus": "DOWN",
+      "recentActivation": null,
+      "clients": null,
+      "txBytes": null,
+      "rxBytes": null,
+      "totalBytes": null,
+      "country": null,
+      "tags": []
+    },
+
+
+  {
+
+   
+    "baseMacAddress" : "89:df:7d:0e:39:a0",
+    "baseIapMacAddress" : "89:df:7d:b7:89:a0",
+    "ipAddress" : "10.189.83.48",
+    "netmask" : "255.255.255.0",
+    "gateway" : "10.189.83.1",
+    "actualIpAddress" : "10.189.83.48",
+    "actualNetmask" : "255.255.255.0",
+    "actualGateway" : "10.189.83.1",
+    "serialNumber" : "DSDAJ02280E39B3",
+    "arrayModel" : "XR2420",
+    "manufacturer" : "Xirrus",
+    "aosVersion" : "0.0.0-0",
+    "licenseKey" : "AJWC0-JKH1D-FKK9T-1K12N",
+    "licensedAosVersion" : "7.1",
+    "location" : "Alex J Cube",
+    "hostName" : "DSDAJ02280E39B3",
+    "activationStatus" : "ACTIVATED",   
+    "country" : "US"
+   
+  }
+
+
+
+]

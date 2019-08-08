@@ -1,0 +1,194 @@
+{
+  
+  "ssids": [
+    {
+     
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi3",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+     
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi1",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+    
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi6",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi4",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi5",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": true,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi2",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    }
+  ],
+  "dns": {
+    
+    "primaryServer": null,
+    "secondaryServer": null,
+    "tertiaryServer": null,
+    "domain": null,
+    "useDhcp": true
+  },
+  "admin": null,
+ 
+  "aosVersion": null,
+  "locale": {
+   
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+     
+      "serverHostName": "time.nist.gov",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    },
+    "secondaryNtpServer": {
+      
+      "serverHostName": "pool.ntp.org",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    }
+  },
+  "networking": {
+    
+    "useDhcp": false,
+    "cdp": {
+      
+      "enable": false,
+      "interval": null,
+      "holdtime": null
+    },
+    "autoNeg": null,
+    "speed": "GIG",
+    "duplex": "FULL",
+    "mtu": 1550,
+    "useVlan": false
+  },
+  "bonjour": {
+   
+    "enable": false,
+    "services": null,
+    "defaultVlans": [],
+    "overrides": []
+  },
+  "policies": [],
+  "optimization": null,
+  "security": null
+}

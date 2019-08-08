@@ -1,0 +1,73 @@
+<div id="settings_view" data-bind="with:settingsVM">
+    <div class="globalTitle" data-bind="localize:'settings.title'">Settings</div>
+    <nav id="settings_tabs" class="right-tab-menu" data-bind="foreach:tabItems">
+        <a data-bind="localize:nameKey, attr:{id:'settings_tab_' + name, href:'#settings/' + name}, css:{selected:$parent.currentTab() === name}" id="settings_tab_myaccount" href="#settings/myaccount" class="selected">My Account</a>
+    
+        <a data-bind="localize:nameKey, attr:{id:'settings_tab_' + name, href:'#settings/' + name}, css:{selected:$parent.currentTab() === name}" id="settings_tab_useraccounts" href="#settings/useraccounts" class="">User Accounts</a>
+    
+        <a data-bind="localize:nameKey, attr:{id:'settings_tab_' + name, href:'#settings/' + name}, css:{selected:$parent.currentTab() === name}" id="settings_tab_mobileproviders" href="#settings/mobileproviders" class="">Provider Management</a>
+    </nav>
+    <div id="settings_general_container" class="tabs_container" data-bind="template:{name:!currentTab() ? '' : 'settings/' + currentTab()}"><div id="settings_myaccount" class="myaccount_config_tabitem" data-bind="with: myaccountVM">
+    <div class="commonTitle" data-bind="localize:'settings.myaccount.title'">My Account</div>
+    <div class="commonSubtitle" data-bind="localize:'settings.myaccount.subtitle'">Change your password or modify your account</div>
+
+    <div class="field_heading" data-bind="localize:'settings.myaccount.contactinfo'">Contact Information</div>
+    <div class="field">
+        <span class="field_label" data-bind="localize:'settings.myaccount.firstname'">First name:</span>
+        <input type="text" maxlength="50" id="myaccount_myaccountfirstname" data-bind="value_trim: true, value:firstname">
+    </div>
+    <div class="field">
+        <span class="field_label" data-bind="localize:'settings.myaccount.lastname'">Last name:</span>
+        <input type="text" maxlength="50" id="myaccount_myaccountlastname" data-bind="value_trim: true, value:lastname">
+    </div>
+    <div class="field">
+        <span class="field_label textarea" data-bind="localize:'settings.myaccount.details'">Additional Details:</span>
+        <textarea maxlength="500" id="myaccount_description" data-bind="value_trim: true, value:details"></textarea>
+    </div>
+
+    <div class="field_heading" data-bind="localize:'settings.myaccount.useremailtitle'">Email</div>
+    <div class="field_subheading" data-bind="localize:'settings.myaccount.useremailsubtitle'">Your primary email address is used as your username for logging into the system. We will also send updates and notifications to this email.</div>
+    <div class="field">
+        <span class="field_label" data-bind="localize:'settings.myaccount.useremail'">Primary Email:</span>
+        <input type="text" maxlength="50" id="myaccount_myaccountname" data-bind="value_trim: true, value:userEmail" class="invalid"><span class="xirrus-error">Please enter a valid email.</span>
+    </div>
+
+    <div class="field_heading" data-bind="localize:'settings.myaccount.passwordtitle'">Password</div>
+    <div class="field_subheading" data-bind="localize:'settings.myaccount.passwordsubtitle'">Would you like to change your login password for Xirrus Management System?</div>
+    <div class="field fieldbuttons">
+        <a href="#" id="myaccount_changepassword_btn" class="button orange no_label" data-bind="click:showChangePassword, localize:'settings.myaccount.changepassword'">Change Password</a>
+    </div>
+
+    <div class="modal-overlay" style="display: none;"><div class="change_password_modal modal ui-draggable" data-bind="modal: { trigger: changePasswordModalVisible }" style="position: relative;">
+        <div class="logo"></div>
+        <div class="title_wrap">
+            <div data-bind="localize:'settings.myaccount.error'" class="error">You have entered an invalid username and/or password. Please check your spelling and try again.</div>
+            <div class="field">
+                <span data-bind="localize:'settings.myaccount.currentpass'" class="field_label">Current Password:</span>
+                <input id="myaccount_changepassword_current" tabindex="1000" class="password" type="password" data-bind="value: passwordOld">
+                <div class="icon password_icon"></div>
+            </div>
+            <div class="field">
+                <span data-bind="localize:'settings.myaccount.newpass'" class="field_label">New Password:</span>
+                <input id="myaccount_changepassword_new" tabindex="1010" class="password" type="password" maxlength="50" data-bind="value: passwordNew, css:{pass_error:showPassConditionsError}">
+                <div class="icon password_icon"></div>
+                <div class="bubble left passcond" data-bind="visible:showPassConditionsError" style="display: none;">
+                    <span data-bind="localize:'settings.myaccount.passconditions'">Password must be a minimum length of 8 characters and contain a mix of at least two of the following: upper-case letters, lower-case letters, numbers or symbols(!@#$%^&amp;*()_=-+)</span>
+                </div>
+            </div>
+            <div class="field">
+                <span data-bind="localize:'settings.myaccount.confirmpass'" class="field_label">Confirm New Password:</span>
+                <input id="myaccount_changepassword_confirm" tabindex="1020" class="password" type="password" maxlength="50" data-bind="value: passwordConfirm, css:{pass_error:showPassMatchError}">
+                <div class="icon password_icon"></div>
+                <div class="bubble left passmatch" data-bind="visible:showPassMatchError" style="display: none;">
+                    <span data-bind="localize:'settings.myaccount.passnomatch'">Passwords do not match</span>
+                </div>
+            </div>
+            <div class="field buttons">
+                <a id="myaccount_changepassword_save_btn" tabindex="1040" href="#" class="button orange" data-bind="click:changePassword, localize:'settings.myaccount.changepassword'">Change Password</a>
+                <a id="myaccount_changepassword_cancel_btn" tabindex="1030" href="#" class="button" data-bind="localize: 'cancel', click: changePasswordCancel">Cancel</a>
+            </div>
+        </div>
+    <a class="modal-close" href="#" tabindex="9999"></a></div></div>
+</div></div>
+</div>

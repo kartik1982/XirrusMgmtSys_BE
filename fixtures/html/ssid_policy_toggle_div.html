@@ -1,0 +1,29 @@
+<div class="policyToggleDiv" data-bind="click: $parent.togglePolicy">
+                    <div class="policiesRowHover" data-bind="css: { noEdit: type.name === 'global', hasRulesShowing: rules().length > 0 &amp;&amp; showContent }">
+                        <span class="policiesRowHoverEdit" data-bind="visible: type.name !== 'global', click: $parent.setPolicyModal, clickBubble: false"></span>
+                        <span class="policiesRowHoverDelete" data-bind="click: $parent.removePolicy, clickBubble: false"></span>
+                        <!-- ko ifnot: type.name === 'ssids' && $parent.profileHasXR320() -->
+                            <span class="policiesRowHoverSchedule" data-bind="visible: type.name !== 'global', click: $parent.schedulePolicy, clickBubble: false, css: { active: scheduling.isScheduled }"></span>
+                        <!-- /ko -->
+                    </div>
+                    <div class="policiesRowIcon ssidsRowIcon" data-bind="css: type.name + 'RowIcon'"></div>
+                    <span class="policiesRowType" data-bind="localize: type.nameKey">SSID</span>
+                    <span class="policiesRowName longer" data-bind="text: displayName, css: { longer: ((!$data.hasOwnProperty('device') || !$data.device.hasOwnProperty('deviceType')) &amp;&amp; !$data.hasOwnProperty('radius')) }">test</span>
+                    <!-- ko if: type.value === 'DEVICE' --><!-- /ko -->
+                    <!-- ko if: type.value === 'USER_GROUP' --><!-- /ko -->
+                    <span class="policiesRowRuleCount" data-bind="text: rules().length, visible: !showContent()">0</span>
+                    <span class="policiesRowRuleWord" data-bind="localize: 'profile.config.policies.rules', visible: !showContent()">Rules</span>
+                    <div class="policiesRowToggleIcon" data-bind="css: { active: showContent }"></div>
+                    <!-- ko foreach: $parent.ruleTypes -->
+                        <a tabindex="1110" href="#" class="button orange policiesNewFirewall" data-bind="visible: $parent.rules().length !== 0 &amp;&amp; $parent.rules().length < 25 &amp;&amp; $parent.showContent, click: function (data, event) { $parents[1].openCreateRuleModal(data, $parent); }, clickBubble: false, attr: { id: 'rules_new_rule_' + name + '_' + $parentContext.$index() }" id="rules_new_rule_firewall_1" style="display: none;">
+                            <span class="newRulePlusIcon">+</span>
+                            <span class="newRulePlusText" data-bind="localize: newTitleKeyAbbrev">New Firewall</span>
+                        </a>
+                    
+                        <a tabindex="1110" href="#" class="button orange policiesNewFirewall" data-bind="visible: $parent.rules().length !== 0 &amp;&amp; $parent.rules().length < 25 &amp;&amp; $parent.showContent, click: function (data, event) { $parents[1].openCreateRuleModal(data, $parent); }, clickBubble: false, attr: { id: 'rules_new_rule_' + name + '_' + $parentContext.$index() }" id="rules_new_rule_appControl_1" style="display: none;">
+                            <span class="newRulePlusIcon">+</span>
+                            <span class="newRulePlusText" data-bind="localize: newTitleKeyAbbrev">New App Control</span>
+                        </a>
+                    <!-- /ko -->
+                    <span class="policiesRowScheduleText" data-bind="text: scheduling.scheduleText"></span>
+                </div>

@@ -1,0 +1,27 @@
+ {
+    
+    "baseMacAddress": "50:60:28:02:5c:ba",
+    "baseIapMacAddress": "50:60:28:23:2a:c0",
+    "ipAddress": "10.100.83.217",
+    "netmask": "255.255.255.0",
+    "gateway": "10.100.83.1",
+    "actualIpAddress": "10.100.83.217",
+    "actualNetmask": "255.255.255.0",
+    "actualGateway": "10.100.83.1",
+    "serialNumber": "XR06350025CBA",
+    "arrayModel": "XR620",
+    "aosVersion": null,
+    "licenseKey": "FAKELICENSE",
+    "licensedAosVersion": "8.0",
+    "location": "SQA XMS",
+    "hostName": "XR06350025CBA",
+    "activationStatus": "ACTIVATED",
+    "onlineStatus": "UP",
+    "recentActivation": 1410555211865,
+    "clients": 0,
+    "txBytes": 106374828,
+    "rxBytes": 1275606742,
+    "totalBytes": 1381981570,
+    "country": "US",
+    "tags": []
+  }

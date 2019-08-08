@@ -1,0 +1,25 @@
+{
+     
+      "baseMacAddress": "50:60:28:00:82:d1",
+      "baseIapMacAddress": "50:60:28:1a:5c:a0",
+      "ipAddress": "10.100.83.24",
+      "netmask": "255.255.255.0",
+      "gateway": "10.100.83.1",
+      "actualIpAddress": "10.100.83.24",
+      "actualNetmask": "255.255.255.0",
+      "actualGateway": "10.100.83.1",
+      "serialNumber": "XR503490082D1",
+      "arrayModel": "XR520",
+      "manufacturer": "Xirrus",
+      "aosVersion": null,
+      "licenseKey": "0470T-CRC99-6G9NT-678RW",
+      "licensedAosVersion": "8.0",
+      "location": null,
+      "hostName": "XR503490082D1",
+      "activationStatus": "ACTIVATED",
+      "penaltyType": null,
+      "onlineStatus": "UP",
+     
+      "country": "US",
+      "tags": []
+    }

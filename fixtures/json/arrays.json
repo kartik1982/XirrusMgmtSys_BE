@@ -1,0 +1,36 @@
+https://xcs-dev.cloud.xirrus.com/api/v2/arrays.json/c322f352-e5f6-11e3-a048-22000a49bc1d/
+
+{"id":"c322f352-e5f6-11e3-a048-22000a49bc1d","profileId":"e854a820-e5cf-11e3-a048-22000a49bc1d","profileName":"Multi-Profile-Auto","baseMacAddress":"50:60:28:02:5c:ba","baseIapMacAddress":"50:60:28:23:2a:c0","ipAddress":"10.100.83.192","netmask":"255.255.255.0","gateway":"10.100.83.1","actualIpAddress":"10.100.83.192","actualNetmask":"255.255.255.0","actualGateway":"10.100.83.1","serialNumber":"XR06350025CBA","arrayModel":"XR620","manufacturer":"Xirrus","aosVersion":"6.8","licenseKey":"1DD2N-68N4H-U2Q0Q-7H1DJ","licensedAosVersion":"7.0","location":"Office - SQA XMS#","hostName":"XR06350025CBA","activationStatus":"ACTIVATED","onlineStatus":"UP","clients":0,"txBytes":90740929,"rxBytes":171533183,"totalBytes":262274112,"country":"KR","tags":[]}
+
+
+{
+  "id": "c322f352-e5f6-11e3-a048-22000a49bc1d",
+  "profileId": "e854a820-e5cf-11e3-a048-22000a49bc1d",
+  "profileName": "Multi-Profile-Auto",
+  "baseMacAddress": "50:60:28:02:5c:ba",
+  "baseIapMacAddress": "50:60:28:23:2a:c0",
+  "ipAddress": "10.100.83.192",
+  "netmask": "255.255.255.0",
+  "gateway": "10.100.83.1",
+  "actualIpAddress": "10.100.83.192",
+  "actualNetmask": "255.255.255.0",
+  "actualGateway": "10.100.83.1",
+  "serialNumber": "XR06350025CBA",
+  "arrayModel": "XR620",
+  "manufacturer": "Xirrus",
+  "aosVersion": "6.8",
+  "licenseKey": "1DD2N-68N4H-U2Q0Q-7H1DJ",
+  "licensedAosVersion": "7.0",
+  "location": "Office - SQA XMS#",
+  "hostName": "XR06350025CBA",
+  "activationStatus": "ACTIVATED",
+  "onlineStatus": "UP",
+  "clients": 0,
+  "txBytes": 90740929,
+  "rxBytes": 171533183,
+  "totalBytes": 262274112,
+  "country": "KR",
+  "tags": [
+    
+  ]
+}

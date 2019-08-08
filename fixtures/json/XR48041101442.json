@@ -1,0 +1,28 @@
+{
+  
+    "baseMacAddress": "00:0f:7d:01:c6:a3",
+    "baseIapMacAddress": "00:0f:7d:43:d8:00",
+    "ipAddress": "10.100.83.238",
+    "netmask": "255.255.255.0",
+    "gateway": "10.100.83.1",
+    "actualIpAddress": "10.100.83.238",
+    "actualNetmask": "255.255.255.0",
+    "actualGateway": "10.100.83.1",
+    "serialNumber": "XR48041101442",
+    "arrayModel": "XR4430",
+    "manufacturer": "Xirrus",
+    "aosVersion": "0.0.0-0",
+    "licenseKey": "08Q4N-X8DJE-DW31G-G3EYJ",
+    "licensedAosVersion": "8.0",
+    "location": "SQA XMS",
+    "hostName": "XR48041101442",
+    "activationStatus": "ACTIVATED",
+    "onlineStatus": "UP",
+    "recentActivation": 1410513808315,
+    "clients": 0,
+    "txBytes": 10404716,
+    "rxBytes": 57714492,
+    "totalBytes": 68119208,
+    "country": "US",
+    "tags": []
+  }

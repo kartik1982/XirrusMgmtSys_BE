@@ -1,0 +1,13 @@
+{
+  "attributes": {
+    "type": "Account",
+    "url": "\/services\/data\/v32.0\/sobjects\/Account\/001W000000HR0iDIAT"
+  },
+  "Name": "vchua-update-3",
+  "Expandable_Customer_Number__c": "VCHUA-UPDATE-3",
+  "Array_count__c": 0,
+  "Account_Type__c": "Current Customer",
+  "SF_Account_Number__c": "ACC-00024432",
+  "Id": "001W000000HR0iDIAT",
+  "Last_Cirrus_Update_Time__c": "2014-07-15T15:40:48.000+0000"
+}

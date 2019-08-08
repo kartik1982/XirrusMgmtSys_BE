@@ -1,0 +1,31 @@
+@RestResource(urlMapping='/activation-integration/*')
+global with sharing class TestActivationIntegrationWebService {
+
+   @HttpGet
+    global static String activationIntegrationStatus() {
+    
+     return 'get test';
+    } // end 
+    
+    
+   @HttpPost
+    global static String testActivationIntegrationStart(String serialNumber,String licenseKey) {
+         String status = 'un';
+         
+         List<My_Product__c> products = [SELECT id, Name,Last_Cirrus_Update_Time__c, License_Key__c FROM My_Product__c WHERE Name = :serialNumber ];
+      
+        if(products != null && !products.isEmpty()){
+            
+            products[0].Last_Cirrus_Update_Time__c = DateTime.now();
+            if(licenseKey != null){
+                products[0].License_Key__c = licenseKey;
+            }
+            update products;
+            status = products[0].Name ;//.toString();
+        }else{
+            status = 'fail';
+        }
+         return status;
+    }
+
+}

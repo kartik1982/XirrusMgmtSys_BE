@@ -1,0 +1,2473 @@
+!
+configure
+!
+! description
+  ! hostname Mount-Diablo
+  ! location ""
+! exit
+!
+contact-info
+  name  "Yosemite Sam"
+  phone "123-456-acme"
+  email "YoSam@mountain.com"
+exit
+!
+system-info
+  ! hardware-configuration
+  ! ======================
+  !  model: XR630, 1.0GB (400MHz)
+  !
+  !  component      part number       serial number     date
+  !  ---------      ---------------   ---------------   -----------------
+  !  system         XR630             XR073470257AE     2013-Nov-19  4:56
+  !  controller     100-0167-001.A    0000153518        2013-Nov-19  4:56
+  !  iap module 1   100-0166-001.2    0001100138        2013-Nov-20 13:00
+  !  iap module 2   100-0166-001.2    0001100208        2013-Nov-21 10:00
+  !
+  !  interface    mac address(es)
+  !  ----------   --------------------------
+  !  iaps         50:60:28:22:da:00-22:da:1f
+  !  gigabit  1   50:60:28:02:57:ae
+  !  gigabit  2   50:60:28:02:57:af
+  !
+  ! software-configuration
+  ! ======================
+  !  component         version
+  !  ---------------   -----------------------------------
+  !  scd firmware      5.00  (Oct  1 2012), Build: 4651
+  !  boot loader       6.3.0 (Sep  4 2014), Build: 6170
+  !  iap driver        3.1.0 (Oct 08 2014), Build: 3750
+  !  system software   7.1.0 (Oct 09 2014), Build: 5138-beta
+  !  app signatures    navl_signatures-7.1.0.tar.gz
+  !  license key       19p8k-kr8xq-9rt6n-jjn3n
+  !  license features  AOS 7.1 for 2 3x3 radios + RF Performance Manager + RF Analysis Manager + RF Security Manager + Application Control + Public Safety Band + 802.11ac + 802.11n
+exit
+!
+boot-env  ! (local boot images)
+  ! verify bootfile_active XS-7.1.0-5138-beta.bin
+  ! verify bootfile_backup XS-7.1.0-5136-beta.bin
+exit
+!
+administrator
+  reset
+  !
+  privilege-name
+    level 0  "read-only"
+    level 1  "read-write"
+    level 2  "2"
+    level 3  "3"
+    level 4  "4"
+    level 5  "5"
+    level 6  "6"
+    level 7  "7"
+  exit
+  edit admin password enc "$1$545bd9b4$SarYNm8Ykbk/YG6h3s7wt/" privilege read-write
+  !
+  radius
+    primary     secret enc 9f2092522cbc
+    primary     port   1812
+    primary     server 10.100.59.115
+    secondary   secret enc 
+    secondary   port   1812
+    secondary   server 
+    timeout     600
+    auth-type   chap
+    disable
+  exit
+  !
+  privilege-section
+    acl           "read-write"
+    admin         "read-write"
+    boot-env      "read-write"
+    cdp           "read-write"
+    cluster       "read-write"
+    console       "read-write"
+    contact-info  "read-write"
+    date-time     "read-write"
+    description   "read-write"
+    dhcp-server   "read-write"
+    dns           "read-write"
+    file          "read-write"
+    filter        "read-write"
+    gig           "read-write"
+    group         "read-write"
+    iap           "read-write"
+    lldp          "read-only"
+    location      "read-write"
+    management    "read-write"
+    mdm           "read-write"
+    netflow       "read-write"
+    auth          "read-write"
+    proxy-fwd     "read-write"
+    radius-server "read-write"
+    reboot        "read-write"
+    reset         "read-write"
+    roam-assist   "read-write"
+    run-tests     "read-write"
+    security      "read-write"
+    snmp          "read-write"
+    ssid          "read-write"
+    sta-assurance "read-write"
+    syslog        "read-write"
+    tunnel        "read-write"
+    vlan          "read-write"
+    wifi-tag      "read-write"
+  exit
+exit
+!
+! vlan
+!   reset
+!   !
+!   add  "VLAN31"  number  31
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN32"  number  32
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN33"  number  33
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN34"  number  34
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN35"  number  35
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN36"  number  36
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN37"  number  37
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN38"  number  38
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN39"  number  39
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN40"  number  40
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN41"  number  41
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN42"  number  42
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN43"  number  43
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN44"  number  44
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN45"  number  45
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN46"  number  46
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN47"  number  47
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN48"  number  48
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN49"  number  49
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN50"  number  50
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN51"  number  51
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN52"  number  52
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN56"  number  56
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN57"  number  57
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN58"  number  58
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN59"  number  59
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN60"  number  60
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN61"  number  61
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN62"  number  62
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN63"  number  63
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN64"  number  64
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN65"  number  65
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN66"  number  66
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN67"  number  67
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN68"  number  68
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN69"  number  69
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN70"  number  70
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN71"  number  71
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN72"  number  72
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN73"  number  73
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN74"  number  74
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN75"  number  75
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN76"  number  76
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   add  "VLAN77"  number  77
+!     management    off
+!     fast-roam     off
+!     ip addr       
+!     ip mask       
+!     ip gateway    
+!     tunnel server 
+!     tunnel secret enc 
+!     tunnel port   0
+!   exit
+!   !
+!   default-route  none
+!   native-vlan    none
+! exit
+!
+!
+interface gig1
+  autoneg      on
+  mtu          1500
+  ! ip addr      10.100.59.150
+  ! ip mask      255.255.255.0
+  ! ip gateway   10.100.59.1
+  management   on
+  led          on
+  bond         bond1
+  up
+exit
+!
+interface gig2
+  autoneg      on
+  mtu          1500
+  led          on
+  bond         bond1
+  up
+exit
+!
+interface bond1
+  bond-mode    802.3ad
+  active-vlans all
+  mirror       off
+exit
+!
+interface bond2
+  bond-mode    broadcast
+  active-vlans all
+  mirror       off
+exit
+!
+dns
+  domain   xirrus.com
+  server1  10.100.1.10
+  server2  10.100.2.10
+  server3  10.100.14.10
+  use-dhcp off
+exit
+!
+interface iap  ! (global settings)
+  !
+  global-settings
+    ! all-down
+    rf-monitor       timeshare scanning-interval 6
+    rf-monitor       timeshare station-threshold 10
+    rf-monitor       timeshare traffic-threshold 100
+    rf-monitor       timeshare
+    management       on
+    beacon-rate      105
+    beacon-dtim      2
+    broadcast-rates  optimized
+    arp-filter       pass-thru
+    ipv6-filter      on
+    multicast        convert+snoop+prune
+    multicast        convert-exclude mDNS 224.0.0.254
+    multicast        forward address 224.0.0.249
+    multicast        forward vlans   all
+    mdns-filter      allow iChat
+    long-retries     4
+    short-retries    10
+    country-code     US
+    dot11h-support   off
+    dot11k-support   off
+    radio-assurance  off
+    max-stations     unlimited
+    max-iap-stations 128
+    sta2sta          forward
+    inactive-time    300
+    reauth-period    28200
+    auth-timeout     300
+    extract-sta-info ip-address hostname netbios-name user-agent-str 
+    led enable       iap-up
+    led-activity     tx-data tx-mgmt rx-data rx-mgmt assoc
+    auto-channel     power-up off
+    auto-channel     schedule ""
+    load-balancing   on
+    sharp-cell       off
+    public-safety    off
+    wfa-mode         on
+    dot11u           interworking        off
+    dot11u           access-network-type private-network
+    dot11u           internet            unspecified
+    dot11u           asra                disable
+    dot11u           hessid              
+    dot11u           ipv4-avail          not-known
+    dot11u           ipv6-avail          not-known
+    dot11u           venue group         unspecified type unspecified
+    dot11u           venue name          reset
+    dot11u           roam-consortium     reset
+    dot11u           domain              reset
+    dot11u           cell-network        reset
+    dot11u           nai-realm           reset
+    dot11u           network-auth-type   reset
+    hotspot20        off
+    hotspot20        dgaf                on
+    hotspot20        wan                 link-status    up
+    hotspot20        wan                 downlink-speed 0
+    hotspot20        wan                 uplink-speed   0
+    hotspot20        conn-cap            reset
+    hotspot20        conn-cap            edit "ICMP"         protocol  1 port    0 status open
+    hotspot20        conn-cap            edit "FTP"          protocol  6 port   20 status open
+    hotspot20        conn-cap            edit "SSH"          protocol  6 port   22 status open
+    hotspot20        conn-cap            edit "HTTP"         protocol  6 port   80 status open
+    hotspot20        conn-cap            edit "TLS VPN"      protocol  6 port  443 status open
+    hotspot20        conn-cap            edit "PPTP VPN"     protocol  6 port 1723 status open
+    hotspot20        conn-cap            edit "VoIP TCP"     protocol  6 port 5060 status open
+    hotspot20        conn-cap            edit "IKEv2 ISAKMP" protocol 17 port  500 status open
+    hotspot20        conn-cap            edit "VoIP UDP"     protocol 17 port 5060 status open
+    hotspot20        conn-cap            edit "IKEv2 IPSec"  protocol 17 port 4500 status open
+    hotspot20        conn-cap            edit "ESP"          protocol 50 port    0 status open
+    hotspot20        oper-friendly-name  reset
+    wmm-power-save   off
+    wmm-acm          video off
+    wmm-acm          voice off
+    dscp-mapping     off
+    dscp-mapping     qos 0 dscp not 8 32 33 34 35 36 37 38 40 48
+    dscp-mapping     qos 1 dscp 8 32 33 34 35 38
+    dscp-mapping     qos 2 dscp 36 40
+    dscp-mapping     qos 3 dscp 37 48
+    fast-roaming     reset-targets
+    fast-roaming     mode  tunnel in-range
+    fast-roaming     layer 2-only
+    dot11w-support   disable
+    !
+    intrude-detect
+      !
+      rogue-ap
+        reset
+        add "00:0e:38:28:1e:af" known    bssid
+        add "00:0f:7d:*"        known    bssid
+        add "00:22:3f:00:6a:e8" blocked  bssid
+        add "30:10:b3:f2:3d:48" blocked  bssid
+        add "30:46:9a:8b:c3:c1" known    bssid
+        add "30:46:9a:8b:c3:c2" known    bssid
+        add "48:c0:93:00:00:e8" known    bssid
+        add "48:c0:93:00:00:f0" known    bssid
+        add "48:c0:93:00:07:e8" known    bssid
+        add "48:c0:93:00:07:f0" known    bssid
+        add "48:c0:93:00:09:88" known    bssid
+        add "50:60:28:*"        known    bssid
+        add "ED-Guest"          approved ssid
+        add "calliope2"         approved ssid
+        add "verdandi1"         approved ssid
+        auto-block rssi -50
+        auto-block enc  none
+        auto-block type all
+      exit
+      !
+      dos-attack
+        beacon-flood      auto    threshold  20000  period   60
+        probe-req-flood   auto    threshold   1000  period   60
+        auth-flood        auto    threshold    100  period   60
+        assoc-flood       auto    threshold    100  period   60
+        disassoc-flood    auto    threshold    100  period   60
+        deauth-flood      auto    threshold    100  period   60
+        eap-flood         auto    threshold    100  period   60
+        null-probe-resp   on      threshold      2  period   60
+        mic-error-attack  on      threshold      2  period   60
+        disassoc-attack   on      threshold      1  period   60
+        deauth-attack     on      threshold      1  period   60
+        duration-attack   on      threshold     10  period    2  nav 10000
+      exit
+      !
+      impersonation
+        ap-impersonation  on      threshold      1  period   60
+        sta-impersonation on      threshold      5  period  600
+        seq-num-anomaly   mgmt    gap    10
+        evil-twin         on    
+      exit
+      !
+      standard
+    exit
+  exit
+  !
+  global-a-settings
+    rates basic      6 9 12 18 24 36 48 54
+    rates supported  6 9 12 18 24 36 48 54
+    frag-threshold   2346
+    rts-threshold    2347
+    auto-channel     list 36 40 44 48 52 56 60 64 100 104 108 112 116 120 124 128 132 136 149 153 157 161 
+    auto-cell        overlap 50
+    auto-cell        min-tx  5
+    auto-cell        max-rx -80
+    auto-cell        period  none
+    max-stations     unlimited
+    max-iap-stations 64
+  exit
+  !
+  global-bg-settings
+    dot11g-only      off
+    dot11g-protect   auto-cts
+    slot-time        auto-time
+    preamble         auto-length
+    rates basic      1 2 5 11 6 9 12 18 24 36 48 54
+    rates supported  1 2 5 11 6 9 12 18 24 36 48 54
+    frag-threshold   2346
+    rts-threshold    2347
+    auto-channel     list 1 6 11 
+    auto-cell        overlap 50
+    auto-cell        min-tx  5
+    auto-cell        max-rx -80
+    auto-cell        period  none
+    max-stations     unlimited
+    max-iap-stations 64
+  exit
+  !
+  global-n-settings
+    tx-chains        2
+    rx-chains        2
+    guard-interval   20MHz  short
+    guard-interval   40MHz  short
+    auto-bond        on
+    bonded-width     5GHz   dynamic
+    bonded-width     2.4GHz dynamic
+    rates basic      mcs0 mcs1 mcs2 mcs3 mcs4 mcs5 mcs6 mcs7
+    rates supported  mcs0 mcs1 mcs2 mcs3 mcs4 mcs5 mcs6 mcs7 mcs8 mcs9 mcs10 mcs11 mcs12 mcs13 mcs14 mcs15
+    enable           on
+  exit
+  !
+  global-ac-settings
+    enable           on
+    guard-interval   80MHz short
+    max-modulation   1ss   mcs8
+    max-modulation   2ss   mcs9
+    max-modulation   3ss   mcs7
+  exit
+exit
+!
+management
+  xircon    timeout 3000
+  xircon    port    22612
+  xircon    on
+  !
+  telnet    timeout 300
+  telnet    port    23
+  telnet    on
+  !
+  ssh       timeout 100000
+  ssh       port    22
+  ssh       on
+  !
+  https     timeout 3000
+  https     port    443
+  https     on
+  !
+  standby   mode    off
+  standby   target  
+  !
+  spanning-tree     on
+  fips              off
+  pci-audit         off
+  reauth-period     0
+  max-auth-attempts 3
+  network-assurance period 300
+  network-assurance on
+  activation interval 16
+  !
+  banner pre-login  indent 20
+                    Welcome to the all powerful Oz network.  Please log in at the sign of the beep.  If the beep is not heard after 20 minutes please log in anyway.<EOF>
+  banner post-login indent 20
+                    You have logged in to the all powerful network.  Feel powerful NOW!<EOF>
+  !
+  cloud disable
+  cloud server    
+  cloud retry     5
+  cloud timeout   60
+  cloud scheme    wss
+  cloud port      443
+exit
+!
+syslog
+  console     off
+  sta-format  key-value
+  time-format rfc3164
+  sta-url-log on
+  local-file  size     2000
+  primary     ip       10.100.59.104
+  secondary   ip       
+  tertiary    ip       
+  primary     port     9128
+  secondary   port     514
+  tertiary    port     514
+  email       port     25
+  email       server   10.100.59.188
+  email       user     admin
+  email       password enc 
+  email       from     YoSam@mountian.com
+  email       to-list  bugs@acme.com
+  console     level    6
+  local-file  level    7
+  primary     level    7
+  secondary   level    6
+  tertiary    level    6
+  email       level    4
+  on
+exit
+!
+date-time
+  timezone      -8 0
+  dst-adjust    on
+  ntp primary   time.nist.gov
+  ntp primary   auth    none
+  ntp primary   key-id  1
+  ntp primary   key enc 
+  ntp secondary pool.ntp.org
+  ntp secondary auth    none
+  ntp secondary key-id  2
+  ntp secondary key enc 
+  ntp           on
+exit
+!
+snmp
+  !
+  v2
+    ! community read-write enc 9f2092522cbc
+    ! community read-only  enc 9f2092522cbce0773720c333b1106f85
+    on
+  exit
+  !
+  v3
+    user read-write      name xirrus-rw
+    user read-write      auth-password enc 9f2092522cbc927725
+    user read-write      priv-password enc 9f2092522cbc927725
+    user read-only       name xirrus-ro
+    user read-only       auth-password enc 9f2092522cbc92773d
+    user read-only       priv-password enc 9f2092522cbc92773d
+    authentication       sha
+    privacy              aes
+    on
+  exit
+  !
+  trap
+    host  1   xirrus-auto
+    host  2   
+    host  3   
+    host  4   
+    port  1   162
+    port  2   162
+    port  3   162
+    port  4   162
+    auth      enable
+    ! keepalive 1
+  exit
+exit
+!
+dhcp-server
+  reset
+  !
+  add  "ThePool"
+    start-ip-range 192.168.2.2
+    end-ip-range   192.168.2.254
+    ip-mask        255.255.255.0
+    ip-gateway     192.168.2.1
+    default-lease  300
+    max-lease      300
+    dns domain     xirrus.com
+    dns server1    10.100.1.10
+    dns server2    10.100.2.10
+    dns server3    10.100.3.10
+    net-addr-xlat  off
+    on
+  exit
+exit
+!
+mdm
+  airwatch api url          http://10.100.59.188
+  airwatch api key          4567
+  airwatch api username     admin
+  airwatch api password enc 862d8d4937
+  airwatch api timeout      5
+  airwatch api poll-period  5
+  airwatch api access-error block
+  airwatch redirect-url     http://10.100.59.188
+exit
+!
+security wpa  ! (global settings)
+  passphrase  enc 
+  eap         on
+  psk         off
+  aes         on
+  tkip        off
+  rekey       never
+exit
+!
+security wep  ! (global settings)
+  key 1  size not-set 
+  key 2  size not-set 
+  key 3  size not-set 
+  key 4  size not-set 
+  default-key 1
+exit
+!
+ssid
+  reset
+  edit "xirrus" disable
+  !
+  add  "TheSSID1"
+    band        both
+    broadcast   on
+    vlan        "VLAN31"
+    qos         2
+    dhcp        none
+    fast-roam   layer 2-only
+    time-on     always
+    time-off    never
+    days-on     all
+    stations    unlimited
+    traffic     limit-ssid pps  unlimited
+    traffic     limit-ssid kbps unlimited
+    traffic     limit-sta  pps  unlimited
+    traffic     limit-sta  kbps unlimited
+    encryption  wpa2 unique-settings
+    auth        802-1x
+    passphrase  enc bf2092522cbc9e3761
+    psk         on
+    eap         off
+    aes         on
+    tkip        off
+    web-page    screen      splash
+    web-page    timeout     none
+    web-page    server      internal
+    web-page    land-url    
+    web-page    redirect    on
+    web-page    background  None
+    web-page    logo-image  c0f51c897221f686455ba460538d09ff
+    web-page    header-text c0f51c897221f686455ba460538d09ff
+    web-page    footer-text TheSSID1
+    mdm-auth    none
+    acl
+      reset
+      add 00:04:04:00:00:21
+      add 00:04:04:00:00:22
+      add 00:04:04:00:00:23
+      add 00:04:04:00:00:24
+      add 00:04:04:00:00:25
+      on deny-list
+    exit
+    fallback    none
+    dhcp-opt    disable
+    enable
+    web-page    auth-timeout 120
+  exit
+  !
+  add  "TheSSID2"
+    band        both
+    broadcast   on
+    vlan        "VLAN32"
+    qos         2
+    dhcp        none
+    fast-roam   layer 2-only
+    time-on     always
+    time-off    never
+    days-on     all
+    stations    unlimited
+    traffic     limit-ssid pps  unlimited
+    traffic     limit-ssid kbps unlimited
+    traffic     limit-sta  pps  unlimited
+    traffic     limit-sta  kbps unlimited
+    encryption  wpa-both unique-settings
+    auth        802-1x
+    passphrase  enc bf2092522cbc8e3761
+    psk         on
+    eap         off
+    aes         on
+    tkip        off
+    web-page    screen      splash
+    web-page    timeout     none
+    web-page    server      internal
+    web-page    redir-url   
+    web-page    land-url    
+    web-page    secret      enc 
+    web-page    redirect    on
+    web-page    background  None
+    web-page    logo-image  b698c0224b76e4e7c085e40cb5e1dcab
+    web-page    header-text b698c0224b76e4e7c085e40cb5e1dcab
+    web-page    footer-text TheSSID2
+    mdm-auth    none
+    acl
+      reset
+      off
+    exit
+    fallback    none
+    dhcp-opt    disable
+    enable
+    web-page    auth-timeout 120
+  exit
+  !
+  add  "TheSSID3"
+    band        both
+    broadcast   on
+    vlan        "VLAN33"
+    qos         2
+    dhcp        none
+    fast-roam   layer 2-only
+    time-on     always
+    time-off    never
+    days-on     all
+    stations    unlimited
+    traffic     limit-ssid pps  unlimited
+    traffic     limit-ssid kbps unlimited
+    traffic     limit-sta  pps  unlimited
+    traffic     limit-sta  kbps unlimited
+    encryption  wpa-both unique-settings
+    auth        802-1x
+    passphrase  enc bf2092522cbc8d3666
+    psk         on
+    eap         off
+    aes         on
+    tkip        off
+    web-page    screen      splash
+    web-page    timeout     none
+    web-page    server      internal
+    web-page    redir-url   
+    web-page    land-url    
+    web-page    whitelist add www.google.com
+    web-page    whitelist add www.xirrus.com
+    web-page    whitelist add www.yahoo.com
+    web-page    secret      enc 
+    web-page    redirect    on
+    web-page    background  None
+    web-page    logo-image  d019026dce797adf40b6c18ea897b62d
+    web-page    header-text d019026dce797adf40b6c18ea897b62d
+    web-page    footer-text TheSSID3
+    mdm-auth    none
+    acl
+      reset
+      off
+    exit
+    fallback    none
+    dhcp-opt    disable
+    enable
+    web-page    auth-timeout 120
+  exit
+  !
+  add  "TheSSID4"
+    band        both
+    broadcast   on
+    vlan        "VLAN34"
+    qos         2
+    dhcp        none
+    fast-roam   layer 2-only
+    time-on     always
+    time-off    never
+    days-on     all
+    stations    unlimited
+    traffic     limit-ssid pps  unlimited
+    traffic     limit-ssid kbps unlimited
+    traffic     limit-sta  pps  unlimited
+    traffic     limit-sta  kbps unlimited
+    encryption  wpa2 unique-settings
+    auth        802-1x
+    passphrase  enc bf2092522cbc8b3166
+    psk         on
+    eap         off
+    aes         on
+    tkip        off
+    web-page    screen      splash
+    web-page    timeout     none
+    web-page    server      internal
+    web-page    redir-url   
+    web-page    land-url    
+    web-page    whitelist add www.google.com
+    web-page    whitelist add www.xirrus.com
+    web-page    whitelist add www.yahoo.com
+    web-page    secret      enc 
+    web-page    redirect    on
+    web-page    background  None
+    web-page    logo-image  14f6008fa3cdd4bacd072a5ae6ba2344
+    web-page    header-text 14f6008fa3cdd4bacd072a5ae6ba2344
+    web-page    footer-text TheSSID4
+    mdm-auth    none
+    acl
+      reset
+      add 00:04:04:00:00:31
+      add 00:04:04:00:00:32
+      add 00:04:04:00:00:33
+      add 00:04:04:00:00:34
+      add 00:04:04:00:00:35
+      add 00:04:04:00:00:78
+      on deny-list
+    exit
+    fallback    none
+    dhcp-opt    disable
+    enable
+    web-page    auth-timeout 120
+  exit
+  !
+  add  "TheSSID5"
+    band        both
+    broadcast   on
+    vlan        "VLAN35"
+    qos         2
+    dhcp        none
+    fast-roam   layer 2-only
+    time-on     always
+    time-off    never
+    days-on     all
+    stations    unlimited
+    traffic     limit-ssid pps  unlimited
+    traffic     limit-ssid kbps unlimited
+    traffic     limit-sta  pps  unlimited
+    traffic     limit-sta  kbps unlimited
+    encryption  wpa-both unique-settings
+    auth        802-1x
+    passphrase  enc bf2092522cbc8a3067
+    psk         on
+    eap         off
+    aes         on
+    tkip        off
+    web-page    screen      splash
+    web-page    timeout     none
+    web-page    server      internal
+    web-page    redir-url   
+    web-page    land-url    
+    web-page    whitelist add www.google.com
+    web-page    whitelist add www.yahoo.com
+    web-page    secret      enc 
+    web-page    redirect    on
+    web-page    background  None
+    web-page    logo-image  4ad9746a63a7f91126934a6a1e9d4692
+    web-page    header-text 4ad9746a63a7f91126934a6a1e9d4692
+    web-page    footer-text TheSSID5
+    mdm-auth    none
+    acl
+      reset
+      off
+    exit
+    fallback    none
+    dhcp-opt    disable
+    enable
+    web-page    auth-timeout 120
+  exit
+  !
+  add  "TheSSID6"
+    band        both
+    broadcast   on
+    vlan        "VLAN36"
+    qos         2
+    dhcp        none
+    fast-roam   layer 2-only
+    time-on     always
+    time-off    never
+    days-on     all
+    stations    unlimited
+    traffic     limit-ssid pps  unlimited
+    traffic     limit-ssid kbps unlimited
+    traffic     limit-sta  pps  unlimited
+    traffic     limit-sta  kbps unlimited
+    encryption  wpa2 unique-settings
+    auth        802-1x
+    passphrase  enc bf2092522cbc893364
+    psk         on
+    eap         off
+    aes         on
+    tkip        off
+    web-page    screen      splash
+    web-page    timeout     none
+    web-page    server      internal
+    web-page    redir-url   
+    web-page    land-url    
+    web-page    secret      enc 
+    web-page    redirect    on
+    web-page    background  None
+    web-page    logo-image  0a8251e1917e79225239ad577a977491
+    web-page    header-text 0a8251e1917e79225239ad577a977491
+    web-page    footer-text TheSSID6
+    mdm-auth    none
+    acl
+      reset
+      off
+    exit
+    fallback    none
+    dhcp-opt    disable
+    enable
+    web-page    auth-timeout 120
+  exit
+  !
+  add  "TheSSID8"
+    band        both
+    broadcast   on
+    vlan        "VLAN38"
+    qos         2
+    dhcp pool   "ThePool"
+    fast-roam   layer 2-only
+    time-on     always
+    time-off    never
+    days-on     all
+    stations    unlimited
+    traffic     limit-ssid pps  unlimited
+    traffic     limit-ssid kbps unlimited
+    traffic     limit-sta  pps  unlimited
+    traffic     limit-sta  kbps unlimited
+    encryption  wpa2 unique-settings
+    auth        802-1x
+    passphrase  enc bf2092522cbc873d6a
+    psk         on
+    eap         off
+    aes         on
+    tkip        off
+    web-page    screen      splash
+    web-page    timeout     none
+    web-page    server      internal
+    web-page    redir-url   
+    web-page    land-url    
+    web-page    secret      enc 
+    web-page    redirect    on
+    web-page    background  None
+    web-page    logo-image  7c16bd5fd875937b347a59f017bdabb4
+    web-page    header-text 
+    web-page    footer-text TheSSID8
+    mdm-auth    none
+    acl
+      reset
+      off
+    exit
+    fallback    none
+    dhcp-opt    disable
+    enable
+    web-page    auth-timeout 120
+  exit
+  !
+  del  "xirrus"
+exit
+!
+ssid   ! (iap mappings)
+  edit "TheSSID1" active-iaps all
+  edit "TheSSID2" active-iaps all
+  edit "TheSSID3" active-iaps all
+  edit "TheSSID4" active-iaps all
+  edit "TheSSID5" active-iaps all
+  edit "TheSSID6" active-iaps all
+  edit "TheSSID8" active-iaps all
+exit
+!
+group
+  reset
+  !
+  add "TheGoodGuys"
+    radius-id "10.100.59.58"
+    device-id "Windows"
+    vlan      none
+    qos       2
+    dhcp      none
+    fast-roam layer       2-only
+    time-on   always
+    time-off  never
+    days-on   all
+    stations  2000
+    traffic   limit-group pps  unlimited
+    traffic   limit-group kbps unlimited
+    traffic   limit-sta   pps  unlimited
+    traffic   limit-sta   kbps unlimited
+    web-page  redirect    off
+    fallback  none
+    enable
+  exit
+  !
+  add "thone"
+    radius-id ""
+    device-id "Kindle"
+    vlan      none
+    qos       2
+    dhcp      none
+    fast-roam layer       2-only
+    time-on   always
+    time-off  never
+    days-on   all
+    stations  2000
+    traffic   limit-group pps  unlimited
+    traffic   limit-group kbps unlimited
+    traffic   limit-sta   pps  unlimited
+    traffic   limit-sta   kbps unlimited
+    web-page  redirect    off
+    fallback  none
+    disable
+  exit
+exit
+!
+authentication-server  ! (global settings)
+  use internal-radius
+  !
+  active-directory
+    domain-admin       
+    domain-controller 
+    workgroup         
+    realm             
+  exit
+  !
+  external
+    das-port             3799
+    das-time-window      300
+    das-event-timestamp  optional
+    called-sta-id-format bssid-ssid
+    sta-mac-format       lower
+    nas-identifier       
+  exit
+  !
+  internal
+    reset
+    add "user1"  password enc 832fd7463dfd8b316470c60ee61c309f817e10f3 ssid "" group ""
+    add "user10" password enc 862d8d4937                               ssid "" group ""
+    add "user2"  password enc 862d8d4937                               ssid "" group ""
+    add "user3"  password enc 862d8d4937                               ssid "" group ""
+    add "user4"  password enc 862d8d4937                               ssid "" group ""
+    add "user5"  password enc 862d8d4937                               ssid "" group ""
+    add "user6"  password enc 862d8d4937                               ssid "" group ""
+    add "user7"  password enc 862d8d4937                               ssid "" group ""
+    add "user8"  password enc 862d8d4937                               ssid "" group ""
+    add "user9"  password enc 862d8d4937                               ssid "" group ""
+  exit
+exit
+!
+acl
+  reset
+  add 00:04:04:00:01:00
+  add 00:04:04:00:01:01
+  add 00:04:04:00:01:02
+  add 00:04:04:00:01:03
+  add 00:04:04:00:01:04
+  add 00:04:04:00:01:05
+  add 00:04:04:00:01:06
+  add 00:04:04:00:01:07
+  add 00:04:04:00:01:08
+  add 00:04:04:00:01:09
+  add 00:04:04:00:01:0a
+  add 00:04:04:00:01:0b
+  add 00:04:04:00:01:0c
+  add 00:04:04:00:01:0d
+  add 00:04:04:00:01:0e
+  add 00:04:04:00:01:0f
+  add 00:04:04:00:01:10
+  add 00:04:04:00:01:11
+  add 00:04:04:00:01:12
+  add 00:04:04:00:01:13
+  add 00:04:04:00:01:14
+  add 00:04:04:00:01:15
+  add 00:04:04:00:01:16
+  add 00:04:04:00:01:17
+  add 00:04:04:00:01:18
+  add 00:04:04:00:01:19
+  add 00:04:04:00:01:1a
+  add 00:04:04:00:01:1b
+  add 00:04:04:00:01:1c
+  add 00:04:04:00:01:1d
+  add 00:04:04:00:01:1e
+  add 00:04:04:00:01:1f
+  add 00:04:04:00:01:20
+  add 00:04:04:00:01:21
+  add 00:04:04:00:01:22
+  add 00:04:04:00:01:23
+  add 00:04:04:00:01:24
+  add 00:04:04:00:01:25
+  add 00:04:04:00:01:26
+  add 00:04:04:00:01:27
+  add 00:04:04:00:01:28
+  add 00:04:04:00:01:29
+  add 00:04:04:00:01:2a
+  add 00:04:04:00:01:2b
+  add 00:04:04:00:01:2c
+  add 00:04:04:00:01:2d
+  add 00:04:04:00:01:2e
+  add 00:04:04:00:01:2f
+  add 00:04:04:00:01:30
+  add 00:04:04:00:01:31
+  add 00:04:04:00:01:32
+  add 00:04:04:00:01:33
+  add 00:04:04:00:01:34
+  add 00:04:04:00:01:35
+  add 00:04:04:00:01:36
+  add 00:04:04:00:01:37
+  add 00:04:04:00:01:38
+  add 00:04:04:00:01:39
+  add 00:04:04:00:01:3a
+  add 00:04:04:00:01:3b
+  add 00:04:04:00:01:3c
+  add 00:04:04:00:01:3d
+  add 00:04:04:00:01:3e
+  add 00:04:04:00:01:3f
+  add 00:04:04:00:01:40
+  add 00:04:04:00:01:41
+  add 00:04:04:00:01:42
+  add 00:04:04:00:01:43
+  add 00:04:04:00:01:44
+  add 00:04:04:00:01:45
+  add 00:04:04:00:01:46
+  add 00:04:04:00:01:47
+  add 00:04:04:00:01:48
+  add 00:04:04:00:01:49
+  add 00:04:04:00:01:4a
+  add 00:04:04:00:01:4b
+  add 00:04:04:00:01:4c
+  add 00:04:04:00:01:4d
+  add 00:04:04:00:01:4e
+  add 00:04:04:00:01:4f
+  add 00:04:04:00:01:50
+  add 00:04:04:00:01:51
+  add 00:04:04:00:01:52
+  add 00:04:04:00:01:53
+  add 00:04:04:00:01:54
+  add 00:04:04:00:01:55
+  add 00:04:04:00:01:56
+  add 00:04:04:00:01:57
+  add 00:04:04:00:01:58
+  add 00:04:04:00:01:59
+  add 00:04:04:00:01:5a
+  add 00:04:04:00:01:5b
+  add 00:04:04:00:01:5c
+  add 00:04:04:00:01:5d
+  add 00:04:04:00:01:5e
+  add 00:04:04:00:01:5f
+  add 00:04:04:00:01:60
+  add 00:04:04:00:01:61
+  add 00:04:04:00:01:62
+  add 00:04:04:00:01:63
+  add 00:04:04:00:01:64
+  add 00:04:04:00:01:65
+  add 00:04:04:00:01:66
+  add 00:04:04:00:01:67
+  add 00:04:04:00:01:68
+  add 00:04:04:00:01:69
+  add 00:04:04:00:01:6a
+  add 00:04:04:00:01:6b
+  add 00:04:04:00:01:6c
+  add 00:04:04:00:01:6d
+  add 00:04:04:00:01:6e
+  add 00:04:04:00:01:6f
+  add 00:04:04:00:01:70
+  add 00:04:04:00:01:71
+  add 00:04:04:00:01:72
+  add 00:04:04:00:01:73
+  add 00:04:04:00:01:74
+  add 00:04:04:00:01:75
+  add 00:04:04:00:01:76
+  add 00:04:04:00:01:77
+  add 00:04:04:00:01:78
+  add 00:04:04:00:01:79
+  add 00:04:04:00:01:7a
+  add 00:04:04:00:01:7b
+  add 00:04:04:00:01:7c
+  add 00:04:04:00:01:7d
+  add 00:04:04:00:01:7e
+  add 00:04:04:00:01:7f
+  add 00:04:04:00:01:80
+  add 00:04:04:00:01:81
+  add 00:04:04:00:01:82
+  add 00:04:04:00:01:83
+  add 00:04:04:00:01:84
+  add 00:04:04:00:01:85
+  add 00:04:04:00:01:86
+  add 00:04:04:00:01:87
+  add 00:04:04:00:01:88
+  add 00:04:04:00:01:89
+  add 00:04:04:00:01:8a
+  add 00:04:04:00:01:8b
+  add 00:04:04:00:01:8c
+  add 00:04:04:00:01:8d
+  add 00:04:04:00:01:8e
+  add 00:04:04:00:01:8f
+  add 00:04:04:00:01:90
+  add 00:04:04:00:01:91
+  add 00:04:04:00:01:92
+  add 00:04:04:00:01:93
+  add 00:04:04:00:01:94
+  add 00:04:04:00:01:95
+  add 00:04:04:00:01:96
+  add 00:04:04:00:01:97
+  add 00:04:04:00:01:98
+  add 00:04:04:00:01:99
+  add 00:04:04:00:01:9a
+  add 00:04:04:00:01:9b
+  add 00:04:04:00:01:9c
+  add 00:04:04:00:01:9d
+  add 00:04:04:00:01:9e
+  add 00:04:04:00:01:9f
+  add 00:04:04:00:01:a0
+  add 00:04:04:00:01:a1
+  add 00:04:04:00:01:a2
+  add 00:04:04:00:01:a3
+  add 00:04:04:00:01:a4
+  add 00:04:04:00:01:a5
+  add 00:04:04:00:01:a6
+  add 00:04:04:00:01:a7
+  add 00:04:04:00:01:a8
+  add 00:04:04:00:01:a9
+  add 00:04:04:00:01:aa
+  add 00:04:04:00:01:ab
+  add 00:04:04:00:01:ac
+  add 00:04:04:00:01:ad
+  add 00:04:04:00:01:ae
+  add 00:04:04:00:01:af
+  add 00:04:04:00:01:b0
+  add 00:04:04:00:01:b1
+  add 00:04:04:00:01:b2
+  add 00:04:04:00:01:b3
+  add 00:04:04:00:01:b4
+  add 00:04:04:00:01:b5
+  add 00:04:04:00:01:b6
+  add 00:04:04:00:01:b7
+  add 00:04:04:00:01:b8
+  add 00:04:04:00:01:b9
+  add 00:04:04:00:01:ba
+  add 00:04:04:00:01:bb
+  add 00:04:04:00:01:bc
+  add 00:04:04:00:01:bd
+  add 00:04:04:00:01:be
+  add 00:04:04:00:01:bf
+  add 00:04:04:00:01:c0
+  add 00:04:04:00:01:c1
+  add 00:04:04:00:01:c2
+  add 00:04:04:00:01:c3
+  add 00:04:04:00:01:c4
+  add 00:04:04:00:01:c5
+  add 00:04:04:00:01:c6
+  add 00:04:04:00:01:c7
+  add 00:04:04:00:01:c8
+  add 00:04:04:00:01:c9
+  add 00:04:04:00:01:ca
+  add 00:04:04:00:01:cb
+  add 00:04:04:00:01:cc
+  add 00:04:04:00:01:cd
+  add 00:04:04:00:01:ce
+  add 00:04:04:00:01:cf
+  add 00:04:04:00:01:d0
+  add 00:04:04:00:01:d1
+  add 00:04:04:00:01:d2
+  add 00:04:04:00:01:d3
+  add 00:04:04:00:01:d4
+  add 00:04:04:00:01:d5
+  add 00:04:04:00:01:d6
+  add 00:04:04:00:01:d7
+  add 00:04:04:00:01:d8
+  add 00:04:04:00:01:d9
+  add 00:04:04:00:01:da
+  add 00:04:04:00:01:db
+  add 00:04:04:00:01:dc
+  add 00:04:04:00:01:dd
+  add 00:04:04:00:01:de
+  add 00:04:04:00:01:df
+  add 00:04:04:00:01:e0
+  add 00:04:04:00:01:e1
+  add 00:04:04:00:01:e2
+  add 00:04:04:00:01:e3
+  add 00:04:04:00:01:e4
+  add 00:04:04:00:01:e5
+  add 00:04:04:00:01:e6
+  add 00:04:04:00:01:e7
+  add 00:04:04:00:01:e8
+  add 00:04:04:00:01:e9
+  add 00:04:04:00:01:ea
+  add 00:04:04:00:01:eb
+  add 00:04:04:00:01:ec
+  add 00:04:04:00:01:ed
+  add 00:04:04:00:01:ee
+  add 00:04:04:00:01:ef
+  add 00:04:04:00:01:f0
+  add 00:04:04:00:01:f1
+  add 00:04:04:00:01:f2
+  add 00:04:04:00:01:f3
+  add 00:04:04:00:01:f4
+  add 00:04:04:00:01:f5
+  add 00:04:04:00:01:f6
+  add 00:04:04:00:01:f7
+  add 00:04:04:00:01:f8
+  add 00:04:04:00:01:f9
+  add 00:04:04:00:01:fa
+  add 00:04:04:00:01:fb
+  add 00:04:04:00:01:fc
+  add 00:04:04:00:01:fd
+  add 00:04:04:00:01:fe
+  off
+exit
+!
+filter
+  reset
+  stateful   enable
+  track-apps enable
+  enable
+  !
+  add-list "CURRO_TABLETS_RADIUS"
+    add "ALLOW BOOTPS"      allow layer 3 prot udp    port bootps      src any         dst any             enable
+    add "ALLOW DHCP"        allow layer 3 prot udp    port bootpc-dhcp src any         dst any             enable
+    add "ALLOW DNS"         allow layer 3 prot udp    port dns         src any         dst 10.1.0.3    /32 enable
+    add "ALLOW DNS2"        allow layer 3 prot udp    port dns         src any         dst 10.1.0.4    /32 enable
+    add "ALLOW ITSI PRIM"   allow layer 3 prot any-ip port any         src any         dst 10.1.0.8    /32 enable
+    add "ALLOW ITSI HIGH"   allow layer 3 prot any-ip port any         src any         dst 10.1.0.9    /32 enable
+    add "ALLOW OFF365 AUTH" allow layer 3 prot any-ip port https       src any         dst 192.168.2.25/32 enable
+    add "DENY 192 SUBNET"   deny  layer 3 prot any-ip port any         src 10.1.0.0/16 dst 192.168.0.0 /16 enable
+    add "ALLOW WEB"         allow layer 3 prot tcp    port http        src 10.1.0.0/16 dst 10.1.0.0    /8  enable
+    add "ALLOW HTTPS"       allow layer 3 prot tcp    port https       src 10.1.0.0/16 dst 10.1.0.0    /8  enable
+    add "DENY LAN"          deny  layer 3 prot any-ip port any         src any         dst any             enable
+    enable
+  exit
+  !
+  add-list "Filter_1"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "Filter_10"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "Filter_2"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "Filter_3"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "Filter_4"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "Filter_5"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "Filter_6"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "Filter_7"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "Filter_8"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "Filter_9"
+    add "Test.1"  allow layer 2 prot any port any src any dst any enable
+    add "Test.2"  allow layer 2 prot any port any src any dst any enable
+    add "Test.3"  allow layer 2 prot any port any src any dst any enable
+    add "Test.4"  allow layer 2 prot any port any src any dst any enable
+    add "Test.5"  allow layer 2 prot any port any src any dst any enable
+    add "Test.6"  allow layer 2 prot any port any src any dst any enable
+    add "Test.7"  allow layer 2 prot any port any src any dst any enable
+    add "Test.8"  allow layer 2 prot any port any src any dst any enable
+    add "Test.9"  allow layer 2 prot any port any src any dst any enable
+    add "Test.10" allow layer 2 prot any port any src any dst any enable
+    add "Test.11" allow layer 2 prot any port any src any dst any enable
+    add "Test.12" allow layer 2 prot any port any src any dst any enable
+    add "Test.13" allow layer 2 prot any port any src any dst any enable
+    add "Test.14" allow layer 2 prot any port any src any dst any enable
+    add "Test.15" allow layer 2 prot any port any src any dst any enable
+    add "Test.16" allow layer 2 prot any port any src any dst any enable
+    add "Test.17" allow layer 2 prot any port any src any dst any enable
+    add "Test.18" allow layer 2 prot any port any src any dst any enable
+    add "Test.19" allow layer 2 prot any port any src any dst any enable
+    add "Test.20" allow layer 2 prot any port any src any dst any enable
+    add "Test.21" allow layer 2 prot any port any src any dst any enable
+    add "Test.22" allow layer 2 prot any port any src any dst any enable
+    add "Test.23" allow layer 2 prot any port any src any dst any enable
+    add "Test.24" allow layer 2 prot any port any src any dst any enable
+    add "Test.25" allow layer 2 prot any port any src any dst any enable
+    add "Test.26" allow layer 2 prot any port any src any dst any enable
+    add "Test.27" allow layer 2 prot any port any src any dst any enable
+    add "Test.28" allow layer 2 prot any port any src any dst any enable
+    add "Test.29" allow layer 2 prot any port any src any dst any enable
+    add "Test.30" allow layer 2 prot any port any src any dst any enable
+    add "Test.31" allow layer 2 prot any port any src any dst any enable
+    add "Test.32" allow layer 2 prot any port any src any dst any enable
+    add "Test.33" allow layer 2 prot any port any src any dst any enable
+    add "Test.34" allow layer 2 prot any port any src any dst any enable
+    add "Test.35" allow layer 2 prot any port any src any dst any enable
+    add "Test.36" allow layer 2 prot any port any src any dst any enable
+    add "Test.37" allow layer 2 prot any port any src any dst any enable
+    add "Test.38" allow layer 2 prot any port any src any dst any enable
+    add "Test.39" allow layer 2 prot any port any src any dst any enable
+    add "Test.40" allow layer 2 prot any port any src any dst any enable
+    add "Test.41" allow layer 2 prot any port any src any dst any enable
+    add "Test.42" allow layer 2 prot any port any src any dst any enable
+    add "Test.43" allow layer 2 prot any port any src any dst any enable
+    add "Test.44" allow layer 2 prot any port any src any dst any enable
+    add "Test.45" allow layer 2 prot any port any src any dst any enable
+    add "Test.46" allow layer 2 prot any port any src any dst any enable
+    add "Test.47" allow layer 2 prot any port any src any dst any enable
+    add "Test.48" allow layer 2 prot any port any src any dst any enable
+    add "Test.49" allow layer 2 prot any port any src any dst any enable
+    add "Test.50" allow layer 2 prot any port any src any dst any enable
+    enable
+  exit
+  !
+  add-list "TheBadList"
+    add "one" deny log layer 3 prot any-ip port any src 80.1.1.0/24 dst any disable
+    add "two" deny log layer 3 prot any-ip port any src 81.1.1.0/24 dst any enable
+    enable
+  exit
+  !
+  add-list "TheGoodList"
+    add "three" allow     layer 3 prot any port any            src any dst any limit sta pps 40 enable
+    add "four"  allow log layer 3 prot any port any app xirrus src any dst any                  enable
+    disable
+  exit
+exit
+!
+ssid   ! (filter mappings)
+  edit "TheSSID1"    filter-list "CURRO_TABLETS_RADIUS"
+  edit "TheSSID2"    filter-list "Filter_2"
+  edit "TheSSID3"    filter-list "Filter_3"
+  edit "TheSSID4"    filter-list "Filter_4"
+  edit "TheSSID5"    filter-list "Filter_5"
+  edit "TheSSID6"    filter-list "Filter_6"
+  edit "TheSSID8"    filter-list "Filter_8"
+exit
+!
+group  ! (filter mappings)
+  edit "TheGoodGuys" filter-list ""
+  edit "thone"       filter-list ""
+exit
+!
+tunnel
+  reset
+exit
+!
+! interface iap1
+  ! description   ""
+  ! band          5GHz   
+ !antenna       internal omni
+  ! channel       161
+  ! channel       monitor timeshare
+  ! bond-40Mhz    on
+  ! bond-80Mhz    off
+  ! mode          anac
+  ! cellsize      max
+  ! tx-power      20
+  ! link-distance 
+  ! up
+! exit
+!
+! interface iap2
+  ! description   ""
+  ! band          5GHz   
+ !antenna       internal omni
+  ! channel       60
+  ! channel       unlocked
+  ! bond-40Mhz    on
+  ! bond-80Mhz    off
+  ! mode          anac
+  ! cellsize      max
+  ! tx-power      20
+  ! link-distance 
+  ! up
+! exit
+!
+interface iap
+  !
+  wds
+    reset
+    allow-stations   off
+    roam-threshold   6
+    roam-avg-weight  50
+    !
+    client-link 1
+      target    
+      max-iap   1
+      iap       clear
+      ssid      ""
+      username  ""
+      password  enc 
+      off
+    exit
+    !
+    client-link 2
+      target    
+      max-iap   1
+      iap       clear
+      ssid      ""
+      username  ""
+      password  enc 
+      off
+    exit
+    !
+    client-link 3
+      target    
+      max-iap   1
+      iap       clear
+      ssid      ""
+      username  ""
+      password  enc 
+      off
+    exit
+    !
+    client-link 4
+      target    
+      max-iap   1
+      iap       clear
+      ssid      ""
+      username  ""
+      password  enc 
+      off
+    exit
+    !
+    host-link 1 iap clear
+    host-link 2 iap clear
+    host-link 3 iap clear
+    host-link 4 iap clear
+  exit
+exit
+!
+wifi-tag
+  udp-port       1144
+  tag-channel-bg none
+  enable
+  server         10.100.59.188
+exit
+!
+location-reporting
+  url       http://10.100.59.188
+  cust-key  enc d17fd6
+  period    15
+  per-radio disable
+  enable
+exit
+!
+station-assurance
+  enable
+  period         60
+  assoc-time     20
+  auth-failures  10
+  error-rate     20
+  retry-rate     35
+  data-rate      10
+  rssi          -85
+  snr            10
+  distance      2000
+exit
+!
+roaming-assist
+  enable
+  period    120
+  threshold 0
+  data-rate 20
+  devices   notebook phone player tablet
+exit
+!
+cluster
+  reset
+exit
+!
+auth
+  reset
+exit
+!
+proxy-fwd
+  proxy           off
+  bluecoat-url    proxy.threatpulse.net
+  netboxblue-url  xirrus.netboxblue.com
+exit
+!
+proxy-mgmt
+  off                   
+  http               off
+  http   ip          
+  http   port        3128
+  http   username    
+  http   password    
+                       
+  https              off
+  https  ip          
+  https  port        3128
+  https  username    
+  https  password    
+                       
+  socks              off
+  socks  ip          
+  socks  port        1080
+  socks  username    
+  socks  password    
+  socks  type        SOCKS5
+  socks whitelist set net01 network  
+  socks whitelist set net01 mask     
+  socks whitelist set net02 network  
+  socks whitelist set net02 mask     
+  socks whitelist set net03 network  
+  socks whitelist set net03 mask     
+  socks whitelist set net04 network  
+  socks whitelist set net04 mask     
+  socks whitelist set net05 network  
+  socks whitelist set net05 mask     
+  socks whitelist set net06 network  
+  socks whitelist set net06 mask     
+  socks whitelist set net07 network  
+  socks whitelist set net07 mask     
+  socks whitelist set net08 network  
+  socks whitelist set net08 mask     
+  socks whitelist set net09 network  
+  socks whitelist set net09 mask     
+  socks whitelist set net10 network  
+  socks whitelist set net10 mask     
+exit
+!
+netflow
+  collector host 10.100.59.188
+  collector port 2055
+  ipfix
+exit
+!
+cdp
+  interval  30
+  hold-time 180
+  on
+exit
+!
+lldp
+  interval      30
+  hold-time     120
+  off
+  request-power off
+exit
+!
+end
+!

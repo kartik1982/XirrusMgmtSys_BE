@@ -1,0 +1,11 @@
+{
+  "id": "cd901320-e5cb-11e3-b0fe-22000aeb20d8",
+  "name": "ega-release-week",
+  "erpId": "ega-release-week",
+  "tenantProperties": null,
+  "products": [
+    "BACKOFFICE",
+    "XMS",
+    "MOBILIZE"
+  ]
+}

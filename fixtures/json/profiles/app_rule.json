@@ -1,0 +1,19 @@
+{
+         
+  "ruleType": "APP_CONTROL",
+  "name": "Block eBuddy",
+  "source": {
+   
+    "endpointType": "ANY"
+  },
+  "destination": {
+   
+    "endpointType": "ANY"
+  },
+  "enabled": true,
+  "action": "BLOCK",
+  "schedule": null,
+  "applicationId": "ebuddy",
+  "categoryId": "message"
+}
+      

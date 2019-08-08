@@ -1,0 +1,27 @@
+ {
+     
+      "name": "My First Report..",
+      "favorite": false,
+      "description": "My First Report Desc",
+      "iconUrl": null,
+      "pages": [
+
+        {
+         
+          "pageNumber": 1,
+          "description": "a title page",
+          "title": "Title Page"
+        },
+        {
+         
+          "pageNumber": 2,
+          "description": "Top Clients By Usage",
+          "title": "Top Clients by Usage",
+          "widgetType": "TOP_CLIENTS_BY_USAGE",
+          "range": "DAY_1"
+        }
+      ]
+    }
+
+
+  

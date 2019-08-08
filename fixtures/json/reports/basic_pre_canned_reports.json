@@ -1,0 +1,217 @@
+{
+  "data": [
+    {
+      "id": "00000000-0000-0000-0000-000000000003",
+      "name": "Application Visibility Report",
+      "favorite": true,
+      "description": "Report that shows the top Applications and Applications categories being used by clients on your network",
+      "iconUrl": null,
+      "pages": [
+        {
+          "id": "aec27910-f9b6-4b76-ace3-f0218b9b5d85",
+          "pageNumber": 1,
+          "description": "Report that shows the top Applications and Applications categories being used by clients on your network",
+          "title": "Application Visibility Report",
+          "widgetType": null,
+          "range": null
+        },
+        {
+          "id": "f209fc35-5480-4e46-ad4a-0a7c2ba28d5e",
+          "pageNumber": 2,
+          "description": "Top Applications (by usage) over the last week",
+          "title": "Top Applications",
+          "widgetType": "TOP_APPLICATIONS_BY_USAGE",
+          "range": "DAY_7"
+        },
+        {
+          "id": "1ed73720-fd4a-4252-83d0-fbc7b661d884",
+          "pageNumber": 3,
+          "description": "Top Application Categories (by usage) over the last week",
+          "title": "Top Application Categories",
+          "widgetType": "TOP_APP_CATEGORIES",
+          "range": "DAY_7"
+        }
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000005",
+      "name": "Array and Client Throughput Report",
+      "favorite": false,
+      "description": "Report of the Arrays and Clients on your network by data throughput",
+      "iconUrl": null,
+      "pages": [
+        {
+          "id": "2703256b-2da9-44ee-a87c-c8946f4be3b4",
+          "pageNumber": 1,
+          "description": "Report of the Arrays and Clients on your network by data throughput",
+          "title": "Array and Client Throughput Report",
+          "widgetType": null,
+          "range": null
+        },
+        {
+          "id": "452a5d52-1bcb-4688-b0f3-532a165f871a",
+          "pageNumber": 2,
+          "description": "Array Data Throughput over the last week",
+          "title": "Array Throughput",
+          "widgetType": "ARRAY_THROUGHPUT",
+          "range": "DAY_7"
+        },
+        {
+          "id": "3a5140cb-e451-49d5-8e3f-421c97b226c5",
+          "pageNumber": 3,
+          "description": "Client Data Throughput over the last week",
+          "title": "Client Throughput",
+          "widgetType": "CLIENT_THROUGHPUT",
+          "range": "DAY_7"
+        }
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000002",
+      "name": "Array and Client Usage Report",
+      "favorite": true,
+      "description": "Report of the top 10 Arrays and Clients on your network by bandwidth usage",
+      "iconUrl": null,
+      "pages": [
+        {
+          "id": "3a90b64f-9e98-4215-8f19-9df047fa9576",
+          "pageNumber": 1,
+          "description": "Report of the top 10 Arrays and Clients on your network by bandwidth usage",
+          "title": "Array and Client Usage Report",
+          "widgetType": null,
+          "range": null
+        },
+        {
+          "id": "290803d5-3aa6-4d57-b6f7-1530384c9c0a",
+          "pageNumber": 2,
+          "description": "Top 10 Arrays (by usage) over the last week",
+          "title": "Top 10 Arrays",
+          "widgetType": "TOP_ARRAYS_BY_USAGE",
+          "range": "DAY_7"
+        },
+        {
+          "id": "1c0ba60a-8f58-4886-94cb-49c72046d042",
+          "pageNumber": 3,
+          "description": "Top 10 Clients (by usage) over the last week",
+          "title": "Top 10 clients",
+          "widgetType": "TOP_CLIENTS_BY_USAGE",
+          "range": "DAY_7"
+        }
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000001",
+      "name": "Detailed Client Activity Report",
+      "favorite": true,
+      "description": "Report of all end user devices and applications including number and types of devices, types of manufacturers, applications most used and level of data usage",
+      "iconUrl": null,
+      "pages": [
+        {
+          "id": "9f9ed64b-91da-4e97-8870-1f0415d3d8d8",
+          "pageNumber": 1,
+          "description": "Report of all end user devices and applications including number and types of devices, types of manufacturers, applications most used and level of data usage",
+          "title": "Detailed Client Activity Report",
+          "widgetType": null,
+          "range": null
+        },
+        {
+          "id": "dca1f2fa-a569-44f9-b333-eefbdf5e4de2",
+          "pageNumber": 2,
+          "description": "Top 10 Clients (by usage) over the last week",
+          "title": "Top 10 clients",
+          "widgetType": "TOP_CLIENTS_BY_USAGE",
+          "range": "DAY_7"
+        },
+        {
+          "id": "bc5573c4-2339-4995-97f3-f31d1db090bb",
+          "pageNumber": 3,
+          "description": "Top Device Types (by usage) over the last week",
+          "title": "Top Device Types",
+          "widgetType": "TOP_DEVICES_BY_USAGE",
+          "range": "DAY_7"
+        },
+        {
+          "id": "13b88423-03f5-4f12-8f79-dc4f2e8129c1",
+          "pageNumber": 4,
+          "description": "Top Manufacturers (by usage) over the last week",
+          "title": "Top Manufacturers",
+          "widgetType": "TOP_MANUFACTURERS_BY_USAGE",
+          "range": "DAY_7"
+        },
+        {
+          "id": "7ed2a8f7-f1ea-4778-b2a0-284743bd3d6b",
+          "pageNumber": 5,
+          "description": "Top Applications (by usage) over the last week",
+          "title": "Top Applications",
+          "widgetType": "TOP_APPLICATIONS_BY_USAGE",
+          "range": "DAY_7"
+        },
+        {
+          "id": "14cc52da-3063-4766-b030-230a7dc7b9b5",
+          "pageNumber": 6,
+          "description": "Top Application Categories (by usage) over the last week",
+          "title": "Top Application Categories",
+          "widgetType": "TOP_APP_CATEGORIES",
+          "range": "DAY_7"
+        },
+        {
+          "id": "4f6b5eda-f721-4afc-bd90-5eef755b1a4f",
+          "pageNumber": 7,
+          "description": "Client Data Throughput over the last week",
+          "title": "Client Throughput",
+          "widgetType": "CLIENT_THROUGHPUT",
+          "range": "DAY_7"
+        },
+        {
+          "id": "50202e45-4836-4dad-b34b-50cda6616115",
+          "pageNumber": 8,
+          "description": "Number of clients on the network over the last week",
+          "title": "Client Count",
+          "widgetType": "CLIENTS_OVER_TIME",
+          "range": "DAY_7"
+        }
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000004",
+      "name": "Devices Report",
+      "favorite": false,
+      "description": "Report of the top end user devices (clients) on your network",
+      "iconUrl": null,
+      "pages": [
+        {
+          "id": "6347ab3e-d0fe-4b3d-8764-2aa9e940e889",
+          "pageNumber": 1,
+          "description": "Report of the top end user devices (clients) on your network",
+          "title": "Devices Report",
+          "widgetType": null,
+          "range": null
+        },
+        {
+          "id": "28b8014e-6f65-411d-9fcd-6ca7491a9729",
+          "pageNumber": 2,
+          "description": "Top Device Types (by usage) over the last week",
+          "title": "Top Device Types",
+          "widgetType": "TOP_DEVICES_BY_USAGE",
+          "range": "DAY_7"
+        },
+        {
+          "id": "9b11421e-b973-4619-b14a-179faffd74c1",
+          "pageNumber": 3,
+          "description": "Top Manufacturers (by usage) over the last week",
+          "title": "Top Manufacturers",
+          "widgetType": "TOP_MANUFACTURERS_BY_USAGE",
+          "range": "DAY_7"
+        }
+      ]
+    }
+  ],
+  "paging": {
+    "previous": "",
+    "next": "",
+    "start": 0,
+    "count": 50,
+    "actualCount": 5,
+    "total": 5
+  }
+}

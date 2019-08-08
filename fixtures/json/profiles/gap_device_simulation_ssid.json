@@ -1,0 +1,89 @@
+{
+ 
+  "ssids": [
+    {
+     
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "gap-device-simulation",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    }
+  ],
+  "dns": {
+   
+    "primaryServer": null,
+    "secondaryServer": null,
+    "tertiaryServer": null,
+    "domain": null,
+    "useDhcp": true
+  },
+  "admin": null,
+ 
+  "aosVersion": null,
+  "locale": {
+    
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+    
+      "serverHostName": "time.nist.gov",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    },
+    "secondaryNtpServer": {
+     
+      "serverHostName": "pool.ntp.org",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    }
+  },
+  "networking": {
+    "id": "c99c7474-6f78-11e4-b70b-22000aeb20d8",
+    "useDhcp": true,
+    "cdp": {
+      
+      "enable": false,
+      "interval": null,
+      "holdtime": null
+    },
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1500,
+    "useVlan": false
+  },
+  "bonjour": {
+    
+    "enable": false,
+    "services": null,
+    "defaultVlans": [],
+    "overrides": []
+  },
+  "policies": [],
+  "optimization": null,
+  "security": null
+}

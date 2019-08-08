@@ -1,0 +1,171 @@
+{
+  "data": [
+    {
+      "id": "e3056d80-481e-11e4-b2e6-22000a49bc1d",
+      "sfdcId": null,
+      "firstName": "Alex",
+      "lastName": "Janckila",
+      "password": {
+        "value": null,
+        "isSet": true
+      },
+      "email": "alex.janckila@gmail.com",
+      "roles": [
+        "ROLE_XMS_ADMIN",
+        "ROLE_BACKOFFICE_SUPER_ADMIN"
+      ],
+      "phone": "",
+      "provider": null,
+      "status": "ACTIVE",
+      "description": "Gmail with API access",
+      "defaultTenantId": "75ab2220-3482-11e4-948c-22000aeb20d8",
+      "tenantScopeId": null,
+      "showWelcome": false,
+      "forceResetPassword": false,
+      "acceptedEula": true,
+      "tenantUsers": [
+        {
+          "id": "e3059490-481e-11e4-b2e6-22000a49bc1d",
+          "tenantId": "75ab2220-3482-11e4-948c-22000aeb20d8",
+          "tenantName": "back-to-school",
+          "roles": [
+            "ROLE_XMS_ADMIN"
+          ],
+          "status": "ACTIVE",
+          "description": "Gmail with API access"
+        }
+      ],
+      "showWhatsNew": true
+    },
+    {
+      "id": "15fcf71a-9a3a-468b-9093-70c4cf2e4147",
+      "sfdcId": "003R000000oyoIoIAI",
+      "firstName": "Alex",
+      "lastName": "Janckila",
+      "password": {
+        "value": null,
+        "isSet": true
+      },
+      "email": "alex.janckila@xirrus.com",
+      "roles": [
+        "ROLE_XMS_ADMIN",
+        "ROLE_MOBILIZE_ADMIN",
+        "ROLE_BACKOFFICE_SUPER_ADMIN"
+      ],
+      "phone": "",
+      "provider": null,
+      "status": "ACTIVE",
+      "description": null,
+      "defaultTenantId": "d4af3aa0-4274-11e3-8736-22000aeb20d8",
+      "tenantScopeId": "75ab2220-3482-11e4-948c-22000aeb20d8",
+      "showWelcome": false,
+      "forceResetPassword": false,
+      "acceptedEula": true,
+      "tenantUsers": [
+        {
+          "id": "cff4c490-45a6-11e4-8c46-22000aeb20d8",
+          "tenantId": "cc33ec00-45a6-11e4-8c46-22000aeb20d8",
+          "tenantName": "FALL-SEMESTER",
+          "roles": [
+            "ROLE_XMS_ADMIN",
+            "ROLE_MOBILIZE_ADMIN"
+          ],
+          "status": "ACTIVE",
+          "description": null
+        },
+        {
+          "id": "a66ba140-351e-11e4-a40e-22000aeb20d8",
+          "tenantId": "273f8eb0-18ed-11e4-8d86-22000a49bc1d",
+          "tenantName": "hot-august-nights",
+          "roles": [
+            "ROLE_XMS_ADMIN",
+            "ROLE_MOBILIZE_ADMIN"
+          ],
+          "status": "ACTIVE",
+          "description": null
+        },
+        {
+          "id": "ed44a8c4-0d3b-4d94-87a5-e0918a3e1bc2",
+          "tenantId": "d4af3aa0-4274-11e3-8736-22000aeb20d8",
+          "tenantName": "Automation-1028-1",
+          "roles": [
+            "ROLE_XMS_ADMIN",
+            "ROLE_MOBILIZE_ADMIN"
+          ],
+          "status": "ACTIVE",
+          "description": null
+        },
+        {
+          "id": "7a1755e0-3482-11e4-948c-22000aeb20d8",
+          "tenantId": "75ab2220-3482-11e4-948c-22000aeb20d8",
+          "tenantName": "back-to-school",
+          "roles": [
+            "ROLE_XMS_ADMIN",
+            "ROLE_MOBILIZE_ADMIN"
+          ],
+          "status": "ACTIVE",
+          "description": null
+        },
+        {
+          "id": "45f557d0-36fd-11e4-a40e-22000aeb20d8",
+          "tenantId": "42b3c160-36fd-11e4-a40e-22000aeb20d8",
+          "tenantName": "SQA-AUTO-FLOORPLANS",
+          "roles": [
+            "ROLE_XMS_ADMIN",
+            "ROLE_MOBILIZE_ADMIN"
+          ],
+          "status": "ACTIVE",
+          "description": null
+        }
+      ],
+      "showWhatsNew": false
+    },
+    {
+      "id": "300783c0-0139-11e4-82c5-22000aeb20d8",
+      "sfdcId": "003R000000oyy1eIAA",
+      "firstName": "Alex",
+      "lastName": "Janckila",
+      "password": {
+        "value": null,
+        "isSet": true
+      },
+      "email": "kiladad@yahoo.com",
+      "roles": [
+        "ROLE_XMS_ADMIN",
+        "ROLE_MOBILIZE_ADMIN",
+        "ROLE_BACKOFFICE_SUPER_ADMIN"
+      ],
+      "phone": "",
+      "provider": null,
+      "status": "ACTIVE",
+      "description": null,
+      "defaultTenantId": "75ab2220-3482-11e4-948c-22000aeb20d8",
+      "tenantScopeId": null,
+      "showWelcome": false,
+      "forceResetPassword": false,
+      "acceptedEula": true,
+      "tenantUsers": [
+        {
+          "id": "4b3ab2f0-364c-11e4-9ffd-22000a49bc1d",
+          "tenantId": "75ab2220-3482-11e4-948c-22000aeb20d8",
+          "tenantName": "back-to-school",
+          "roles": [
+            "ROLE_XMS_ADMIN",
+            "ROLE_MOBILIZE_ADMIN"
+          ],
+          "status": "ACTIVE",
+          "description": null
+        }
+      ],
+      "showWhatsNew": true
+    }
+  ],
+  "paging": {
+    "previous": "",
+    "next": "",
+    "start": 0,
+    "count": 50,
+    "actualCount": 3,
+    "total": 3
+  }
+}

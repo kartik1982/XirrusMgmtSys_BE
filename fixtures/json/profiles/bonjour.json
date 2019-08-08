@@ -1,0 +1,114 @@
+{
+ 
+  "ssids": [],
+  "dns": {
+   
+    "primaryServer": "208.67.222.222",
+    "secondaryServer": "208.67.220.220",
+    "tertiaryServer": "208.67.222.222",
+    "domain": "xirrus.com",
+    "useDhcp": false
+  },
+  "admin": null,
+
+  "aosVersion": null,
+  "locale": {
+ 
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+    
+      "serverHostName": "time.nist.gov",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    },
+    "secondaryNtpServer": {
+      
+      "serverHostName": "pool.ntp.org",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    }
+  },
+  "networking": {
+    
+    "useDhcp": true,
+    "cdp": {
+     
+      "enable": false,
+      "interval": null,
+      "holdtime": null
+    },
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1500,
+    "useVlan": true,
+    "wiredConfiguration320": {
+     
+      "tagNativeVlan": false,
+      "uplinkPVID": {
+      
+        "vlanNumber": 1,
+        "vlanName": "1"
+      },
+      "uplinkPvidOverrides": [],
+      "enableVlan": false,
+      "lan1": {
+        
+        "enable": true,
+        "mode": null,
+        "pvid": null,
+        "pvidOverrides": [],
+        "allowedVids": [],
+        "allowedVidOverrides": []
+      },
+      "lan2": {
+        
+        "enable": true,
+        "mode": null,
+        "pvid": null,
+        "pvidOverrides": [],
+        "allowedVids": [],
+        "allowedVidOverrides": []
+      },
+      "lan3": {
+      
+        "enable": true,
+        "mode": null,
+        "pvid": null,
+        "pvidOverrides": [],
+        "allowedVids": [],
+        "allowedVidOverrides": []
+      },
+      "lan4": {
+        
+        "enable": true,
+        "mode": null,
+        "pvid": null,
+        "pvidOverrides": [],
+        "allowedVids": [],
+        "allowedVidOverrides": []
+      }
+    }
+  },
+  "bonjour": {
+    
+    "enable": true,
+    "services": null,
+    "defaultVlans": [],
+    "overrides": []
+  },
+  "policies": [],
+  "optimization": null,
+  "security": null
+}

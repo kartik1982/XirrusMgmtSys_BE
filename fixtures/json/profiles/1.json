@@ -1,0 +1,646 @@
+{
+  "id": "4c7d80e1-7a60-11e4-b76d-22000aeb20d8",
+  "ssids": [
+    {
+      "id": "392f1204-7a61-11e4-a1fb-22000a49bc1d",
+      "vlan": {
+        "id": "ff7d0fc0-7a61-11e4-a1fb-22000a49bc1d",
+        "vlanNumber": 500,
+        "vlanName": null
+      },
+      "vlanOverrides": null,
+      "radius": {
+        "id": "370c5c40-7a65-11e4-a1fb-22000a49bc1d",
+        "primaryServerIpAddress": null,
+        "primaryServerPort": 1812,
+        "primaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "secondaryServerIpAddress": null,
+        "secondaryServerPort": 1812,
+        "secondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "timeout": 30,
+        "acctEnabled": true,
+        "acctPrimaryServerIpAddress": null,
+        "acctPrimaryServerPort": 1812,
+        "acctPrimaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctSecondaryServerIpAddress": null,
+        "acctSecondaryServerPort": 1812,
+        "acctSecondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctInterval": 330,
+        "nasIdentifier": null,
+        "primaryServerHostname": "10.10.10.10",
+        "secondaryServerHostname": "11.11.11.11",
+        "acctPrimaryServerHostname": "13.13.13.13",
+        "acctSecondaryServerHostname": "19.19.19.19",
+        "radiusDasPort": 0
+      },
+      "captivePortal": null,
+      "ssidName": "Auto2",
+      "guestPortalId": null,
+      "band": "DOT11BG",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "WPA2",
+      "authentication": "DOT1X",
+      "dot1xType": "EAP",
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": true,
+      "wpaAesEnabled": false,
+      "hasAirwatch": false
+    },
+    {
+      "id": "392f1203-7a61-11e4-a1fb-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto5",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "id": "392f1200-7a61-11e4-a1fb-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto6",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": true,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "id": "392f1205-7a61-11e4-a1fb-22000a49bc1d",
+      "vlan": {
+        "id": "ff7e2130-7a61-11e4-a1fb-22000a49bc1d",
+        "vlanNumber": 2000,
+        "vlanName": null
+      },
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto3",
+      "guestPortalId": null,
+      "band": "DOT11BG",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "id": "392f1202-7a61-11e4-a1fb-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": {
+        "id": "370e3100-7a65-11e4-a1fb-22000a49bc1d",
+        "primaryServerIpAddress": null,
+        "primaryServerPort": 1812,
+        "primaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "secondaryServerIpAddress": null,
+        "secondaryServerPort": 1812,
+        "secondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "timeout": 30,
+        "acctEnabled": true,
+        "acctPrimaryServerIpAddress": null,
+        "acctPrimaryServerPort": 1812,
+        "acctPrimaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctSecondaryServerIpAddress": null,
+        "acctSecondaryServerPort": 1812,
+        "acctSecondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctInterval": 350,
+        "nasIdentifier": null,
+        "primaryServerHostname": "79.12.10.10",
+        "secondaryServerHostname": "62.54.71.11",
+        "acctPrimaryServerHostname": "33.33.234.42",
+        "acctSecondaryServerHostname": "188.39.19.19",
+        "radiusDasPort": 0
+      },
+      "captivePortal": null,
+      "ssidName": "Auto4",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": true,
+      "encryption": "WPA2",
+      "authentication": "DOT1X",
+      "dot1xType": "EAP",
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": false,
+      "wpaAesEnabled": true,
+      "hasAirwatch": false
+    },
+    {
+      "id": "392f1201-7a61-11e4-a1fb-22000a49bc1d",
+      "vlan": {
+        "id": "ff7ee480-7a61-11e4-a1fb-22000a49bc1d",
+        "vlanNumber": 10,
+        "vlanName": null
+      },
+      "vlanOverrides": null,
+      "radius": {
+        "id": "370fdeb0-7a65-11e4-a1fb-22000a49bc1d",
+        "primaryServerIpAddress": null,
+        "primaryServerPort": 1812,
+        "primaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "secondaryServerIpAddress": null,
+        "secondaryServerPort": 1812,
+        "secondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "timeout": 30,
+        "acctEnabled": true,
+        "acctPrimaryServerIpAddress": null,
+        "acctPrimaryServerPort": 1812,
+        "acctPrimaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctSecondaryServerIpAddress": null,
+        "acctSecondaryServerPort": 1812,
+        "acctSecondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctInterval": 350,
+        "nasIdentifier": null,
+        "primaryServerHostname": "21.12.10.10",
+        "secondaryServerHostname": "71.71.71.11",
+        "acctPrimaryServerHostname": "45.45.145.45",
+        "acctSecondaryServerHostname": "167.59.19.20",
+        "radiusDasPort": 0
+      },
+      "captivePortal": null,
+      "ssidName": "Auto1",
+      "guestPortalId": null,
+      "band": "DOT11A",
+      "enabled": false,
+      "broadcast": true,
+      "encryption": "WPA2",
+      "authentication": "DOT1X",
+      "dot1xType": "EAP",
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": false,
+      "wpaAesEnabled": true,
+      "hasAirwatch": false
+    }
+  ],
+  "dns": {
+    "id": "98c93611-7a60-11e4-a1fb-22000a49bc1d",
+    "primaryServer": "208.67.222.222",
+    "secondaryServer": "208.67.220.220",
+    "tertiaryServer": "208.67.220.220",
+    "domain": "xirrus.com",
+    "useDhcp": false
+  },
+  "admin": null,
+  "modificationId": "279215c0-92a2-11e4-913d-22000a49bc1d",
+  "aosVersion": null,
+  "locale": {
+    "id": "4c7d80e2-7a60-11e4-b76d-22000aeb20d8",
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+      "id": "278c9780-92a2-11e4-913d-22000a49bc1d",
+      "serverHostName": "google.com",
+      "authentication": "MD5",
+      "authenticationKeyId": 12345,
+      "authenticationKey": {
+        "value": null,
+        "isSet": true
+      }
+    },
+    "secondaryNtpServer": {
+      "id": "278cbe90-92a2-11e4-913d-22000a49bc1d",
+      "serverHostName": "google.com",
+      "authentication": "SHA1",
+      "authenticationKeyId": 23456,
+      "authenticationKey": {
+        "value": null,
+        "isSet": true
+      }
+    }
+  },
+  "networking": {
+    "id": "98c93614-7a60-11e4-a1fb-22000a49bc1d",
+    "useDhcp": false,
+    "cdp": {
+      "id": "278c9781-92a2-11e4-913d-22000a49bc1d",
+      "enable": true,
+      "interval": 50,
+      "holdtime": 175
+    },
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1650,
+    "useVlan": true,
+    "wiredConfiguration320": null
+  },
+  "bonjour": {
+    "id": "98c93610-7a60-11e4-a1fb-22000a49bc1d",
+    "enable": false,
+    "services": null,
+    "defaultVlans": [
+
+    ],
+    "overrides": [
+
+    ]
+  },
+  "policies": [
+    {
+      "id": "127420c0-7a6a-11e4-a1fb-22000a49bc1d",
+      "name": "policy_device_1",
+      "enabled": null,
+      "policyType": "DEVICE",
+      "rules": [
+        {
+          "id": "127420c2-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "APP_CONTROL",
+          "name": "Simon456",
+          "source": {
+            "id": "127420c4-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "id": "127420c3-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "qos": 3,
+          "applicationId": "dbase",
+          "categoryId": "database"
+        },
+        {
+          "id": "127420c5-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "APP_CONTROL",
+          "name": "Simon4s56",
+          "source": {
+            "id": "127420c7-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "id": "127420c6-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "dscp": 1,
+          "applicationId": "cscosla",
+          "categoryId": "monitor"
+        },
+        {
+          "id": "127420c8-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "APP_CONTROL",
+          "name": "Simon4d56",
+          "source": {
+            "id": "127420ca-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "id": "127420c9-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "trafficLimit": 1111,
+          "limitType": "PPS_PER_STATION",
+          "applicationId": "39net",
+          "categoryId": "web_srvc"
+        },
+        {
+          "id": "127420cb-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "FIREWALL",
+          "name": "Simon",
+          "source": {
+            "id": "127420cd-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "MAC_ADDRESS",
+            "macAddress": "11:11:11:11:11:11",
+            "macAddressMask": "FF:FF:FF:FF:FF:FF",
+            "inverse": false
+          },
+          "destination": {
+            "id": "127420cc-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "MAC_ADDRESS",
+            "macAddress": "22:22:22:22:22:22",
+            "macAddressMask": "FF:FF:FF:FF:FF:FF",
+            "inverse": false
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "qos": 2,
+          "protocolLayer": "LAYER_2",
+          "protocol": "ARP",
+          "portRangeStart": 7
+        },
+        {
+          "id": "127420ce-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "FIREWALL",
+          "name": "Simon123",
+          "source": {
+            "id": "127420d0-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "VLAN_NUMBER",
+            "vlanNumber": 123,
+            "vlanOverrides": [
+
+            ],
+            "inverse": false
+          },
+          "destination": {
+            "id": "127420cf-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "VLAN_NUMBER",
+            "vlanNumber": 333,
+            "vlanOverrides": [
+
+            ],
+            "inverse": false
+          },
+          "enabled": false,
+          "action": "ALLOW",
+          "trafficLimit": 2345,
+          "limitType": "PPS_PER_STATION",
+          "protocolLayer": "LAYER_3",
+          "protocol": "ICMP",
+          "portRangeStart": 7
+        }
+      ],
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null,
+      "deviceClassification": "Wii"
+    },
+    {
+      "id": "127420d3-7a6a-11e4-a1fb-22000a49bc1d",
+      "name": "Auto1",
+      "enabled": null,
+      "policyType": "SSID",
+      "rules": [
+        {
+          "id": "127420d5-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "APP_CONTROL",
+          "name": "Ehsan456",
+          "source": {
+            "id": "127420d7-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "id": "127420d6-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "dscp": 2,
+          "applicationId": "dbase",
+          "categoryId": "database"
+        },
+        {
+          "id": "127447d0-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "APP_CONTROL",
+          "name": "Ehsanz456",
+          "source": {
+            "id": "127447d2-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "id": "127447d1-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "trafficLimit": 1234,
+          "limitType": "KBPS_PER_ARRAY",
+          "applicationId": "dbase",
+          "categoryId": "database"
+        },
+        {
+          "id": "127447d3-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "FIREWALL",
+          "name": "Test123",
+          "source": {
+            "id": "127447d5-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "IP_V4",
+            "ipAddress": "44.3.3.3",
+            "ipAddressMask": "255.255.255.0",
+            "inverse": false
+          },
+          "destination": {
+            "id": "127447d4-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "IP_V4",
+            "ipAddress": "33.4.4.4",
+            "ipAddressMask": "255.255.255.0",
+            "inverse": false
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "protocolLayer": "LAYER_3",
+          "protocol": "SRP",
+          "portRangeStart": 79
+        },
+        {
+          "id": "127447d6-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "FIREWALL",
+          "name": "Test321",
+          "source": {
+            "id": "127447d8-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "IP_V4",
+            "ipAddress": "144.33.3.3",
+            "ipAddressMask": "255.255.255.0",
+            "inverse": false
+          },
+          "destination": {
+            "id": "127447d7-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "VLAN_NUMBER",
+            "vlanNumber": 333,
+            "vlanOverrides": [
+
+            ],
+            "inverse": false
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "qos": 2,
+          "protocolLayer": "LAYER_2",
+          "protocol": "ANY_IP",
+          "portRangeStart": 70
+        }
+      ],
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null,
+      "ssidId": "392f1201-7a61-11e4-a1fb-22000a49bc1d"
+    },
+    {
+      "id": "127447d9-7a6a-11e4-a1fb-22000a49bc1d",
+      "name": "policy_user_1",
+      "enabled": null,
+      "policyType": "USER_GROUP",
+      "rules": [
+        {
+          "id": "127447db-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "FIREWALL",
+          "name": "Ehsan123",
+          "source": {
+            "id": "127447dd-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "VLAN_NUMBER",
+            "vlanNumber": 123,
+            "vlanOverrides": [
+
+            ],
+            "inverse": false
+          },
+          "destination": {
+            "id": "127447dc-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "VLAN_NUMBER",
+            "vlanNumber": 333,
+            "vlanOverrides": [
+
+            ],
+            "inverse": false
+          },
+          "enabled": false,
+          "action": "ALLOW",
+          "qos": 1,
+          "protocolLayer": "LAYER_2",
+          "protocol": "ARP",
+          "portRangeStart": 7
+        },
+        {
+          "id": "127447de-7a6a-11e4-a1fb-22000a49bc1d",
+          "ruleType": "FIREWALL",
+          "name": "Ehsanz123",
+          "source": {
+            "id": "127447e0-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "VLAN_NUMBER",
+            "vlanNumber": 123,
+            "vlanOverrides": [
+
+            ],
+            "inverse": false
+          },
+          "destination": {
+            "id": "127447df-7a6a-11e4-a1fb-22000a49bc1d",
+            "endpointType": "VLAN_NUMBER",
+            "vlanNumber": 333,
+            "vlanOverrides": [
+
+            ],
+            "inverse": false
+          },
+          "enabled": false,
+          "action": "ALLOW",
+          "protocolLayer": "LAYER_3",
+          "protocol": "TCP",
+          "portRangeStart": 7
+        }
+      ],
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null,
+      "radiusFilterId": "radius_attr",
+      "vlanOverrides": [
+
+      ]
+    },
+    {
+      "id": "127420d1-7a6a-11e4-a1fb-22000a49bc1d",
+      "name": "Global Policy",
+      "enabled": null,
+      "policyType": "GLOBAL",
+      "rules": [
+
+      ],
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null,
+      "blockStationToStation": false
+    }
+  ],
+  "optimization": null,
+  "security": null
+}

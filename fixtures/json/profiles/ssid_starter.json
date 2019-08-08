@@ -1,0 +1,23 @@
+{
+     
+  "vlan": null,
+  "vlanOverrides": null,
+  "radius": null,
+  "captivePortal": null,
+  "ssidName": null,
+  "guestPortalId": null,
+  "band": "BOTH",
+  "enabled": false,
+  "broadcast": false,
+  "encryption": "NONE",
+  "authentication": "OPEN",
+  "dot1xType": null,
+  "wpaPassphrase": {
+    "value": null,
+    "isSet": false
+  },
+  "wpaTkipEnabled": null,
+  "wpaAesEnabled": null
+
+}
+

@@ -1,0 +1,121 @@
+{
+  
+  "ssids": [
+    {
+      
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "320-test-ssid",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    }
+  ],
+  "dns": {
+   
+    "primaryServer": "208.67.222.222",
+    "secondaryServer": "208.67.220.220",
+    "tertiaryServer": "208.67.222.222",
+    "domain": "xirrus.com",
+    "useDhcp": false
+  },
+  "admin": null,
+  
+  "aosVersion": null,
+  "locale": {
+   
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+     
+      "serverHostName": "time.nist.gov",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    },
+    "secondaryNtpServer": {
+     
+      "serverHostName": "pool.ntp.org",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    }
+  },
+  "networking": {
+   
+    "useDhcp": false,
+    "cdp": {
+      
+      "enable": false,
+      "interval": null,
+      "holdtime": null
+    },
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1500,
+    "useVlan": false
+  },
+  "bonjour": {
+    
+    "enable": false,
+    "services": null,
+    "defaultVlans": [],
+    "overrides": []
+  },
+  "policies": [
+    {
+      
+      "name": "320-test-ssid",
+      "enabled": null,
+      "policyType": "SSID",
+      "rules": [
+        {
+          
+          "ruleType": "APP_CONTROL",
+          "name": "Block All Game Apps",
+          "source": {
+            "endpointType": "ANY"
+          },
+          "destination": {
+           "endpointType": "ANY"
+          },
+
+          "enabled": true,
+          "action": "BLOCK",
+          "categoryId": "games"
+        }
+      ],
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null
+      
+    }
+  ],
+  "optimization": null,
+  "security": null
+}

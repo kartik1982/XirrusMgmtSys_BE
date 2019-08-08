@@ -1,0 +1,31 @@
+{
+  
+ 
+  "baseMacAddress": "48:c0:83:00:88:e8",
+  "baseIapMacAddress": "48:c0:83:00:88:f8",
+  "ipAddress": "10.100.8.188",
+  "netmask": null,
+  "gateway": null,
+  "actualIpAddress": "10.100.83.88",
+  "actualNetmask": null,
+  "actualGateway": "10.100.83.1",
+  "serialNumber": "AJ888FAKE320",
+  "arrayModel": "XR320",
+  "manufacturer": "Xirrus",
+  "aosVersion": null,
+  "licenseKey": "620_NO_LICENSE_SPEC",
+  "licensedAosVersion": "8.0",
+  "location": "AJ FAKE 620",
+  "hostName": "AJ888FAKE620",
+  "activationStatus": "NOT_ACTIVATED",
+  "penaltyType": null,
+  "onlineStatus": "DOWN",
+  "recentActivation": null,
+  "reportedAosVersion": null,
+  "clients": null,
+  "txBytes": null,
+  "rxBytes": null,
+  "totalBytes": null,
+  "country": null,
+  "tags": []
+}

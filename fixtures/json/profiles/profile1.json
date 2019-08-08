@@ -1,0 +1,351 @@
+{
+  "id": "23fdc7e1-d3e6-11e3-951a-22000aeb20d8",
+  "ssids": [
+    {
+      "id": "34420e90-d3e6-11e3-951a-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto5",
+      "band": "BOTH",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "34425cb0-d3e6-11e3-951a-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": {
+        "id": "71079cf1-d3e6-11e3-951a-22000aeb20d8",
+        "primaryServerIpAddress": null,
+        "primaryServerPort": 1812,
+        "primaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "secondaryServerIpAddress": null,
+        "secondaryServerPort": 1812,
+        "secondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "timeout": 30,
+        "acctEnabled": true,
+        "acctPrimaryServerIpAddress": null,
+        "acctPrimaryServerPort": 1812,
+        "acctPrimaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctSecondaryServerIpAddress": null,
+        "acctSecondaryServerPort": 1812,
+        "acctSecondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctInterval": 330,
+        "nasIdentifier": null,
+        "primaryServerHostname": "10.10.10.10",
+        "secondaryServerHostname": "11.11.11.11",
+        "acctPrimaryServerHostname": "13.13.13.13",
+        "acctSecondaryServerHostname": "19.19.19.19",
+        "radiusDasPort": 0
+      },
+      "captivePortal": null,
+      "ssidName": "Auto2",
+      "band": "DOT11BG",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "WPA2",
+      "authentication": "DOT1X",
+      "dot1xType": "EAP",
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": true,
+      "wpaAesEnabled": false
+    },
+    {
+      "id": "3441c070-d3e6-11e3-951a-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto4",
+      "band": "BOTH",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "344283c0-d3e6-11e3-951a-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto3",
+      "band": "DOT11BG",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "343f0150-d3e6-11e3-951a-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto6",
+      "band": "BOTH",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "34419960-d3e6-11e3-951a-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto1",
+      "band": "DOT11A",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    }
+  ],
+  "dns": {
+    "id": "710aaa34-d3e6-11e3-951a-22000aeb20d8",
+    "primaryServer": "208.67.222.222",
+    "secondaryServer": "208.67.220.220",
+    "tertiaryServer": null,
+    "domain": null,
+    "useDhcp": false
+  },
+  "admin": null,
+  "modificationId": "d1d71740-d3e6-11e3-951a-22000aeb20d8",
+  "aosVersion": null,
+  "locale": {
+    "id": "d1d605d2-d3e6-11e3-951a-22000aeb20d8",
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+      "id": "d1d605d3-d3e6-11e3-951a-22000aeb20d8",
+      "serverHostName": "yahoo.com",
+      "authentication": "MD5",
+      "authenticationKeyId": 12345,
+      "authenticationKey": {
+        "value": null,
+        "isSet": true
+      }
+    },
+    "secondaryNtpServer": {
+      "id": "d1d605d4-d3e6-11e3-951a-22000aeb20d8",
+      "serverHostName": "google.com",
+      "authentication": "SHA1",
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": true
+      }
+    }
+  },
+  "networking": {
+    "id": "710aaa38-d3e6-11e3-951a-22000aeb20d8",
+    "useDhcp": true,
+    "cdp": {
+      "id": "710aaa39-d3e6-11e3-951a-22000aeb20d8",
+      "enable": true,
+      "interval": 50,
+      "holdtime": 175
+    },
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1650,
+    "useVlan": false
+  },
+  "bonjour": {
+    "id": "710aaa33-d3e6-11e3-951a-22000aeb20d8",
+    "enable": false,
+    "services": null,
+    "defaultVlans": [],
+    "overrides": []
+  },
+  "policies": [
+    {
+      "id": "d1d605e5-d3e6-11e3-951a-22000aeb20d8",
+      "name": "policy_user_1",
+      "enabled": null,
+      "policyType": "USER_GROUP",
+      "rules": null,
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null,
+      "radiusFilterId": "radius_attr",
+      "vlanOverrides": []
+    },
+    {
+      "id": "d1d605d5-d3e6-11e3-951a-22000aeb20d8",
+      "name": "policy_device_1",
+      "enabled": null,
+      "policyType": "DEVICE",
+      "rules": [
+        {
+          "id": "d1d605d7-d3e6-11e3-951a-22000aeb20d8",
+          "ruleType": "APP_CONTROL",
+          "name": "Simon456",
+          "source": {
+            "id": "d1d605d9-d3e6-11e3-951a-22000aeb20d8",
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "id": "d1d605d8-d3e6-11e3-951a-22000aeb20d8",
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "qos": 3,
+          "applicationId": "dbase",
+          "categoryId": "database"
+        },
+        {
+          "id": "d1d605da-d3e6-11e3-951a-22000aeb20d8",
+          "ruleType": "APP_CONTROL",
+          "name": "Simon4s56",
+          "source": {
+            "id": "d1d605dc-d3e6-11e3-951a-22000aeb20d8",
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "id": "d1d605db-d3e6-11e3-951a-22000aeb20d8",
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "dscp": 1,
+          "applicationId": "cscosla",
+          "categoryId": "monitor"
+        },
+        {
+          "id": "d1d605dd-d3e6-11e3-951a-22000aeb20d8",
+          "ruleType": "APP_CONTROL",
+          "name": "Simon4d56",
+          "source": {
+            "id": "d1d605df-d3e6-11e3-951a-22000aeb20d8",
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "id": "d1d605de-d3e6-11e3-951a-22000aeb20d8",
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "trafficLimit": 1111,
+          "limitType": "PPS_PER_STATION",
+          "applicationId": "39net",
+          "categoryId": "web_srvc"
+        },
+        {
+          "id": "d1d605e0-d3e6-11e3-951a-22000aeb20d8",
+          "ruleType": "FIREWALL",
+          "name": "Simon",
+          "source": {
+            "id": "d1d605e2-d3e6-11e3-951a-22000aeb20d8",
+            "endpointType": "MAC_ADDRESS",
+            "macAddress": "11:11:11:11:11:11",
+            "macAddressMask": "FF:FF:FF:FF:FF:FF",
+            "inverse": false
+          },
+          "destination": {
+            "id": "d1d605e1-d3e6-11e3-951a-22000aeb20d8",
+            "endpointType": "MAC_ADDRESS",
+            "macAddress": "22:22:22:22:22:22",
+            "macAddressMask": "FF:FF:FF:FF:FF:FF",
+            "inverse": false
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "qos": 2,
+          "protocolLayer": "LAYER_2",
+          "protocol": "ARP",
+          "portRangeStart": 7
+        }
+      ],
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null,
+      "deviceClassification": "Wii"
+    },
+    {
+      "id": "d1d605e3-d3e6-11e3-951a-22000aeb20d8",
+      "name": "Auto1",
+      "enabled": null,
+      "policyType": "SSID",
+      "rules": null,
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null,
+      "ssidId": "34419960-d3e6-11e3-951a-22000aeb20d8"
+    }
+  ],
+  "optimization": null,
+  "security": null
+}

@@ -1,0 +1,34 @@
+#INSTALL JAVA on NODE TO CONNECT WITH JENKINS
+sudo apt-get install
+sudo apt-get update
+sudo apt-get install default-jre
+#Install git TOGET LATEST CODE
+sudo apt install git
+#install Ruby and Bundler 
+sudo apt-add-repository ppa:brightbox/ruby-ng
+sudo apt-get update
+sudo apt-get install ruby2.4
+sudo apt-get install ruby2.4-dev
+sudo gem install bundler
+# Install chromedriver and chrome browser
+latest_chromedriver=$(wget -qO- http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+#echo "LATEST:"
+version_to_get="$latest_chromedriver"
+wget https://chromedriver.storage.googleapis.com/$version_to_get/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip 
+sudo cp chromedriver /usr/bin/chromedriver
+sudo chown root /usr/bin/chromedriver
+sudo chmod +x /usr/bin/chromedriver
+sudo chmod 755 /usr/bin/chromedriver
+rm chromedriver*
+#for GUI Test Node set Vide display by VM settings like 8.79 MB for high resolution and than set max resolution
+#Run Following items
+1. bundle install to install all latest gem files to node
+2. Connect to Jekins using salve command printed on Jenkins for salve wihtout sudo
+
+STEPS FOR WINDOWS VM:
+1# Install Ruby 2.4.1
+2# Install Git 
+3# Set sh.exe in path windows env variable
+4# Start java slave service with working dir "c:/Users/Xirrus/.jenkins"
+Under construction

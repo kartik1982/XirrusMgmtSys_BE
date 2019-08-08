@@ -1,0 +1,29 @@
+<div id="roles_modal" class="roles_modal modal simple ui-draggable" data-bind="modal: { trigger: roles_modal }" style="position: relative; top: 30px; left: 677.5px;">
+        <div class="title_wrap">
+            <div class="commonTitle" data-bind="localize: 'settings.users.modal.title'">Select User Privileges</div>
+            <div class="commonSubtitle" data-bind="localize: { html: {key: 'settings.users.modal.subtitle', params: { user: selected_user() ? selected_user().email : '' }} }">Please assign the user privileges gapsec777@gmail.com will have access to for each Xirrus Product listed below:</div>
+        </div>
+
+        <div class="content">
+            <div data-bind="foreach: products_roles">
+                <div class="field">
+                    <label class="field_label" data-bind="text: $data.title">XMS:</label>
+                    <dl class="ko_dropdownlist"><dt><a href="#" class="ko_dropdownlist_button"><span class="text" title="None" data-origclass="text">None</span><span class="arrow"></span></a></dt></dl><dl data-bind="ddlOptions:$data.roles, optionsText:'nameKey', disabled: $parent.isAmbassador, optionsValue:'value', value:$parent.selected_roles[$data.name], localize:true" style="display: none;"></dl>
+                </div>
+            
+                <div class="field">
+                    <label class="field_label" data-bind="text: $data.title">Mobilize:</label>
+                    <dl class="ko_dropdownlist"><dt><a href="#" class="ko_dropdownlist_button"><span class="text" title="None" data-origclass="text">None</span><span class="arrow"></span></a></dt></dl><dl data-bind="ddlOptions:$data.roles, optionsText:'nameKey', disabled: $parent.isAmbassador, optionsValue:'value', value:$parent.selected_roles[$data.name], localize:true" style="display: none;"></dl>
+                </div>
+            </div>
+            <div id="settings_useraccounts_ambassador" class="togglebox" data-bind="removeIfNot: $root.liu.isAllowed('settings.useraccounts.roles.guestambassador')">
+                <span class="togglebox_heading" data-bind="localize: { html: 'settings_useraccounts_ambassador_description' }">Would you like to make this account a Guest Ambassador?<span class="highlight">This account type is limited to registering and maintaining guest access.</span></span>
+                <div id="settings_useraccounts_ambassador_Switch" class="fl_right switch" data-bind="switch: isAmbassador"><input id="settings_useraccounts_ambassador_Switch_switch" type="checkbox" class="switch_checkbox" tabindex="450"><label for="settings_useraccounts_ambassador_Switch_switch" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+            </div>
+
+            <div class="field buttons">
+                <a tabindex="110" href="#" id="users_modal_save_btn" class="button orange" data-bind="localize: 'save', click: roles_save">Save</a>
+                <a tabindex="100" href="#" id="users_modal_cancel_btn" class="button lightgrey" data-bind="localize: 'cancel', click: roles_cancel">Cancel</a>
+            </div>
+        </div>
+    <a class="modal-close" href="#" tabindex="9999" id="roles_modal_closemodalbtn"></a></div>

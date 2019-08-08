@@ -1,0 +1,11 @@
+{
+    "hostName": "AUTOWAP9173AVAYASELF01",
+    "baseMacAddress": "00:12:12:33:22:31",
+    "baseIapMacAddress": "00:12:12:33:22:31",
+    "serialNumber": "AUTOWAP9173AVAYASELF01",
+    "arrayModel": "XR320",
+    "ipAddress": "10.100.83.16",
+    "actualIpAddress": "10.100.83.16",
+    "actualNetmask": "255.255.255.0",
+    "actualGateway": "10.100.83.1"
+}

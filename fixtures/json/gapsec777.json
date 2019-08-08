@@ -1,0 +1,34 @@
+{
+  "id": "e22f8ca0-0161-11e4-82c5-22000aeb20d8",
+  "sfdcId": null,
+  "firstName": "Gap",
+  "lastName": "Secretary",
+  "password": {
+    "value": null,
+    "isSet": true
+  },
+  "email": "gapsec777@gmail.com",
+  "roles": [
+    "ROLE_GUEST_AMBASSADOR"
+  ],
+  "phone": "",
+  "status": "ACTIVE",
+  "description": "For testing GAP Secretary",
+  "defaultTenantId": "99ab2f40-f8c7-11e3-baf6-22000a49bc1d",
+  "tenantScopeId": null,
+  "showWelcome": true,
+  "forceResetPassword": true,
+  "acceptedEula": true,
+  "tenantUsers": [
+    {
+      "id": "e22fdac0-0161-11e4-82c5-22000aeb20d8",
+      "tenantId": "99ab2f40-f8c7-11e3-baf6-22000a49bc1d",
+      "tenantName": "sqa-auto-array-details2",
+      "roles": [
+        "ROLE_GUEST_AMBASSADOR"
+      ],
+      "status": "ACTIVE",
+      "description": "For testing GAP Secretary"
+    }
+  ]
+}

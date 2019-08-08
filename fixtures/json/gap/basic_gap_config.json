@@ -1,0 +1,30 @@
+{
+ 
+  "language": null,
+  "timeout": 0,
+  "timeoutType": "NEVER",
+  "expiration": "DAY_1",
+  "landingPage": "http://www.xirrus.com",
+  "requireSponsor": false,
+  "autoAcceptSponsor": false,
+  "facebook": false,
+  "google": false,
+  "sponsors": [],
+  "whitelist": [],
+  "lookAndFeel": {
+    "companyName": "",
+    "logoUrl": null,
+    "primaryColor": "#F77631",
+    "secondaryColor": null,
+    "showXirrusPowered": true,
+    "welcomeMessage": null,
+    "loginMessage": "",
+    "registerMessage": "",
+    "successMessage": "",
+    "emailMessage": "",
+    "terms": "",
+    "requireMobile": false,
+    "showMobileAgreement": true
+  },
+  "locale": "en_US"
+}

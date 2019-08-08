@@ -1,0 +1,24 @@
+<div id="header_right_nav">
+        <ul class="header_menu">
+            
+            <li id="header_nav_contact" class="header_nav" data-bind="css: { selected: location().indexOf('#contact')>-1 }">
+                <a href="#contact" id="header_contact_link" data-bind="localize:'header.contact'">Contact</a>
+            </li>
+            
+            <li id="header_nav_user" class="header_nav drop_menu selected active" data-bind="menu: {}, css: { selected: location().indexOf('#backoffice')>-1 || location().indexOf('#settings')>-1 }">
+                <span class="username" data-bind="text: liu.data.email">array-tester2</span>
+                <span class="arrow"></span>
+                <nav class="profile_nav drop_menu_nav active">
+                    
+                    <a href="#settings/myaccount" id="header_settings_link" class="nav_item" data-bind="localize:'header.settings'">Settings</a>
+                    
+                    <div id="header_suggestion_box_wrapper" data-bind="visible: !suggestionBoxVM.boxShowing()" style="display: none;">
+                        <a href="#" id="header_suggestion_box" class="nav_item" data-bind="localize:'header.suggestion', click: showSuggestionBox">Give us Feedback</a>
+                        <div id="suggestionTooltip" data-bind="localize: 'suggestion.tooltip'">In case you change your mind.</div>
+                    </div>
+                    <a href="#" class="nav_item" id="header_start_tour" data-bind="localize:'header.tour', click:startTour">Start Guided Tour</a>
+                    <a href="#" class="nav_item" id="header_logout_link" data-bind="localize:'header.logout', click:logout">Log Out</a>
+                </nav>
+            </li>
+        </ul>
+    </div>

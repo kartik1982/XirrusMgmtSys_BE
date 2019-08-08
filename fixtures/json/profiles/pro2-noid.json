@@ -1,0 +1,237 @@
+{
+  "ssids": [
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "4SSID",
+      "guestPortalId": null,
+      "band": "DOT11A",
+      "enabled": false,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "7SSID",
+      "guestPortalId": null,
+      "band": "DOT11BG",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "3SSID",
+      "guestPortalId": null,
+      "band": "DOT11BG",
+      "enabled": false,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "12345678901234567890-1234567890",
+      "guestPortalId": null,
+      "band": "DOT11A",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "5SSID",
+      "guestPortalId": null,
+      "band": "DOT11BG",
+      "enabled": true,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "vlan": {
+        "vlanNumber": 202,
+        "vlanName": null
+      },
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "A123",
+      "guestPortalId": null,
+      "band": "DOT11BG",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "6SSID",
+      "guestPortalId": null,
+      "band": "DOT11BG",
+      "enabled": false,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "8SSID",
+      "guestPortalId": null,
+      "band": "DOT11BG",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null,
+      "hasAirwatch": false
+    }
+  ],
+  "dns": {
+    "primaryServer": "208.67.222.222",
+    "secondaryServer": "208.67.220.220",
+    "tertiaryServer": null,
+    "domain": null,
+    "useDhcp": false
+  },
+  "admin": null,
+  "aosVersion": null,
+  "locale": {
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+      "serverHostName": "la.com",
+      "authentication": "MD5",
+      "authenticationKeyId": 56789,
+      "authenticationKey": {
+        "value": null,
+        "isSet": true
+      }
+    },
+    "secondaryNtpServer": {
+      "serverHostName": "com.com",
+      "authentication": "SHA1",
+      "authenticationKeyId": 44444,
+      "authenticationKey": {
+        "value": null,
+        "isSet": true
+      }
+    }
+  },
+  "networking": {
+    "useDhcp": false,
+    "cdp": {
+      "enable": true,
+      "interval": 60,
+      "holdtime": 165
+    },
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1640,
+    "useVlan": true,
+    "wiredConfiguration320": null
+  },
+  "bonjour": {
+    "enable": false,
+    "services": null,
+    "defaultVlans": [
+
+    ],
+    "overrides": [
+
+    ]
+  },
+  "policies": [
+
+  ],
+  "optimization": null,
+  "security": null
+}

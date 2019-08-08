@@ -1,0 +1,236 @@
+resource,path,method,summary,parameter_count
+/alerts-notifications,/alerts-notifications.json/,GET,Get Alert Notification Settings,0
+/alerts-notifications,/alerts-notifications.json/disable,PUT,Disable Alert Notifications,1
+/alerts-notifications,/alerts-notifications.json/enable,PUT,Enable Alert Notifications,1
+/geomaps,/geomaps.json/location,PUT,Set Arrays Location,1
+/geomaps,/geomaps.json/,GET,List GeoArrays,8
+/feedback,/feedback.json/,POST,Give Feedback,1
+/arrays,/arrays.json/backoffice/penalty/{serialNumber},POST,Clear Array penalty,1
+/arrays,/arrays.json/search/{search},GET,Search Array,1
+/arrays,/arrays.json/backoffice/serialnumber/{serialNumber},GET,Get Array backoffice details by serial number,1
+/arrays,/arrays.json/serialnumber/{serialNumber},GET,Get Array by serial number,1
+/arrays,/arrays.json/macaddress/{macAddress},GET,Get Array by MAC addess,1
+/arrays,/arrays.json/global/macaddress/{macAddress},GET,Get Array and Tenant by MAC addess from global storage,1
+/arrays,/arrays.json/summary,GET,Get Array counts,0
+/arrays,/arrays.json/,GET,List Arrays,4
+/arrays,/arrays.json/,POST,Add Arrays,1
+/arrays,/arrays.json/unassigned,GET,List Arrays not assigned to a Profile,4
+/arrays,/arrays.json/unassigned,PUT,Remove Arrays from any Profile,1
+/arrays,/arrays.json/global,GET,List Arrays for all Tenants,4
+/arrays,/arrays.json/{arrayId},GET,Get Array,1
+/arrays,/arrays.json/{arrayId},PUT,Update Array,2
+/arrays,/arrays.json/{arrayId},DELETE,Delete Array,1
+/arrays,/arrays.json/global/serialnumber/{serialNumber},GET,Get Array and Tenant by serial number from global storage,1
+/arrays,/arrays.json/global/{arrayId},GET,Get Array and Tenant by ID from global storage,1
+/arrays,/arrays.json/stats/throughput,GET,Get Array throughput time series data,2
+/arrays,/arrays.json/stats/top,GET,List Top Arrays,5
+/arrays,/arrays.json/systeminfo/{arrayId},GET,Get Array System Info,1
+/arrays,/arrays.json/actions/optimize,POST,Perform optimization actions on Arrays,1
+/arrays,/arrays.json/actions/optimize/check,POST,Optimization check,1
+/arrays,/arrays.json/factorydefault,POST,Factory Reset Array,1
+/arrays,/arrays.json/reboot,POST,Reboot Array,1
+/arrays,/arrays.json/backoffice/penalty,GET,List Penalized Arrays,3
+/arrays,/arrays.json/backoffice/penalty,POST,Bulk clear Array penalty,1
+/arrays,/arrays.json/{arrayId}/activation/reset,PUT,Reset Activation status,1
+/arrays,/arrays.json/{arrayId}/activation/expire,PUT,Expire Array,1
+/mobile,/mobile.json/,GET,List Mobile Carriers,4
+/mobile,/mobile.json/,POST,Add Mobile Carrier,1
+/mobile,/mobile.json/countries,GET,Get Carriers by country,2
+/mobile,/mobile.json/{carrierId},DELETE,Delete Mobile Carrier,1
+/mobile,/mobile.json/{carrierId},PUT,Update Mobile Carrier,2
+/clients,/clients.json/,GET,List Clients,4
+/clients,/clients.json/stats/top,GET,List Top Clients,5
+/clients,/clients.json/summary,GET,Get Client summary,0
+/clients,/clients.json/stats/throughput,GET,Get Client throughput time series data,2
+/clients,/clients.json/stats/device,GET,Get Clients by Devices,3
+/clients,/clients.json/stats/manufacturer,GET,Get Clients by Manufacturer,3
+/clients,/clients.json/stats/category,GET,Get Applications by Category,5
+/clients,/clients.json/stats/application,GET,Get Applications,5
+/clients,/clients.json/stats/count,GET,Get Client count time series data,2
+/clients,/clients.json/actions/reset,PUT,Reset Clients,1
+/clients,/clients.json/actions/block,PUT,Block Clients,1
+/aosversions,/aosversions.json/aosversionbox/circles/{aosVersionBoxId},GET,List all TenantCircles for a Version Box,5
+/aosversions,/aosversions.json/aosversionbox/circles/{aosVersionBoxId},PUT,Assign Tenant Circles to an AOS Version Box,2
+/aosversions,/aosversions.json/version/{aosVersionName},GET,Get AOS Version by name,1
+/aosversions,/aosversions.json/aosversionbox,POST,Add AOS Version Box,1
+/aosversions,/aosversions.json/aosversionbox,GET,List all AOS Version Boxes,4
+/aosversions,/aosversions.json/{aosVersionId},DELETE,Delete AOS Version,1
+/aosversions,/aosversions.json/{aosVersionId},GET,Get AOS Version,1
+/aosversions,/aosversions.json/{aosVersionId},PUT,Update AOS Version,2
+/aosversions,/aosversions.json/aosversionbox/{aosVersionBoxId},DELETE,Delete AOS Version Box,1
+/aosversions,/aosversions.json/aosversionbox/{aosVersionBoxId},GET,Get AOS Version Box by ID,1
+/aosversions,/aosversions.json/,GET,List active AOS Versions,5
+/aosversions,/aosversions.json/,POST,Add AOS Version,1
+/aosversions,/aosversions.json/all,GET,List all AOS Versions,4
+/aosversions,/aosversions.json/aosversionbox/name/{aosVersionBoxName},GET,Get AOS Version Box by name,1
+/auditlog,/auditlog.json/,GET,List Audit Logs for Date Range,4
+/auditlog,/auditlog.json/global,GET,List global Audit Logs for Date Range,4
+/tenantclients,/tenantclients.json/{tenantId}/online,GET,List online Clients for Tenant,5
+/alerts,/alerts.json/summary,GET,Get Alert Summary,0
+/alerts,/alerts.json/,GET,Get Alerts,7
+/alerts,/alerts.json/acknowledge,PUT,Acknowledge Alerts,1
+/alerts,/alerts.json/unacknowledge,PUT,Unacknowledge Alerts,1
+/globalsettings,/globalsettings.json/news/url,GET,Get 'Whats New' url,0
+/globalsettings,/globalsettings.json/news/url,PUT,Set 'Whats New' url,1
+/globalsettings,/globalsettings.json/alerts/enable,PUT,Enable Alert Feature,0
+/globalsettings,/globalsettings.json/alerts/disable,PUT,Disable Alert Feature,0
+/globalsettings,/globalsettings.json/xms/normal,PUT,Flag XMS system to be normal,0
+/globalsettings,/globalsettings.json/cache/refresh,GET,Refresh Feature Cache,0
+/radios,/radios.json/{arrayId},GET,Get Radios for Array,1
+/radios,/radios.json/{arrayId},PUT,Update Radios for Array,2
+/files,/files.json/captiveportal/images,GET,List Images,0
+/files,/files.json/captiveportal/images,DELETE,Delete Images,1
+/files,/files.json/captiveportal/images,POST,Upload Image File,1
+/files,/files.json/floorplan/images,GET,List Floor Plans,0
+/files,/files.json/floorplan/images,DELETE,Delete Floor Plan,1
+/files,/files.json/floorplan/images,POST,Upload Floor Plan,1
+/maintenance,/maintenance.json/upgradeTenantSchema,GET,Upgrade Tenant Schema,1
+/maintenance,/maintenance.json/upgradeGlobalSchema,GET,Upgrade Global Schema,0
+/maintenance,/maintenance.json/convertAosVersionInfo,POST,Convert AosVersionInfo,1
+/maintenance,/maintenance.json/removeOrphanedAosConfigIds,POST,Remove orphaned AOS Config ids,1
+/maintenance,/maintenance.json/updateProfiles,PUT,Update Profiles,1
+/maintenance,/maintenance.json/missingRefsToProfileConfigs,POST,View Profile Configs Missing reference from Profile After Data Conversion,1
+/maintenance,/maintenance.json/logDataConversionEdgeCases,POST,Trigger logging of edge case data conversion records,1
+/maintenance,/maintenance.json/convertUserDashboardIds,GET,Convert the User Dashboard IDs,0
+/maintenance,/maintenance.json/convertMobilizeState,POST,Convert Mobilize State,1
+/maintenance,/maintenance.json/missingMobilizeState,POST,View Missing Mobilize States After Data Conversion,1
+/maintenance,/maintenance.json/convertAosConfigs,POST,Convert AOS Configs,1
+/maintenance,/maintenance.json/missingAosConfigs,POST,View Missing Aos Configs After Data Conversion,1
+/floorplans,/floorplans.json/building/{buildingId},POST,Duplicate Building,1
+/floorplans,/floorplans.json/building/{buildingId},GET,Get Building,1
+/floorplans,/floorplans.json/building/{buildingId},PUT,Update Building,2
+/floorplans,/floorplans.json/{floorplanId}/arrays,PUT,Set or Update Arrays for Floorplan,2
+/floorplans,/floorplans.json/{floorplanId}/arrays,GET,List Arrays for Floorplan,1
+/floorplans,/floorplans.json/{floorplanId}/heat,GET,Get heat,1
+/floorplans,/floorplans.json/{floorplanId}/duplicate,POST,Duplicate Floorplan,1
+/floorplans,/floorplans.json/orderFloors,PUT,Order Floorplans,1
+/floorplans,/floorplans.json/{buildingId},POST,Add Floorplan,2
+/floorplans,/floorplans.json/{buildingId},PUT,Update Floorplans,2
+/floorplans,/floorplans.json/building,GET,List Buildings,4
+/floorplans,/floorplans.json/building,POST,Add Building,1
+/floorplans,/floorplans.json/building,DELETE,Delete Building,1
+/floorplans,/floorplans.json/{buildingId}/floors,GET,List Floorplans for Building,1
+/floorplans,/floorplans.json/{floorplanId},GET,Get Floorplan,1
+/floorplans,/floorplans.json/,DELETE,Delete Floorplan,1
+/floorplans,/floorplans.json/arrays,GET,List Arrays,0
+/tenants,/tenants.json/suspend/{tenantId},PUT,Suspend Tenant,1
+/tenants,/tenants.json/resume/{tenantId},PUT,Resume Suspended Tenant,1
+/tenants,/tenants.json/name/{tenantName},GET,Get Tenant by Name,5
+/tenants,/tenants.json/maintenance/{tenantId},PUT,Update Tenant Maintenance Window,2
+/tenants,/tenants.json/maintenance/{tenantId},GET,Get Tenant Maintenance Window,1
+/tenants,/tenants.json/search,GET,Search Tenant,1
+/tenants,/tenants.json/backoffice/arrays/summary/{tenantId},GET,Get Array counts for Tenant,1
+/tenants,/tenants.json/circles,GET,List Tenants For Circles,4
+/tenants,/tenants.json/{tenantId},GET,Get Tenant,1
+/tenants,/tenants.json/{tenantId},PUT,Update Tenant,2
+/tenants,/tenants.json/{tenantId},DELETE,Delete Tenant,1
+/tenants,/tenants.json/erp-id/{erpId},GET,Get Tenant by ERP-ID,1
+/tenants,/tenants.json/current,GET,Get current Tenant,0
+/tenants,/tenants.json/,POST,Add Tenant,1
+/tenants,/tenants.json/,GET,List Tenants,4
+/tenants,/tenants.json/shard/{shardId},POST,Add Tenant to specified Shard,2
+/tenants,/tenants.json/{tenantId}/arrays,GET,List Arrays for Tenant,5
+/tenants,/tenants.json/{tenantId}/arrays,POST,Add Arrays to Tenant,2
+/tenants,/tenants.json/{tenantId}/arrays,PUT,Assign Arrays to Tenant,2
+/tenants,/tenants.json/{tenantId}/arrays/{arrayId},PUT,Update Array for Tenant,3
+/tenants,/tenants.json/{tenantId}/arrays/{arrayId},DELETE,Delete Array for Tenant,2
+/tenants,/tenants.json/{tenantId}/users,GET,List Users for Tenant,5
+/tenants,/tenants.json/{tenantId}/users,POST,Add User for Tenant,2
+/tenants,/tenants.json/{tenantId}/users/{userId},GET,Get User for Tenant,2
+/tenants,/tenants.json/{tenantId}/users/{userId},PUT,Update User for Tenant,3
+/tenants,/tenants.json/{tenantId}/users/{userId},DELETE,Delete User for Tenant,2
+/tenants,/tenants.json/{tenantId}/users/email/{email},GET,Get User for Tenant by email,2
+/tenants,/tenants.json/{tenantId}/auditlog,GET,List Audit Logs for Date Range for Tenant,5
+/tenants,/tenants.json/maintenance,GET,Get Current Tenant Maintenance Window,0
+/tenants,/tenants.json/maintenance,PUT,Update Current Tenant Maintenance Window,1
+/tenants,/tenants.json/backoffice/arrays/{tenantId},GET,List backoffice information for Arrays for Tenant,5
+/tenants,/tenants.json/backoffice/clients/summary/{tenantId},GET,Get Client summary for Tenant,1
+/tenants,/tenants.json/scope/{tenantId},PUT,Set Tenant Scope,1
+/tenants,/tenants.json/scope/clear,PUT,Reset Tenant Scope to default,0
+/shards,/shards.json/{shardId},PUT,Update Shard,2
+/shards,/shards.json/{shardId},DELETE,Delete Shard,1
+/shards,/shards.json/{shardId},GET,Get Shard,1
+/shards,/shards.json/{shardId}/tenant/{tenantId},PUT,Assign Suspended Tenant to Shard,2
+/shards,/shards.json/,GET,List all Shards,4
+/shards,/shards.json/,POST,Add Shard,1
+/userproperties,/userproperties.json/dashboard/,GET,Get Dashboards for current User,0
+/userproperties,/userproperties.json/dashboard/,PUT,Save Dashboards,1
+/userproperties,/userproperties.json/grid/{gridName},PUT,Save Grid,2
+/userproperties,/userproperties.json/grid/{gridName},GET,Get Grid by name,1
+/userproperties,/userproperties.json/preferences/,GET,Get current User's Preferences,0
+/userproperties,/userproperties.json/preferences/,PUT,Save User Preferences,1
+/userproperties,/userproperties.json/floorplan/{floorplanId},GET,Get Floorplan settings for current User,1
+/userproperties,/userproperties.json/floorplan/{floorplanId},PUT,Save Floorplan settings,2
+/profiles,/profiles.json/default,GET,Get default Profile,0
+/profiles,/profiles.json/{profileId}/default,PUT,Assign default Profile,1
+/profiles,/profiles.json/default/clear,PUT,Clear default Profile,0
+/profiles,/profiles.json/captiveportal/,POST,Validator Captive Portal,1
+/profiles,/profiles.json/{profileId},POST,Duplicate Profile,1
+/profiles,/profiles.json/{profileId},GET,Get Profile,1
+/profiles,/profiles.json/{profileId},PUT,Update Profile,2
+/profiles,/profiles.json/{profileId},DELETE,Delete Profile,1
+/profiles,/profiles.json/{profileId}/configuration,GET,Get Profile Configuration,1
+/profiles,/profiles.json/{profileId}/configuration,PUT,Create or update Profile Configuration,2
+/profiles,/profiles.json/,GET,List Profiles,4
+/profiles,/profiles.json/,POST,Add Profile,1
+/profiles,/profiles.json/{profileId}/arrays,GET,List Arrays assigned to Profile,5
+/profiles,/profiles.json/{profileId}/arrays,PUT,Assign Arrays to Profile,2
+/profiles,/profiles.json/{profileId}/arrays,DELETE,Remove Arrays from Profile,2
+/profiles,/profiles.json/{profileId}/clients/,GET,List Clients,5
+/profiles,/profiles.json/{profileId}/settings/,GET,Profile Settings,1
+/profiles,/profiles.json/ssids,GET,List all SSIDs,0
+/sfdc,/sfdc.json/customerData,GET,import customer data,0
+/resource,/resource.json/floorplan/{floorplanId}/image,GET,Get an image given its floorplan ID,1
+/resource,/resource.json/heat/{floorplanId}/{filename},GET,Get a heat image given its floorplan ID and filter parameters,2
+/resource,/resource.json/floorplan/{floorplanId}/thumb,GET,Get an image thumbnail given its floorplan ID,1
+/guestaccess,/guestaccess.json/search,GET,Search for a Guest,8
+/guestaccess,/guestaccess.json/gap/ssid,DELETE,Delete Ssids (For XMS-E Only),1
+/guestaccess,/guestaccess.json/gap/{portalId}/configuration,GET,Get Guest Access Portal Configuration,1
+/guestaccess,/guestaccess.json/gap/{portalId}/configuration,PUT,Create or update Guest Access Portal Configuration,2
+/guestaccess,/guestaccess.json/gap/{portalId}/ssids,PUT,Assign SSIDs to Portal,2
+/guestaccess,/guestaccess.json/,GET,List all Guests,4
+/guestaccess,/guestaccess.json/,DELETE,Delete Guests,1
+/guestaccess,/guestaccess.json/{portalId}/guest,POST,Add Guest,2
+/guestaccess,/guestaccess.json/{portalId}/guest,GET,List Guests for Guest Access Portal,5
+/guestaccess,/guestaccess.json/{guestId},PUT,Update Guest,2
+/guestaccess,/guestaccess.json/{guestId},GET,Get a Guest,1
+/guestaccess,/guestaccess.json/{guestId}/newpassword,POST,Generate new password for Guest,1
+/guestaccess,/guestaccess.json/{guestId}/sendpassword,PUT,Send password to user,5
+/guestaccess,/guestaccess.json/access,PUT,Toggle access,2
+/guestaccess,/guestaccess.json/gap/{portalId},GET,Get Guest Access Portal,1
+/guestaccess,/guestaccess.json/gap/{portalId},POST,Copy Guest Access Portal,1
+/guestaccess,/guestaccess.json/gap/{portalId},PUT,Update Guest Access Portal,2
+/guestaccess,/guestaccess.json/gap/{portalId},DELETE,Delete Guest Access Portal,1
+/guestaccess,/guestaccess.json/gap/,POST,Add Guest Access Portal,1
+/guestaccess,/guestaccess.json/gap/,GET,List Guest Access Portals,4
+/guestaccess,/guestaccess.json/gap/ssid/{gapId},PUT,Add SSIDs to Guest Access Portal (For XMS-E Only),2
+/tenantcircles,/tenantcircles.json/,GET,List Tenant Circles,4
+/tenantcircles,/tenantcircles.json/,POST,Add Tenant Circle,1
+/tenantcircles,/tenantcircles.json/tenants,GET,List Tenants for Circle,5
+/tenantcircles,/tenantcircles.json/{circleId},DELETE,Delete Tenant Circle,1
+/tenantcircles,/tenantcircles.json/{circleId},PUT,Update Tenant Circle,2
+/tenantcircles,/tenantcircles.json/tenants/{circleId},PUT,Assign Tenants to Circle,2
+/users,/users.json/email/global/{email},GET,Get User by email for any Tenant,1
+/users,/users.json/news/reset,GET,Reset Whats New for all Users,0
+/users,/users.json/,GET,List Users,4
+/users,/users.json/,POST,Add User,1
+/users,/users.json/{userId},GET,Get User,1
+/users,/users.json/{userId},PUT,Update User,2
+/users,/users.json/{userId},DELETE,Delete User,1
+/users,/users.json/email/{email},GET,Get User by email for current Tenant,1
+/users,/users.json/current/password,PUT,Update current logged-in user's password,1
+/users,/users.json/scope/,GET,Get TenantUsers,0
+/users,/users.json/global,GET,List Users for all Tenants,4
+/users,/users.json/current,GET,Get current logged-in User,0
+/users,/users.json/current,PUT,Update current logged-in User,1
+/users,/users.json/backoffice/{userId}/password/{password},PUT,Update User's password,2
+/users,/users.json/backoffice/email/{email}/password/{password},PUT,Update User's password by e-mail,2
+/tags,/tags.json/arrays/,PUT,Assign Tags to Arrays,1
+/tags,/tags.json/{tagName},DELETE,Delete Tag,1
+/tags,/tags.json/,GET,Get Tags,0
+/oauth2,/oauth2.json/clients/clientid/{clientId},GET,Get OAuth2 Client,1
+/oauth2,/oauth2.json/clients,GET,List OAuth2 Clients,4
+/oauth2,/oauth2.json/clients,POST,Add OAuth2 Client,1
+/oauth2,/oauth2.json/clients/{oauth2ClientId},GET,Get OAuth2 Client,1
+/oauth2,/oauth2.json/clients/{oauth2ClientId},PUT,Update OAuth2 Client,2
+/oauth2,/oauth2.json/clients/{oauth2ClientId},DELETE,Delete OAuth2 Client,1

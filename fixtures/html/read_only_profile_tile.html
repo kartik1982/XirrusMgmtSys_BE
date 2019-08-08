@@ -1,0 +1,46 @@
+<li class="profile" data-bind="css: { default: $parent.profiles.default() === $data }">
+                    <div class="overlay">
+                        <div class="content">
+                            <a href="#" data-bind="click: $parent.profiles.default() === $data ? $parent.clearDefault : $parent.setDefault, css: { selected: $parent.profiles.default() === $data }" class="icon defaultIcon"></a>
+                            <a href="#" data-bind="click: $parent.deleteProfile" class="icon deleteIcon"></a>
+                            <a href="#" data-bind="click: $parent.duplicateProfile" class="icon duplicateIcon"></a>
+                        </div>
+                    </div>
+                    <div class="default_static">
+                        <span class="defaultIcon selected" data-bind="css: { icon: $parent.profiles.default() &amp;&amp; $parent.profiles.default().id === $data.id }"></span>
+                        <span class="readonlyIcon icon" data-bind="attr: { title: ko.localization.localize('readonly_profile') }, css: { icon: isReadOnly }" title="Read-Only Profile"></span>
+                    </div>
+                    <a data-bind="attr: { href: '#profiles/' + id + (isReadOnly ? '/arrays' : '/config'), id:'profiles_tile_item_' + $index(), 'data-itemid': id }" href="#profiles/90b1f670-605b-11e4-8209-22000aeb20d8/arrays" id="profiles_tile_item_7" data-itemid="90b1f670-605b-11e4-8209-22000aeb20d8">
+                        <span class="title" data-bind="text: name, attr: { title: name }" title="Quad_505_71086">Quad_505_71086</span>
+                        <!-- ko if: isReadOnly -->
+                            <span class="readonly" data-bind="localize: 'home.profiles.readonly'">This is a Read-Only Profile</span>
+                        <!-- /ko -->
+                        <span class="description" data-bind="attr: { title: description }" title="Read Only Profile Test">
+                            <span data-bind="ellipsify: description">Read Only Profile Test</span>
+                        </span>
+                        <ul class="arrays" data-bind="css: { noDescription: !description }">
+                            <li class="arrays_up" data-bind="">
+                                <span class="text" data-bind="localize: 'home.profiles.arrays_up'">Arrays Up</span>
+                                <div class="numberContainer" data-bind="css: { bigNumber: $data.arraysUp ? arraysUp > 99: false }">
+                                    <span class="icon arrowGreenUpIcon"></span>
+                                    <span class="green" data-bind="text: $data.arraysUp || '0'">0</span>
+                                </div>
+                            </li>
+                            <li class="arrays_down" data-bind="">
+                                <span class="text" data-bind="localize: 'home.profiles.arrays_down'">Arrays Down</span>
+                                <div class="numberContainer" data-bind="css: { bigNumber: $data.arraysDown ? arraysDown > 99 : false }">
+                                    <span class="icon arrowRedDownIcon"></span>
+                                    <span class="red" data-bind="text: $data.arraysDown || '0'">0</span>
+                                </div>
+                            </li>
+                            <li id="tatl_arrays">
+                                <span class="text" data-bind="localize: $root.liu.isAllowed('xms') ? 'home.profiles.clients' : 'home.profiles.arrays_total'">Clients</span>
+                                <div class="numberContainer" data-bind="css: { bigNumber: $root.liu.isAllowed('xms') ? clientCount > 99 : arrayCount > 99 }">
+                                    <span class="icon blueCheckmarkIcon"></span>
+                                    <span class="blue" data-bind="text: ($root.liu.isAllowed('xms') ? $data.clientCount : $data.arrayCount) || 0">0</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </a>
+                    <div class="bottom_slashes"></div>
+                </li>

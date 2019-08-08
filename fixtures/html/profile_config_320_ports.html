@@ -1,0 +1,442 @@
+<div id="profile_config_container" class="config_container" data-bind="template:{name:!currentTab() ? '' : 'profiles/profile/config/' + currentTab()}"><div id="profile_config_network_view" class="profile_config_tabitem" data-bind="with:networkVM">
+    <div class="commonTitle">
+        <span data-bind="localize:'profile.config.network.title'">Network Settings</span>
+        <div class="koHelpIcon" alt="Help Icon" data-bind="help: { src:'docs/help/index.html#ProfilesNetwork', cacheBust: true}"></div>
+    </div>
+    <a href="#" id="network_show_advanced" class="commonAdvanced" data-bind="localize: show_advanced() ? 'hide_advanced' : 'show_advanced', click: toggle_advanced">Hide Advanced</a>
+    <div class="commonSubtitle" data-bind="localize:'profile.config.network.subtitle'">Set your general network settings.</div>
+
+    <div class="field_heading" data-bind="localize:'profile.config.network.iptitle'">IP Address</div>
+    <div class="togglebox">
+        <span class="togglebox_heading" data-bind="localize:'profile.config.network.assignIP'">Would you like your AP to use a DHCP assigned IP?</span>
+        <div id="profile_config_network_useDhcpIP" class="fl_right switch" data-bind="switch: useDhcpIP"><input id="profile_config_network_useDhcpIP_switch" type="checkbox" class="switch_checkbox" tabindex="100"><label for="profile_config_network_useDhcpIP_switch" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+        <div data-bind="css: { active: !useDhcpIP() }" class="togglebox_contents active">
+            <div class="info">
+                <span class="text" data-bind="localize:{html:'profile.config.network.assignIPTip'}">Setting Static IP Addresses must be done on an Array by Array basis, under the "Arrays" tab.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="field_heading" data-bind="localize:'profile.config.network.dnstitle'">DNS (Domain Name System)</div>
+    <div class="togglebox">
+        <span class="togglebox_heading" data-bind="localize:'profile.config.network.useDhcp'">Would you like your AP to use DNS settings assigned by DHCP?</span>
+        <div class="fl_right switch" id="useDhcpSwitch" data-bind="switch: useDhcp"><input id="useDhcpSwitch_switch" type="checkbox" class="switch_checkbox" tabindex="200"><label for="useDhcpSwitch_switch" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+        <div id="profile_config_network_useDhcp" class="togglebox_contents active" data-bind="css: { active: !useDhcp() }">
+            <div class="field">
+                <span class="field_label" data-bind="localize:'profile.config.network.domain'">DNS Domain:</span>
+                <input tabindex="300" maxlength="255" type="text" id="profile_config_network_domain" data-bind="value_trim: true, value:domain" class=""><span class="xirrus-error" style="display: none;"></span>
+            </div>
+            <div class="field">
+                <span class="field_label" data-bind="localize:'profile.config.network.dns1'">DNS Server 1:</span>
+                <input tabindex="400" type="text" id="profile_config_network_dns1" data-bind="value_trim: true, value:dns1" class=""><span class="xirrus-error" style="display: none;"></span>
+            </div>
+            <div class="field">
+                <span class="field_label" data-bind="localize:'profile.config.network.dns2'">DNS Server 2:</span>
+                <input tabindex="500" type="text" id="profile_config_network_dns2" data-bind="value_trim: true, value:dns2" class=""><span class="xirrus-error" style="display: none;"></span>
+            </div>
+            <div class="field">
+                <span class="field_label" data-bind="localize:'profile.config.network.dns3'">DNS Server 3:</span>
+                <input tabindex="600" type="text" id="profile_config_network_dns3" data-bind="value_trim: true, value:dns3" class=""><span class="xirrus-error" style="display: none;"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div data-bind="visible: show_advanced">
+        <div class="field_heading" data-bind="localize:'profile.config.network.discoverytitle'">Discovery Protocol</div>
+        <div class="togglebox">
+            <span class="togglebox_heading" data-bind="localize:'profile.config.network.enableCDP'">Would you like to enable CDP?</span>
+            <div id="profile_config_network_enableCDP" class="fl_right switch" data-bind="switch: enableCDP"><input id="profile_config_network_enableCDP_switch" type="checkbox" class="switch_checkbox" tabindex="700"><label for="profile_config_network_enableCDP_switch" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+            <div class="togglebox_contents" data-bind="css: { active: enableCDP }">
+                <!-- ko if: profileHasXR320 -->
+                    <div class="profile-neetwork-cdp-xr320-warning warning">
+                        <span data-bind="localize: 'xr320.profile.notsupported'">Not supported on XR-320.</span>
+                        <a class="learn_more_link" href="" data-bind="localize: 'xr320.learn_more', help: {src: 'help_pages/xr320.html', relative: true}">Learn more...</a>
+                    </div>
+                <!-- /ko -->
+                <div class="field">
+                    <span class="field_label" data-bind="localize:'profile.config.network.cdpInterval'">CDP Interval:</span>
+                    <input tabindex="800" min="5" max="900" maxlength="3" type="text" id="profile_config_network_cdpinterval" data-bind="value:cdpInterval, spinner: 1" class="spinner"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                    <span class="units" data-bind="localize:'seconds'">seconds</span>
+                </div>
+                <div class="field">
+                    <span class="field_label" data-bind="localize:'profile.config.network.cdpHoldTime'">CDP Hold Time:</span>
+                    <input tabindex="900" min="10" max="255" maxlength="3" type="text" id="profile_config_network_cdpholdtime" data-bind="value:cdpHoldTime, spinner: 1" class="spinner"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                    <span class="units" data-bind="localize:'seconds'">seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field_heading" data-bind="localize:'profile.config.network.ethernettitle'">Ethernet</div>
+        <div class="field_subheading abovetogglebox" data-bind="localize:'profile.config.network.ethernetsubtitle'">For your wired Ethernet interfaces. Please set the following parameters:</div>
+        <div class="togglebox">
+            <span class="togglebox_heading" data-bind="localize:'profile.config.network.ethernetautonegotiate'">Would you like to turn on auto negotiate?</span>
+            <div id="profile_config_network_ethernet_autonegotiate" class="fl_right switch" data-bind="switch: ethernet_autonegotiate"><input id="profile_config_network_ethernet_autonegotiate_switch" type="checkbox" class="switch_checkbox" tabindex="1000"><label for="profile_config_network_ethernet_autonegotiate_switch" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+            <div class="togglebox_contents" data-bind="css: { active: !ethernet_autonegotiate() }">
+                <!-- ko if: profileHasXR320 -->
+                    <div class="profile-neetwork-cdp-xr320-warning warning">
+                        <span data-bind="localize: 'xr320.profile.notsupported'">Not supported on XR-320.</span>
+                        <a class="learn_more_link" href="" data-bind="localize: 'xr320.learn_more', help: {src: 'help_pages/xr320.html', relative: true}">Learn more...</a>
+                    </div>
+                <!-- /ko -->
+                <div class="field">
+                    <span class="field_label" data-bind="localize:'profile.config.network.ethernetduplex'">Duplex communication system:</span>
+                    <div id="profile_config_network_ethernet_duplex" class="inlineblock switch" data-bind="switch: { trigger: ethernet_duplex, yesText: ko.localization.localize(&quot;full&quot;), noText: ko.localization.localize(&quot;half&quot;) }"><input id="profile_config_network_ethernet_duplex_switch" type="checkbox" class="switch_checkbox" tabindex="1100"><label for="profile_config_network_ethernet_duplex_switch" class="switch_label"><div class="left">Full</div><div class="middle"><div class="toggle"></div></div><div class="right">Half</div></label></div>
+                </div>
+                <div class="field">
+                    <span class="field_label" data-bind="localize:'profile.config.network.ethernetspeed'">Speed:</span>
+                    <dl class="ko_dropdownlist" id="profile_config_networks_ethernetspeed"><dt><a href="#" class="ko_dropdownlist_button" tabindex="1200"><span class="text" title="1 Gigabit" data-origclass="text">1 Gigabit</span><span class="arrow"></span></a></dt></dl><dl data-bind="ddlOptions:ethernet_speeds, optionsText:'nameKey', optionsValue:'value', value:ethernet_speed, localize:true" style="display: none;"></dl>
+                </div>
+            </div>
+        </div>
+        <div id="mtuField" class="field">
+            <span class="field_label" data-bind="localize:'profile.config.network.mtu'">Maximum Transmission Unit (MTU):</span>
+            <input tabindex="1300" type="text" min="64" max="1732" maxlength="4" id="profile_config_network_mtu" data-bind="value:mtu, spinner: 1" class="spinner"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+            <span class="units" data-bind="localize:'bytes'">bytes</span>
+        </div>
+
+        <!-- ko if: $root.tenantHasXR320() -->
+        <div class="field_heading" data-bind="localize:'profile.config.network.xr320uplinktitle'">XR-320 Uplink Port Configuration</div>
+        <div class="field_subheading abovetogglebox" data-bind="localize:'profile.config.network.xr320uplinksubtitle'">Configure the native VLAN port</div>
+        <div class="togglebox">
+            <span class="togglebox_heading short" data-bind="localize:'profile.config.network.xr320nativevlantitle'">Would you like to enable tagging on the Native VLAN?</span>
+            <div id="profile_config_network_xr320uplink" class="fl_right switch" data-bind="switch: { trigger: xr320tagged, yesText: ko.mLoc(&quot;profile.config.network.xr320tagged&quot;), noText: ko.mLoc(&quot;profile.config.network.xr320untagged&quot;) }"><input id="profile_config_network_xr320uplink_switch" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="profile_config_network_xr320uplink_switch" class="switch_label"><div class="left">Tagged</div><div class="middle"><div class="toggle"></div></div><div class="right">Untagged</div></label></div>
+            <div class="togglebox_contents active" data-bind="css: { active: xr320tagged }">
+                <div class="field">
+                    <span class="field_label inline" data-bind="localize:'profile.config.network.xr320vlanid'">VLAN ID</span>
+                    <input class="short spinner" type="text" min="1" max="4094" maxlength="4" id="profile_config_xr320vlanid" data-bind="value:xr320vlanid, spinner: 1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span><span class="xirrus-error" style="display: none;"></span>
+                </div>
+                <div class="field_heading" data-bind="localize: 'profile.config.network.xr320.overrides.title'">VLAN Overrides</div>
+                <div class="field_subheading" data-bind="localize: 'profile.config.network.xr320.overrides.single.desc'">Add VLAN Overrides by associating a VLAN to a pre-existing or new tag.</div>
+                <div class="field tag_overrides">
+                    <div class="add_items" data-bind="validationOptions: {errorMessageClass: 'errorBubble'}">
+                        <div class="input_label">
+                            <label for="profile_config_network_xr320_override_tag_input" data-bind="localize: 'profile.config.network.xr320.overrides.tags'">Tag Name</label>
+                            <label for="profile_config_network_xr320_override_vlan_input" class="second_input_label">
+                                <span data-bind="localize: 'profile.config.network.xr320.overrides.vlan'">VLAN ID</span>
+                                <span class="ie9_input_inline_hint" data-bind="localize: 'profile.config.network.xr320.overrides.add'">Add one or more VLANs</span>
+                            </label>
+                        </div>
+                        <dl class="ko_dropdownlist tag_input" id="profile_config_network_xr320_override_tag_input"><dt><div class="ko_dropdownlist_combo"><input type="text" class="ko_dropdownlist_combo_input" data-bind="value: $data.value"><span class="ko_dropdownlist_combo_btn"></span></div></dt></dl><dl data-bind="ddlOptions: vm.globalTags, ddlType: 'comboBox', value: overrideTagToAdd" style="display: none;"></dl>
+                        <input class="vlan_input spinner" min="1" max="4094" maxlength="4" id="profile_config_network_xr320_override_vlan_input" type="text" data-bind="value_trim: true, value: overrideVLANsToAdd, valueUpdate: 'keyup', event: { keypress: override_keypress }, spinner: 1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                        <a href="#" id="profile_config_network_xr320_override_add" class="button orange" data-bind="localize: 'add', click: addOverride.bind($data, $data, true)">Add</a>
+                    </div>
+                </div>
+                <div class="field_info info" data-bind="localize: 'profile.config.network.xr320.overrides.hint', visible: overrideDragHintVisible" style="display: none;">Drag and drop tags to order them by priority. Priority goes from left to right, top to bottom.</div>
+                <div id="profile_config_network_xr320_overrides_list" class="field tagControlContainerWrapper">
+                    <div class="override_list tagControlContainer ko_container ui-sortable" data-bind="sortable: {data: overrides, options: {containment: '#profile_config_network_xr320_overrides_list'}}"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field_heading" data-bind="localize:'profile.config.network.xr320switchtitle'">XR-320 Switch Configuration</div>
+        <div class="togglebox noscroll">
+            <span class="togglebox_heading short" data-bind="localize:'profile.config.network.xr320vlantitle'">Would you like to enable VLANs on the LAN ports?</span>
+            <div id="profile_config_network_xr320vlan" class="fl_right switch" data-bind="switch: xr320enablevlan"><input id="profile_config_network_xr320vlan_switch" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="profile_config_network_xr320vlan_switch" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+            <div class="togglebox_contents active">
+                <div class="field_heading" data-bind="localize:'profile.config.network.xr320lanportconfigtitle'">LAN Port Configuration</div>
+                <div class="field_subheading" data-bind="localize:'profile.config.network.xr320lanportconfigsubtitle'">Configure your LAN ports</div>                
+                <!-- ko foreach: xr320lans -->
+                <div class="fl_right switch" data-bind="attr: { id: &quot;profile_config_network_xr320enablelan&quot; + id }, switch: enabled" id="profile_config_network_xr320enablelan1"><input id="switch0" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="switch0" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+                <span class="togglebox_heading" data-bind="localize: { text: { key: 'profile.config.network.xr320enablelan', params: { number: id }}}">Would you like to enable LAN port 1?</span>
+                
+                <div class="xr320lan">
+                    <div data-bind="visible: $parent.xr320enablevlan() &amp;&amp; enabled()">
+                        <div class="field">
+                            <span class="field_label inline" data-bind="localize:'profile.config.network.xr320portmode'">Set the port mode</span>
+                            <div class="inline switch" data-bind="attr: { id: &quot;profile_config_network_xr320portmode&quot; + id}, switch: { trigger: portaccess, yesText: ko.mLoc(&quot;profile.config.network.xr320access&quot;), noText: ko.mLoc(&quot;profile.config.network.xr320trunk&quot;) }" id="profile_config_network_xr320portmode1"><input id="switch1" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="switch1" class="switch_label"><div class="left">Access</div><div class="middle"><div class="toggle"></div></div><div class="right">Trunk</div></label></div>
+                        </div>
+
+                        <div class="bottomdash active" data-bind="css: { active: $parent.xr320enablevlan() &amp;&amp; enabled() }">
+                            <div class="field">
+                                <span class="field_label inline" data-bind="localize:'profile.config.network.xr320pvidvalue'">PVID value</span>
+                                <input class="short spinner" type="text" min="1" max="4094" maxlength="4" data-bind="attr: {id: 'profile_config_xr320pvid' + id}, value:pvid, spinner: 1" id="profile_config_xr320pvid1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span><span class="xirrus-error" style="display: none;"></span>
+                            </div>
+
+
+                            <div class="field_heading" data-bind="localize: 'profile.config.network.xr320.pvidoverrides.title'">PVID VLAN Overrides</div>
+                            <div class="field_subheading" data-bind="localize: 'profile.config.network.xr320.overrides.single.desc'">Add VLAN Overrides by associating a VLAN to a pre-existing or new tag.</div>
+                            <div class="field tag_overrides">
+                                <div class="add_items" data-bind="validationOptions: {errorMessageClass: 'errorBubble'}">
+                                    <div class="input_label">
+                                        <label for="profile_config_network_xr320_override_tag_input" data-bind="localize: 'profile.config.network.xr320.overrides.tags'">Tag Name</label>
+                                        <label for="profile_config_network_xr320_override_pvid_input" class="second_input_label">
+                                            <span data-bind="localize: 'profile.config.network.xr320.overrides.vlan'">VLAN ID</span>
+                                            <span class="ie9_input_inline_hint" data-bind="localize: 'profile.config.network.xr320.overrides.add'">Add one or more VLANs</span>
+                                        </label>
+                                    </div>
+                                    <dl class="ko_dropdownlist tag_input" id="profile_config_network_xr320_override_tag_input"><dt><div class="ko_dropdownlist_combo"><input type="text" class="ko_dropdownlist_combo_input" data-bind="value: $data.value"><span class="ko_dropdownlist_combo_btn"></span></div></dt></dl><dl data-bind="ddlOptions: vm.globalTags, ddlType: 'comboBox', value: pvids.overrideTagToAdd" style="display: none;"></dl>
+                                    <input min="1" max="4094" class="vlan_input spinner" id="profile_config_network_xr320_override_pvid_input" type="text" data-bind="value_trim: true, value: pvids.overrideVLANsToAdd, valueUpdate: 'keyup', event: { keypress: $parent.overridepvid_keypress }, spinner: 1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                    <a href="#" id="profile_config_network_xr320_override_add" class="button orange" data-bind="localize: 'add', click: $parent.addOverride.bind($data.pvids,$data.pvids, true)">Add</a>
+                                </div>
+                            </div>
+                            <div class="field_info info" data-bind="localize: 'profile.config.network.xr320.overrides.hint', visible: pvids.overrideDragHintVisible" style="display: none;">Drag and drop tags to order them by priority. Priority goes from left to right, top to bottom.</div>
+                            <div id="profile_config_network_xr320_overrides_list1" class="field tagControlContainerWrapper" data-bind="attr: {id: 'profile_config_network_xr320_overrides_list' + id}">
+                                <div class="override_list tagControlContainer ko_container ui-sortable" data-bind="sortable: {data: pvids.overrides, options: {containment: '#profile_config_network_xr320_overrides_list' + id}}"></div>
+                            </div>
+                        </div>
+
+                        <div class="bottomdash second" data-bind="css: { active: !portaccess() }">
+                            <div class="field">
+                                <span class="field_label inline" data-bind="localize:'profile.config.network.xr320allowedvid'">Allowed VID values (8 max)</span>
+                                <input class="short spinner" type="text" min="1" max="4094" maxlength="4" data-bind="attr: {id: 'profile_config_xr320vid' + '1'}, value:vid, event: { keypress: function (d,e) { if(e.keyCode===13){ $parent.addVid(d,e); } return true; } }, spinner: 1, valueUpdate:'afterkeydown', disable: vidvals().length>=8" id="profile_config_xr320vid1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                <a href="#" class="add_button orange button" data-bind="attr: { id: 'profile_config_xr320vid_add' + id }, click: $parent.addVid, css: { disabled: vidvals().length>=8 }" id="profile_config_xr320vid_add1">+</a>
+                            </div>
+                            <div class="field" data-bind="visible: !portaccess()" style="display: none;">
+                                <div class="tagControlContainer xr320Tags ko_container ui-sortable" data-bind="sortable: {data: vidvals, options: {containment: 'parent'}}"></div>
+                            </div>
+                            <div class="field_heading" data-bind="localize: 'profile.config.network.xr320.allowedoverrides.title'">Allowed VLAN Overrides</div>
+                            <div class="field_subheading" data-bind="localize: 'profile.config.network.xr320.overrides.desc'">Add VLAN Overrides by associating one or more VLANs to a pre-existing or new tag.</div>
+                            <div class="field tag_overrides">
+                                <div class="add_items" data-bind="validationOptions: {errorMessageClass: 'errorBubble'}">
+                                    <div class="input_label">
+                                        <label for="profile_config_network_xr320_override_tag_input" data-bind="localize: 'profile.config.network.xr320.overrides.tags'">Tag Name</label>
+                                        <label for="profile_config_network_xr320_override_allowed_input" class="second_input_label">
+                                            <span data-bind="localize: 'profile.config.network.xr320.overrides.vlans'">VLANs</span>
+                                            <span class="ie9_input_inline_hint" data-bind="localize: 'profile.config.network.xr320.overrides.add'">Add one or more VLANs</span>
+                                        </label>
+                                    </div>
+                                    <dl class="ko_dropdownlist tag_input" id="profile_config_network_xr320_override_tag_input"><dt><div class="ko_dropdownlist_combo"><input type="text" class="ko_dropdownlist_combo_input" data-bind="value: $data.value"><span class="ko_dropdownlist_combo_btn"></span></div></dt></dl><dl data-bind="ddlOptions: vm.globalTags, ddlType: 'comboBox', value: allowed.overrideTagToAdd" style="display: none;"></dl>
+                                    <input class="vlan_input" id="profile_config_network_xr320_override_allowed_input" type="text" data-bind="value_trim: true, value: allowed.overrideVLANsToAdd, valueUpdate: 'keyup', attr: { placeholder: ko.localization.localize('profile.config.network.xr320.overrides.add') }, event: { keypress: function (d,e) { if(e.keyCode===13){ $parent.addOverride(d.allowed); } return true; } }" placeholder="Add one or more VLANs"><span class="errorBubble" style="display: none;"></span>
+                                    <a href="#" id="profile_config_network_xr320_override_add" class="button orange" data-bind="localize: 'add', click: $parent.addOverride.bind($data.allowed, $data.allowed)">Add</a>
+                                </div>
+                            </div>
+                            <div class="field_info info" data-bind="localize: 'profile.config.network.xr320.overrides.hint', visible: allowed.overrideDragHintVisible" style="display: none;">Drag and drop tags to order them by priority. Priority goes from left to right, top to bottom.</div>
+                            <div id="profile_config_network_xr320_overrides_list" class="field tagControlContainerWrapper">
+                                <div class="override_list tagControlContainer ko_container ui-sortable" data-bind="sortable: {data: allowed.overrides, options: {containment: '#profile_config_network_xr320_overrides_list'}}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fl_right switch" data-bind="attr: { id: &quot;profile_config_network_xr320enablelan&quot; + id }, switch: enabled" id="profile_config_network_xr320enablelan2"><input id="switch2" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="switch2" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+                <span class="togglebox_heading" data-bind="localize: { text: { key: 'profile.config.network.xr320enablelan', params: { number: id }}}">Would you like to enable LAN port 2?</span>
+                
+                <div class="xr320lan">
+                    <div data-bind="visible: $parent.xr320enablevlan() &amp;&amp; enabled()">
+                        <div class="field">
+                            <span class="field_label inline" data-bind="localize:'profile.config.network.xr320portmode'">Set the port mode</span>
+                            <div class="inline switch" data-bind="attr: { id: &quot;profile_config_network_xr320portmode&quot; + id}, switch: { trigger: portaccess, yesText: ko.mLoc(&quot;profile.config.network.xr320access&quot;), noText: ko.mLoc(&quot;profile.config.network.xr320trunk&quot;) }" id="profile_config_network_xr320portmode2"><input id="switch3" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="switch3" class="switch_label"><div class="left">Access</div><div class="middle"><div class="toggle"></div></div><div class="right">Trunk</div></label></div>
+                        </div>
+
+                        <div class="bottomdash active" data-bind="css: { active: $parent.xr320enablevlan() &amp;&amp; enabled() }">
+                            <div class="field">
+                                <span class="field_label inline" data-bind="localize:'profile.config.network.xr320pvidvalue'">PVID value</span>
+                                <input class="short spinner" type="text" min="1" max="4094" maxlength="4" data-bind="attr: {id: 'profile_config_xr320pvid' + id}, value:pvid, spinner: 1" id="profile_config_xr320pvid2"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span><span class="xirrus-error" style="display: none;"></span>
+                            </div>
+
+
+                            <div class="field_heading" data-bind="localize: 'profile.config.network.xr320.pvidoverrides.title'">PVID VLAN Overrides</div>
+                            <div class="field_subheading" data-bind="localize: 'profile.config.network.xr320.overrides.single.desc'">Add VLAN Overrides by associating a VLAN to a pre-existing or new tag.</div>
+                            <div class="field tag_overrides">
+                                <div class="add_items" data-bind="validationOptions: {errorMessageClass: 'errorBubble'}">
+                                    <div class="input_label">
+                                        <label for="profile_config_network_xr320_override_tag_input" data-bind="localize: 'profile.config.network.xr320.overrides.tags'">Tag Name</label>
+                                        <label for="profile_config_network_xr320_override_pvid_input" class="second_input_label">
+                                            <span data-bind="localize: 'profile.config.network.xr320.overrides.vlan'">VLAN ID</span>
+                                            <span class="ie9_input_inline_hint" data-bind="localize: 'profile.config.network.xr320.overrides.add'">Add one or more VLANs</span>
+                                        </label>
+                                    </div>
+                                    <dl class="ko_dropdownlist tag_input" id="profile_config_network_xr320_override_tag_input"><dt><div class="ko_dropdownlist_combo"><input type="text" class="ko_dropdownlist_combo_input" data-bind="value: $data.value"><span class="ko_dropdownlist_combo_btn"></span></div></dt></dl><dl data-bind="ddlOptions: vm.globalTags, ddlType: 'comboBox', value: pvids.overrideTagToAdd" style="display: none;"></dl>
+                                    <input min="1" max="4094" class="vlan_input spinner" id="profile_config_network_xr320_override_pvid_input" type="text" data-bind="value_trim: true, value: pvids.overrideVLANsToAdd, valueUpdate: 'keyup', event: { keypress: $parent.overridepvid_keypress }, spinner: 1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                    <a href="#" id="profile_config_network_xr320_override_add" class="button orange" data-bind="localize: 'add', click: $parent.addOverride.bind($data.pvids,$data.pvids, true)">Add</a>
+                                </div>
+                            </div>
+                            <div class="field_info info" data-bind="localize: 'profile.config.network.xr320.overrides.hint', visible: pvids.overrideDragHintVisible" style="display: none;">Drag and drop tags to order them by priority. Priority goes from left to right, top to bottom.</div>
+                            <div id="profile_config_network_xr320_overrides_list2" class="field tagControlContainerWrapper" data-bind="attr: {id: 'profile_config_network_xr320_overrides_list' + id}">
+                                <div class="override_list tagControlContainer ko_container ui-sortable" data-bind="sortable: {data: pvids.overrides, options: {containment: '#profile_config_network_xr320_overrides_list' + id}}"></div>
+                            </div>
+                        </div>
+
+                        <div class="bottomdash second" data-bind="css: { active: !portaccess() }">
+                            <div class="field">
+                                <span class="field_label inline" data-bind="localize:'profile.config.network.xr320allowedvid'">Allowed VID values (8 max)</span>
+                                <input class="short spinner" type="text" min="1" max="4094" maxlength="4" data-bind="attr: {id: 'profile_config_xr320vid' + '1'}, value:vid, event: { keypress: function (d,e) { if(e.keyCode===13){ $parent.addVid(d,e); } return true; } }, spinner: 1, valueUpdate:'afterkeydown', disable: vidvals().length>=8" id="profile_config_xr320vid1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                <a href="#" class="add_button orange button" data-bind="attr: { id: 'profile_config_xr320vid_add' + id }, click: $parent.addVid, css: { disabled: vidvals().length>=8 }" id="profile_config_xr320vid_add2">+</a>
+                            </div>
+                            <div class="field" data-bind="visible: !portaccess()" style="display: none;">
+                                <div class="tagControlContainer xr320Tags ko_container ui-sortable" data-bind="sortable: {data: vidvals, options: {containment: 'parent'}}"></div>
+                            </div>
+                            <div class="field_heading" data-bind="localize: 'profile.config.network.xr320.allowedoverrides.title'">Allowed VLAN Overrides</div>
+                            <div class="field_subheading" data-bind="localize: 'profile.config.network.xr320.overrides.desc'">Add VLAN Overrides by associating one or more VLANs to a pre-existing or new tag.</div>
+                            <div class="field tag_overrides">
+                                <div class="add_items" data-bind="validationOptions: {errorMessageClass: 'errorBubble'}">
+                                    <div class="input_label">
+                                        <label for="profile_config_network_xr320_override_tag_input" data-bind="localize: 'profile.config.network.xr320.overrides.tags'">Tag Name</label>
+                                        <label for="profile_config_network_xr320_override_allowed_input" class="second_input_label">
+                                            <span data-bind="localize: 'profile.config.network.xr320.overrides.vlans'">VLANs</span>
+                                            <span class="ie9_input_inline_hint" data-bind="localize: 'profile.config.network.xr320.overrides.add'">Add one or more VLANs</span>
+                                        </label>
+                                    </div>
+                                    <dl class="ko_dropdownlist tag_input" id="profile_config_network_xr320_override_tag_input"><dt><div class="ko_dropdownlist_combo"><input type="text" class="ko_dropdownlist_combo_input" data-bind="value: $data.value"><span class="ko_dropdownlist_combo_btn"></span></div></dt></dl><dl data-bind="ddlOptions: vm.globalTags, ddlType: 'comboBox', value: allowed.overrideTagToAdd" style="display: none;"></dl>
+                                    <input class="vlan_input" id="profile_config_network_xr320_override_allowed_input" type="text" data-bind="value_trim: true, value: allowed.overrideVLANsToAdd, valueUpdate: 'keyup', attr: { placeholder: ko.localization.localize('profile.config.network.xr320.overrides.add') }, event: { keypress: function (d,e) { if(e.keyCode===13){ $parent.addOverride(d.allowed); } return true; } }" placeholder="Add one or more VLANs"><span class="errorBubble" style="display: none;"></span>
+                                    <a href="#" id="profile_config_network_xr320_override_add" class="button orange" data-bind="localize: 'add', click: $parent.addOverride.bind($data.allowed, $data.allowed)">Add</a>
+                                </div>
+                            </div>
+                            <div class="field_info info" data-bind="localize: 'profile.config.network.xr320.overrides.hint', visible: allowed.overrideDragHintVisible" style="display: none;">Drag and drop tags to order them by priority. Priority goes from left to right, top to bottom.</div>
+                            <div id="profile_config_network_xr320_overrides_list" class="field tagControlContainerWrapper">
+                                <div class="override_list tagControlContainer ko_container ui-sortable" data-bind="sortable: {data: allowed.overrides, options: {containment: '#profile_config_network_xr320_overrides_list'}}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fl_right switch" data-bind="attr: { id: &quot;profile_config_network_xr320enablelan&quot; + id }, switch: enabled" id="profile_config_network_xr320enablelan3"><input id="switch4" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="switch4" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+                <span class="togglebox_heading" data-bind="localize: { text: { key: 'profile.config.network.xr320enablelan', params: { number: id }}}">Would you like to enable LAN port 3?</span>
+                
+                <div class="xr320lan">
+                    <div data-bind="visible: $parent.xr320enablevlan() &amp;&amp; enabled()">
+                        <div class="field">
+                            <span class="field_label inline" data-bind="localize:'profile.config.network.xr320portmode'">Set the port mode</span>
+                            <div class="inline switch" data-bind="attr: { id: &quot;profile_config_network_xr320portmode&quot; + id}, switch: { trigger: portaccess, yesText: ko.mLoc(&quot;profile.config.network.xr320access&quot;), noText: ko.mLoc(&quot;profile.config.network.xr320trunk&quot;) }" id="profile_config_network_xr320portmode3"><input id="switch5" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="switch5" class="switch_label"><div class="left">Access</div><div class="middle"><div class="toggle"></div></div><div class="right">Trunk</div></label></div>
+                        </div>
+
+                        <div class="bottomdash active" data-bind="css: { active: $parent.xr320enablevlan() &amp;&amp; enabled() }">
+                            <div class="field">
+                                <span class="field_label inline" data-bind="localize:'profile.config.network.xr320pvidvalue'">PVID value</span>
+                                <input class="short spinner" type="text" min="1" max="4094" maxlength="4" data-bind="attr: {id: 'profile_config_xr320pvid' + id}, value:pvid, spinner: 1" id="profile_config_xr320pvid3"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span><span class="xirrus-error" style="display: none;"></span>
+                            </div>
+
+
+                            <div class="field_heading" data-bind="localize: 'profile.config.network.xr320.pvidoverrides.title'">PVID VLAN Overrides</div>
+                            <div class="field_subheading" data-bind="localize: 'profile.config.network.xr320.overrides.single.desc'">Add VLAN Overrides by associating a VLAN to a pre-existing or new tag.</div>
+                            <div class="field tag_overrides">
+                                <div class="add_items" data-bind="validationOptions: {errorMessageClass: 'errorBubble'}">
+                                    <div class="input_label">
+                                        <label for="profile_config_network_xr320_override_tag_input" data-bind="localize: 'profile.config.network.xr320.overrides.tags'">Tag Name</label>
+                                        <label for="profile_config_network_xr320_override_pvid_input" class="second_input_label">
+                                            <span data-bind="localize: 'profile.config.network.xr320.overrides.vlan'">VLAN ID</span>
+                                            <span class="ie9_input_inline_hint" data-bind="localize: 'profile.config.network.xr320.overrides.add'">Add one or more VLANs</span>
+                                        </label>
+                                    </div>
+                                    <dl class="ko_dropdownlist tag_input" id="profile_config_network_xr320_override_tag_input"><dt><div class="ko_dropdownlist_combo"><input type="text" class="ko_dropdownlist_combo_input" data-bind="value: $data.value"><span class="ko_dropdownlist_combo_btn"></span></div></dt></dl><dl data-bind="ddlOptions: vm.globalTags, ddlType: 'comboBox', value: pvids.overrideTagToAdd" style="display: none;"></dl>
+                                    <input min="1" max="4094" class="vlan_input spinner" id="profile_config_network_xr320_override_pvid_input" type="text" data-bind="value_trim: true, value: pvids.overrideVLANsToAdd, valueUpdate: 'keyup', event: { keypress: $parent.overridepvid_keypress }, spinner: 1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                    <a href="#" id="profile_config_network_xr320_override_add" class="button orange" data-bind="localize: 'add', click: $parent.addOverride.bind($data.pvids,$data.pvids, true)">Add</a>
+                                </div>
+                            </div>
+                            <div class="field_info info" data-bind="localize: 'profile.config.network.xr320.overrides.hint', visible: pvids.overrideDragHintVisible" style="display: none;">Drag and drop tags to order them by priority. Priority goes from left to right, top to bottom.</div>
+                            <div id="profile_config_network_xr320_overrides_list3" class="field tagControlContainerWrapper" data-bind="attr: {id: 'profile_config_network_xr320_overrides_list' + id}">
+                                <div class="override_list tagControlContainer ko_container ui-sortable" data-bind="sortable: {data: pvids.overrides, options: {containment: '#profile_config_network_xr320_overrides_list' + id}}"></div>
+                            </div>
+                        </div>
+
+                        <div class="bottomdash second" data-bind="css: { active: !portaccess() }">
+                            <div class="field">
+                                <span class="field_label inline" data-bind="localize:'profile.config.network.xr320allowedvid'">Allowed VID values (8 max)</span>
+                                <input class="short spinner" type="text" min="1" max="4094" maxlength="4" data-bind="attr: {id: 'profile_config_xr320vid' + '1'}, value:vid, event: { keypress: function (d,e) { if(e.keyCode===13){ $parent.addVid(d,e); } return true; } }, spinner: 1, valueUpdate:'afterkeydown', disable: vidvals().length>=8" id="profile_config_xr320vid1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                <a href="#" class="add_button orange button" data-bind="attr: { id: 'profile_config_xr320vid_add' + id }, click: $parent.addVid, css: { disabled: vidvals().length>=8 }" id="profile_config_xr320vid_add3">+</a>
+                            </div>
+                            <div class="field" data-bind="visible: !portaccess()" style="display: none;">
+                                <div class="tagControlContainer xr320Tags ko_container ui-sortable" data-bind="sortable: {data: vidvals, options: {containment: 'parent'}}"></div>
+                            </div>
+                            <div class="field_heading" data-bind="localize: 'profile.config.network.xr320.allowedoverrides.title'">Allowed VLAN Overrides</div>
+                            <div class="field_subheading" data-bind="localize: 'profile.config.network.xr320.overrides.desc'">Add VLAN Overrides by associating one or more VLANs to a pre-existing or new tag.</div>
+                            <div class="field tag_overrides">
+                                <div class="add_items" data-bind="validationOptions: {errorMessageClass: 'errorBubble'}">
+                                    <div class="input_label">
+                                        <label for="profile_config_network_xr320_override_tag_input" data-bind="localize: 'profile.config.network.xr320.overrides.tags'">Tag Name</label>
+                                        <label for="profile_config_network_xr320_override_allowed_input" class="second_input_label">
+                                            <span data-bind="localize: 'profile.config.network.xr320.overrides.vlans'">VLANs</span>
+                                            <span class="ie9_input_inline_hint" data-bind="localize: 'profile.config.network.xr320.overrides.add'">Add one or more VLANs</span>
+                                        </label>
+                                    </div>
+                                    <dl class="ko_dropdownlist tag_input" id="profile_config_network_xr320_override_tag_input"><dt><div class="ko_dropdownlist_combo"><input type="text" class="ko_dropdownlist_combo_input" data-bind="value: $data.value"><span class="ko_dropdownlist_combo_btn"></span></div></dt></dl><dl data-bind="ddlOptions: vm.globalTags, ddlType: 'comboBox', value: allowed.overrideTagToAdd" style="display: none;"></dl>
+                                    <input class="vlan_input" id="profile_config_network_xr320_override_allowed_input" type="text" data-bind="value_trim: true, value: allowed.overrideVLANsToAdd, valueUpdate: 'keyup', attr: { placeholder: ko.localization.localize('profile.config.network.xr320.overrides.add') }, event: { keypress: function (d,e) { if(e.keyCode===13){ $parent.addOverride(d.allowed); } return true; } }" placeholder="Add one or more VLANs"><span class="errorBubble" style="display: none;"></span>
+                                    <a href="#" id="profile_config_network_xr320_override_add" class="button orange" data-bind="localize: 'add', click: $parent.addOverride.bind($data.allowed, $data.allowed)">Add</a>
+                                </div>
+                            </div>
+                            <div class="field_info info" data-bind="localize: 'profile.config.network.xr320.overrides.hint', visible: allowed.overrideDragHintVisible" style="display: none;">Drag and drop tags to order them by priority. Priority goes from left to right, top to bottom.</div>
+                            <div id="profile_config_network_xr320_overrides_list" class="field tagControlContainerWrapper">
+                                <div class="override_list tagControlContainer ko_container ui-sortable" data-bind="sortable: {data: allowed.overrides, options: {containment: '#profile_config_network_xr320_overrides_list'}}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fl_right switch" data-bind="attr: { id: &quot;profile_config_network_xr320enablelan&quot; + id }, switch: enabled" id="profile_config_network_xr320enablelan4"><input id="switch6" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="switch6" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+                <span class="togglebox_heading" data-bind="localize: { text: { key: 'profile.config.network.xr320enablelan', params: { number: id }}}">Would you like to enable LAN port 4?</span>
+                
+                <div class="xr320lan">
+                    <div data-bind="visible: $parent.xr320enablevlan() &amp;&amp; enabled()">
+                        <div class="field">
+                            <span class="field_label inline" data-bind="localize:'profile.config.network.xr320portmode'">Set the port mode</span>
+                            <div class="inline switch" data-bind="attr: { id: &quot;profile_config_network_xr320portmode&quot; + id}, switch: { trigger: portaccess, yesText: ko.mLoc(&quot;profile.config.network.xr320access&quot;), noText: ko.mLoc(&quot;profile.config.network.xr320trunk&quot;) }" id="profile_config_network_xr320portmode4"><input id="switch7" type="checkbox" class="switch_checkbox" tabindex="-1"><label for="switch7" class="switch_label"><div class="left">Access</div><div class="middle"><div class="toggle"></div></div><div class="right">Trunk</div></label></div>
+                        </div>
+
+                        <div class="bottomdash active" data-bind="css: { active: $parent.xr320enablevlan() &amp;&amp; enabled() }">
+                            <div class="field">
+                                <span class="field_label inline" data-bind="localize:'profile.config.network.xr320pvidvalue'">PVID value</span>
+                                <input class="short spinner" type="text" min="1" max="4094" maxlength="4" data-bind="attr: {id: 'profile_config_xr320pvid' + id}, value:pvid, spinner: 1" id="profile_config_xr320pvid4"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span><span class="xirrus-error" style="display: none;"></span>
+                            </div>
+
+
+                            <div class="field_heading" data-bind="localize: 'profile.config.network.xr320.pvidoverrides.title'">PVID VLAN Overrides</div>
+                            <div class="field_subheading" data-bind="localize: 'profile.config.network.xr320.overrides.single.desc'">Add VLAN Overrides by associating a VLAN to a pre-existing or new tag.</div>
+                            <div class="field tag_overrides">
+                                <div class="add_items" data-bind="validationOptions: {errorMessageClass: 'errorBubble'}">
+                                    <div class="input_label">
+                                        <label for="profile_config_network_xr320_override_tag_input" data-bind="localize: 'profile.config.network.xr320.overrides.tags'">Tag Name</label>
+                                        <label for="profile_config_network_xr320_override_pvid_input" class="second_input_label">
+                                            <span data-bind="localize: 'profile.config.network.xr320.overrides.vlan'">VLAN ID</span>
+                                            <span class="ie9_input_inline_hint" data-bind="localize: 'profile.config.network.xr320.overrides.add'">Add one or more VLANs</span>
+                                        </label>
+                                    </div>
+                                    <dl class="ko_dropdownlist tag_input" id="profile_config_network_xr320_override_tag_input"><dt><div class="ko_dropdownlist_combo"><input type="text" class="ko_dropdownlist_combo_input" data-bind="value: $data.value"><span class="ko_dropdownlist_combo_btn"></span></div></dt></dl><dl data-bind="ddlOptions: vm.globalTags, ddlType: 'comboBox', value: pvids.overrideTagToAdd" style="display: none;"></dl>
+                                    <input min="1" max="4094" class="vlan_input spinner" id="profile_config_network_xr320_override_pvid_input" type="text" data-bind="value_trim: true, value: pvids.overrideVLANsToAdd, valueUpdate: 'keyup', event: { keypress: $parent.overridepvid_keypress }, spinner: 1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                    <a href="#" id="profile_config_network_xr320_override_add" class="button orange" data-bind="localize: 'add', click: $parent.addOverride.bind($data.pvids,$data.pvids, true)">Add</a>
+                                </div>
+                            </div>
+                            <div class="field_info info" data-bind="localize: 'profile.config.network.xr320.overrides.hint', visible: pvids.overrideDragHintVisible" style="display: none;">Drag and drop tags to order them by priority. Priority goes from left to right, top to bottom.</div>
+                            <div id="profile_config_network_xr320_overrides_list4" class="field tagControlContainerWrapper" data-bind="attr: {id: 'profile_config_network_xr320_overrides_list' + id}">
+                                <div class="override_list tagControlContainer ko_container ui-sortable" data-bind="sortable: {data: pvids.overrides, options: {containment: '#profile_config_network_xr320_overrides_list' + id}}"></div>
+                            </div>
+                        </div>
+
+                        <div class="bottomdash second active" data-bind="css: { active: !portaccess() }">
+                            <div class="field">
+                                <span class="field_label inline" data-bind="localize:'profile.config.network.xr320allowedvid'">Allowed VID values (8 max)</span>
+                                <input class="short spinner" type="text" min="1" max="4094" maxlength="4" data-bind="attr: {id: 'profile_config_xr320vid' + '1'}, value:vid, event: { keypress: function (d,e) { if(e.keyCode===13){ $parent.addVid(d,e); } return true; } }, spinner: 1, valueUpdate:'afterkeydown', disable: vidvals().length>=8" id="profile_config_xr320vid1"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                <a href="#" class="add_button orange button" data-bind="attr: { id: 'profile_config_xr320vid_add' + id }, click: $parent.addVid, css: { disabled: vidvals().length>=8 }" id="profile_config_xr320vid_add4">+</a>
+                            </div>
+                            <div class="field" data-bind="visible: !portaccess()">
+                                <div class="tagControlContainer xr320Tags ko_container ui-sortable" data-bind="sortable: {data: vidvals, options: {containment: 'parent'}}"></div>
+                            </div>
+                            <div class="field_heading" data-bind="localize: 'profile.config.network.xr320.allowedoverrides.title'">Allowed VLAN Overrides</div>
+                            <div class="field_subheading" data-bind="localize: 'profile.config.network.xr320.overrides.desc'">Add VLAN Overrides by associating one or more VLANs to a pre-existing or new tag.</div>
+                            <div class="field tag_overrides">
+                                <div class="add_items" data-bind="validationOptions: {errorMessageClass: 'errorBubble'}">
+                                    <div class="input_label">
+                                        <label for="profile_config_network_xr320_override_tag_input" data-bind="localize: 'profile.config.network.xr320.overrides.tags'">Tag Name</label>
+                                        <label for="profile_config_network_xr320_override_allowed_input" class="second_input_label">
+                                            <span data-bind="localize: 'profile.config.network.xr320.overrides.vlans'">VLANs</span>
+                                            <span class="ie9_input_inline_hint" data-bind="localize: 'profile.config.network.xr320.overrides.add'">Add one or more VLANs</span>
+                                        </label>
+                                    </div>
+                                    <dl class="ko_dropdownlist tag_input" id="profile_config_network_xr320_override_tag_input"><dt><div class="ko_dropdownlist_combo"><input type="text" class="ko_dropdownlist_combo_input" data-bind="value: $data.value"><span class="ko_dropdownlist_combo_btn"></span></div></dt></dl><dl data-bind="ddlOptions: vm.globalTags, ddlType: 'comboBox', value: allowed.overrideTagToAdd" style="display: none;"></dl>
+                                    <input class="vlan_input" id="profile_config_network_xr320_override_allowed_input" type="text" data-bind="value_trim: true, value: allowed.overrideVLANsToAdd, valueUpdate: 'keyup', attr: { placeholder: ko.localization.localize('profile.config.network.xr320.overrides.add') }, event: { keypress: function (d,e) { if(e.keyCode===13){ $parent.addOverride(d.allowed); } return true; } }" placeholder="Add one or more VLANs"><span class="errorBubble" style="display: none;"></span>
+                                    <a href="#" id="profile_config_network_xr320_override_add" class="button orange" data-bind="localize: 'add', click: $parent.addOverride.bind($data.allowed, $data.allowed)">Add</a>
+                                </div>
+                            </div>
+                            <div class="field_info info" data-bind="localize: 'profile.config.network.xr320.overrides.hint', visible: allowed.overrideDragHintVisible" style="display: none;">Drag and drop tags to order them by priority. Priority goes from left to right, top to bottom.</div>
+                            <div id="profile_config_network_xr320_overrides_list" class="field tagControlContainerWrapper">
+                                <div class="override_list tagControlContainer ko_container ui-sortable" data-bind="sortable: {data: allowed.overrides, options: {containment: '#profile_config_network_xr320_overrides_list'}}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+        <!-- /ko -->
+
+        <div class="field_heading" data-bind="localize:'profile.config.network.vlantitle'">VLAN Support</div>
+        <div class="field_subheading abovetogglebox" data-bind="localize:'profile.config.network.vlansubtitle'">Enabling VLAN Support allows you to override existing VLAN schemas with the use of Array tags.</div>
+        <div class="togglebox">
+            <span class="togglebox_heading" data-bind="localize:'profile.config.network.vlantoggletitle'">Would you like to enable VLAN support?</span>
+            <div id="profile_config_network_enableVLAN" class="fl_right switch" data-bind="switch: useVlan"><input id="profile_config_network_enableVLAN_switch" type="checkbox" class="switch_checkbox" tabindex="1400"><label for="profile_config_network_enableVLAN_switch" class="switch_label"><div class="left">Yes</div><div class="middle"><div class="toggle"></div></div><div class="right">No</div></label></div>
+            <div class="togglebox_contents" data-bind="css: { active: useVlan }">
+                <div class="tip" data-bind="localize:{ html: { key: 'profile.config.network.setupVlan', params: { ssidpath: '#profiles/'+profileId+'/config/ssids', policiespath: '#profiles/'+profileId+'/config/policies', arrayspath: '#profiles/'+profileId+'/arrays' } } }">You will now be able to create VLAN IDs and Array tags for SSIDs (under the <a href="#profiles/867c54b0-9086-11e4-b2be-22000aeb20d8/config/ssids">SSID</a> or <a href="#profiles/867c54b0-9086-11e4-b2be-22000aeb20d8/config/policies">Policies</a> tile) and User Groups (under the <a href="#profiles/867c54b0-9086-11e4-b2be-22000aeb20d8/config/policies">Policies</a> tile) and assign them to Arrays (under the <a href="#profiles/867c54b0-9086-11e4-b2be-22000aeb20d8/arrays">Arrays</a> tab).</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

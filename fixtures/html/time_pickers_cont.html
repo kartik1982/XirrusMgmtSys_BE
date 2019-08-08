@@ -1,0 +1,7 @@
+<div id="timePickersContainer" data-bind="visible: $parent.checkSchedule(scheduling.days())" style="">
+                <div class="label" data-bind="localize: 'profile.config.policies.scheduling.timeOn'">Time On: </div>
+                <input id="scheduleStartTime" type="text" tabindex="200" data-bind="timepicker: $parent.timepickerStep, value: scheduling.startTime, enable: !scheduling.scheduledAllDay(), event: { keydown: $parent.checkTime }" class="spinner" placeholder="HH:MM am"><span class="spinner_controls"><a href="#" class="spinner_up up_arr">▲</a><a href="#" class="spinner_down down_arr">▼</a></span>
+                <span id="scheduleTo" data-bind="localize: 'profile.config.policies.scheduling.to'">to</span>
+                <input id="scheduleEndTime" type="text" tabindex="300" data-bind="timepicker: $parent.timepickerStep, value: scheduling.endTime, enable: !scheduling.scheduledAllDay(), event: { change: $parent.checkTime }" class="spinner" placeholder="HH:MM am"><span class="spinner_controls"><a href="#" class="spinner_up up_arr">▲</a><a href="#" class="spinner_down down_arr">▼</a></span>
+                <span id="nextDayAlert" class="bubble left" data-bind="localize: 'profile.config.policies.scheduling.nextDayAlert', visible: $parent.checkForTimeOverlap(scheduling.startTime(), scheduling.endTime())" style="display: none;">This time will be considered to be during the next day.</span>
+            </div>

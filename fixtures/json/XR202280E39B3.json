@@ -1,0 +1,22 @@
+{
+
+   "baseMacAddress" : "00:0f:7d:0e:39:b3",
+    "baseIapMacAddress" : "00:0f:7d:b7:89:c0",
+    "ipAddress" : "10.100.83.48",
+    "netmask" : "255.255.255.0",
+    "gateway" : "10.100.83.1",
+    "actualIpAddress" : "10.100.83.48",
+    "actualNetmask" : "255.255.255.0",
+    "actualGateway" : "10.100.83.1",
+    "serialNumber" : "XR202280E39B3",
+    "arrayModel" : "XR2420",
+    "manufacturer" : "Xirrus",
+    "aosVersion" : "0.0.0-0",
+    "licenseKey" : "0WWC0-JKH1D-FKK9T-1K12N",
+    "licensedAosVersion" : "7.1",
+    "location" : "Alex J Cube",
+    "hostName" : "XR202280E39B3",
+    "activationStatus" : "ACTIVATED",   
+    "country" : "US"
+   
+  }

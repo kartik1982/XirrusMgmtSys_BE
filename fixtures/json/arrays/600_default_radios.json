@@ -1,0 +1,38 @@
+[
+    {
+      "id": null,
+      "iapName": "iap1",
+      "description": "My First Radio - Default",
+      "enabled": true,
+      "locked": "UNLOCKED",
+      "bond": "OFF",
+      "wifi": "BGN",
+      "monitor": "OFF",
+      "cellSize": "SMALL",
+      "tx": 5,
+      "rx": -75,
+      "channel": 2,
+      "bondedChannel": null,
+      "band": "BAND_2DOT4",
+      "isAcCapable": true,
+      "restrictions": []
+    },
+    {
+      "id": null,
+      "iapName": "iap2",
+      "description": "My Second Radio - Default",
+      "enabled": true,
+      "locked": "UNLOCKED",
+      "bond": "OFF",
+      "wifi": "AN",
+      "monitor": "OFF",
+      "cellSize": "MEDIUM",
+      "tx": 12,
+      "rx": -86,
+      "channel": 36,
+      "bondedChannel": null,
+      "band": "BAND_5",
+      "isAcCapable": true,
+      "restrictions": []
+    }
+  ]

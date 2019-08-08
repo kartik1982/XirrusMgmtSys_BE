@@ -1,0 +1,497 @@
+{
+  
+  "ssids": [
+    {
+      "id": "094d16e0-5635-11e4-b141-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi7",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "094d8c10-5635-11e4-b141-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi6",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "094b6930-5635-11e4-b141-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi2",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "094e0140-5635-11e4-b141-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "094c7aa0-5635-11e4-b141-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi4",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "094e7670-5635-11e4-b141-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi1",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "094f12b0-5635-11e4-b141-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi3",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "094c0570-5635-11e4-b141-22000a49bc1d",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi5",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    }
+  ],
+  "dns": {
+    "id": "d121f7d3-4e97-11e4-993b-22000aeb20d8",
+    "primaryServer": "208.67.222.222",
+    "secondaryServer": "208.67.220.220",
+    "tertiaryServer": null,
+    "domain": "xirrus.com",
+    "useDhcp": false
+  },
+  "admin": null,
+  "modificationId": "1ada8b20-5650-11e4-b141-22000a49bc1d",
+  "aosVersion": null,
+  "locale": {
+    "id": "d1221ee0-4e97-11e4-993b-22000aeb20d8",
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+      "id": "1ad90480-5650-11e4-b141-22000a49bc1d",
+      "serverHostName": "time.nist.gov",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }{
+  "id": "d121f7d1-4e97-11e4-993b-22000aeb20d8",
+  "ssids": [
+    {
+      "id": "f260dce4-4e97-11e4-993b-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi2",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "f260dce3-4e97-11e4-993b-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi5",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "f260dce2-4e97-11e4-993b-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi4",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "f260dce1-4e97-11e4-993b-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi7",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "f260dce0-4e97-11e4-993b-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi6",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "f260dce7-4e97-11e4-993b-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "f260dce6-4e97-11e4-993b-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi1",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "id": "f260dce5-4e97-11e4-993b-22000aeb20d8",
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "multi3",
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    }
+  ],
+  "dns": {
+    "id": "d121f7d3-4e97-11e4-993b-22000aeb20d8",
+    "primaryServer": "208.67.222.222",
+    "secondaryServer": "208.67.220.220",
+    "tertiaryServer": null,
+    "domain": "xirrus.com",
+    "useDhcp": false
+  },
+  "admin": null,
+  "modificationId": "1c9c11f0-5efb-11e4-b1c6-22000aeb20d8",
+  "aosVersion": null,
+  "locale": {
+    "id": "d1221ee0-4e97-11e4-993b-22000aeb20d8",
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+      "id": "10a74f40-5efb-11e4-b1c6-22000aeb20d8",
+      "serverHostName": "time.nist.gov",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    },
+    "secondaryNtpServer": {
+      "id": "10a74f41-5efb-11e4-b1c6-22000aeb20d8",
+      "serverHostName": "pool.ntp.org",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    }
+  },
+  "networking": {
+    "id": "d1221ee3-4e97-11e4-993b-22000aeb20d8",
+    "useDhcp": false,
+    "cdp": {
+      "id": "10a74f42-5efb-11e4-b1c6-22000aeb20d8",
+      "enable": false,
+      "interval": null,
+      "holdtime": null
+    },
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1500,
+    "useVlan": false
+  },
+  "bonjour": {
+    "id": "d121f7d2-4e97-11e4-993b-22000aeb20d8",
+    "enable": false,
+    "services": null,
+    "defaultVlans": [],
+    "overrides": []
+  },
+  "policies": [],
+  "optimization": {
+    "id": "93309b92-5656-11e4-b141-22000a49bc1d",
+    "useRoamAssist": false,
+    "useFastRoam": true,
+    "useLoadBalance": true,
+    "multicastConversion": "NONE",
+    "multicastAddresses": [
+      {
+        "id": "87ce3862-5657-11e4-b141-22000a49bc1d",
+        "address": "224.0.0.251",
+        "description": "Bonjour"
+      }
+    ]
+  },
+  "security": null
+}
+    },
+    "secondaryNtpServer": {
+      "id": "1ad90481-5650-11e4-b141-22000a49bc1d",
+      "serverHostName": "pool.ntp.org",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    }
+  },
+  "networking": {
+   
+    "useDhcp": false,
+    "cdp": {
+      "id": "b7b4a3b2-560d-11e4-9148-22000a49bc1d",
+      "enable": false,
+      "interval": null,
+      "holdtime": null
+    },
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1500,
+    "useVlan": false
+  },
+  "bonjour": {
+  
+    "enable": false,
+    "services": null,
+    "defaultVlans": [],
+    "overrides": []
+  },
+  "policies": [],
+  "optimization": {
+   
+    "useRoamAssist": false,
+    "useFastRoam": true,
+    "useLoadBalance": true,
+    "multicastConversion": "NONE",
+    "multicastAddresses": [
+      {
+       
+        "address": "224.0.0.251",
+        "description": "Bonjour"
+      }
+    ]
+  },
+  "security": null
+}

@@ -1,0 +1,326 @@
+{
+  "ssids": [
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto5",
+      "band": "BOTH",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": {
+        "primaryServerIpAddress": null,
+        "primaryServerPort": 1812,
+        "primaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "secondaryServerIpAddress": null,
+        "secondaryServerPort": 1812,
+        "secondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "timeout": 30,
+        "acctEnabled": true,
+        "acctPrimaryServerIpAddress": null,
+        "acctPrimaryServerPort": 1812,
+        "acctPrimaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctSecondaryServerIpAddress": null,
+        "acctSecondaryServerPort": 1812,
+        "acctSecondaryServerSecret": {
+          "value": null,
+          "isSet": true
+        },
+        "acctInterval": 330,
+        "nasIdentifier": null,
+        "primaryServerHostname": "10.10.10.10",
+        "secondaryServerHostname": "11.11.11.11",
+        "acctPrimaryServerHostname": "13.13.13.13",
+        "acctSecondaryServerHostname": "19.19.19.19",
+        "radiusDasPort": 0
+      },
+      "captivePortal": null,
+      "ssidName": "Auto2",
+      "band": "DOT11BG",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "WPA2",
+      "authentication": "DOT1X",
+      "dot1xType": "EAP",
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": true,
+      "wpaAesEnabled": false
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto4",
+      "band": "BOTH",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto3",
+      "band": "DOT11BG",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto6",
+      "band": "BOTH",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    },
+    {
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": "Auto1",
+      "band": "DOT11A",
+      "enabled": true,
+      "broadcast": true,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    }
+  ],
+  "dns": {
+    "primaryServer": "208.67.222.222",
+    "secondaryServer": "208.67.220.220",
+    "tertiaryServer": null,
+    "domain": null,
+    "useDhcp": false
+  },
+  "admin": null,
+  "aosVersion": null,
+  "locale": {
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+      "serverHostName": "yahoo.com",
+      "authentication": "MD5",
+      "authenticationKeyId": 12345,
+      "authenticationKey": {
+        "value": null,
+        "isSet": true
+      }
+    },
+    "secondaryNtpServer": {
+      "serverHostName": "google.com",
+      "authentication": "SHA1",
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": true
+      }
+    }
+  },
+  "networking": {
+    "useDhcp": true,
+    "cdp": {
+      "enable": true,
+      "interval": 50,
+      "holdtime": 175
+    },
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1650,
+    "useVlan": false
+  },
+  "bonjour": {
+    "enable": false,
+    "services": null,
+    "defaultVlans": [
+
+    ],
+    "overrides": [
+
+    ]
+  },
+  "policies": [
+    {
+      "name": "policy_user_1",
+      "enabled": null,
+      "policyType": "USER_GROUP",
+      "rules": null,
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null,
+      "radiusFilterId": "radius_attr",
+      "vlanOverrides": [
+
+      ]
+    },
+    {
+      "name": "policy_device_1",
+      "enabled": null,
+      "policyType": "DEVICE",
+      "rules": [
+        {
+          "ruleType": "APP_CONTROL",
+          "name": "Simon456",
+          "source": {
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "qos": 3,
+          "applicationId": "dbase",
+          "categoryId": "database"
+        },
+        {
+          "ruleType": "APP_CONTROL",
+          "name": "Simon4s56",
+          "source": {
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "dscp": 1,
+          "applicationId": "cscosla",
+          "categoryId": "monitor"
+        },
+        {
+          "ruleType": "APP_CONTROL",
+          "name": "Simon4d56",
+          "source": {
+            "endpointType": "ANY"
+          },
+          "destination": {
+            "endpointType": "ANY"
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "trafficLimit": 1111,
+          "limitType": "PPS_PER_STATION",
+          "applicationId": "39net",
+          "categoryId": "web_srvc"
+        },
+        {
+          "ruleType": "FIREWALL",
+          "name": "Simon",
+          "source": {
+            "endpointType": "MAC_ADDRESS",
+            "macAddress": "11:11:11:11:11:11",
+            "macAddressMask": "FF:FF:FF:FF:FF:FF",
+            "inverse": false
+          },
+          "destination": {
+            "endpointType": "MAC_ADDRESS",
+            "macAddress": "22:22:22:22:22:22",
+            "macAddressMask": "FF:FF:FF:FF:FF:FF",
+            "inverse": false
+          },
+          "enabled": true,
+          "action": "ALLOW",
+          "qos": 2,
+          "protocolLayer": "LAYER_2",
+          "protocol": "ARP",
+          "portRangeStart": 7
+        }
+      ],
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null,
+      "deviceClassification": "Wii"
+    },
+    {
+      "ssidName" : "Auto1", 
+      "name": "Auto1",
+      "enabled": null,
+      "policyType": "SSID",
+      "rules": null,
+      "defaultQos": null,
+      "defaultDscp": null,
+      "maxStations": null,
+      "ppsPerArray": null,
+      "ppsPerStation": null,
+      "kbpsPerArray": null,
+      "kbpsPerStation": null
+    }
+  ],
+  "optimization": null,
+  "security": null
+}

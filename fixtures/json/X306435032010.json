@@ -1,0 +1,22 @@
+{
+      
+      "baseMacAddress": "50:60:28:03:20:10",
+      "baseIapMacAddress": "50:60:28:2f:60:20",
+     
+      "actualIpAddress": "10.100.83.16",
+      "actualNetmask": "255.255.255.0" ,
+      "actualGateway": "10.100.83.1" ,
+      "serialNumber": "X306435032010",
+      "arrayModel": "XR620",
+      "manufacturer": "Xirrus",
+      "aosVersion": null,
+      "licenseKey": "0EUCA-XWG44-TDWMQ-X24WQ",
+      "licensedAosVersion": "8.0",
+      "location": "Alex J Cube",
+      "hostName": "X306435032010",
+      
+      
+     
+      "country": "US",
+      "tags": []
+}

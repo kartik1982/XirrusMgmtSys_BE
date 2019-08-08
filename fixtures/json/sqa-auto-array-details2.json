@@ -1,0 +1,11 @@
+{
+  "id": "99ab2f40-f8c7-11e3-baf6-22000a49bc1d",
+  "name": "sqa-auto-array-details2",
+  "erpId": "sqa-auto-array-details2",
+  "tenantProperties": null,
+  "products": [
+    "XMS",
+    "BACKOFFICE",
+    "MOBILIZE"
+  ]
+}

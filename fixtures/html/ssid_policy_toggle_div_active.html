@@ -1,0 +1,99 @@
+<div class="togglebox policyField active" data-bind="css: { active: showContent, hasXR320: $parent.profileHasXR320 }, attr: { id: 'policy' + $index() }" id="policy1">
+                <span class="newPolicyBubble bubble align_right" data-bind="visible: isNew, localize: 'profile.config.policies.none.title'" style="display: none;">New policy</span>
+                <div class="policyToggleDiv" data-bind="click: $parent.togglePolicy">
+                    <div class="policiesRowHover" data-bind="css: { noEdit: type.name === 'global', hasRulesShowing: rules().length > 0 &amp;&amp; showContent }">
+                        <span class="policiesRowHoverEdit" data-bind="visible: type.name !== 'global', click: $parent.setPolicyModal, clickBubble: false"></span>
+                        <span class="policiesRowHoverDelete" data-bind="click: $parent.removePolicy, clickBubble: false"></span>
+                        <!-- ko ifnot: type.name === 'ssids' && $parent.profileHasXR320() -->
+                            <span class="policiesRowHoverSchedule" data-bind="visible: type.name !== 'global', click: $parent.schedulePolicy, clickBubble: false, css: { active: scheduling.isScheduled }"></span>
+                        <!-- /ko -->
+                    </div>
+                    <div class="policiesRowIcon ssidsRowIcon" data-bind="css: type.name + 'RowIcon'"></div>
+                    <span class="policiesRowType" data-bind="localize: type.nameKey">SSID</span>
+                    <span class="policiesRowName longer" data-bind="text: displayName, css: { longer: ((!$data.hasOwnProperty('device') || !$data.device.hasOwnProperty('deviceType')) &amp;&amp; !$data.hasOwnProperty('radius')) }">test</span>
+                    <!-- ko if: type.value === 'DEVICE' --><!-- /ko -->
+                    <!-- ko if: type.value === 'USER_GROUP' --><!-- /ko -->
+                    <span class="policiesRowRuleCount" data-bind="text: rules().length, visible: !showContent()" style="display: none;">0</span>
+                    <span class="policiesRowRuleWord" data-bind="localize: 'profile.config.policies.rules', visible: !showContent()" style="display: none;">Rules</span>
+                    <div class="policiesRowToggleIcon active" data-bind="css: { active: showContent }"></div>
+                    <!-- ko foreach: $parent.ruleTypes -->
+                        <a tabindex="1110" href="#" class="button orange policiesNewFirewall" data-bind="visible: $parent.rules().length !== 0 &amp;&amp; $parent.rules().length < 25 &amp;&amp; $parent.showContent, click: function (data, event) { $parents[1].openCreateRuleModal(data, $parent); }, clickBubble: false, attr: { id: 'rules_new_rule_' + name + '_' + $parentContext.$index() }" id="rules_new_rule_firewall_1" style="display: none;">
+                            <span class="newRulePlusIcon">+</span>
+                            <span class="newRulePlusText" data-bind="localize: newTitleKeyAbbrev">New Firewall</span>
+                        </a>
+                    
+                        <a tabindex="1110" href="#" class="button orange policiesNewFirewall" data-bind="visible: $parent.rules().length !== 0 &amp;&amp; $parent.rules().length < 25 &amp;&amp; $parent.showContent, click: function (data, event) { $parents[1].openCreateRuleModal(data, $parent); }, clickBubble: false, attr: { id: 'rules_new_rule_' + name + '_' + $parentContext.$index() }" id="rules_new_rule_appControl_1" style="display: none;">
+                            <span class="newRulePlusIcon">+</span>
+                            <span class="newRulePlusText" data-bind="localize: newTitleKeyAbbrev">New App Control</span>
+                        </a>
+                    <!-- /ko -->
+                    <span class="policiesRowScheduleText" data-bind="text: scheduling.scheduleText"></span>
+                </div>
+
+                <!-- POLICY EXPANDED SECTION -->
+                <div class="togglebox_contents policiesRowToggleContents active" data-bind="css: { active: showContent }">
+                    <div class="policiesRulesDragContainer">
+                        <!-- ko if: rules().length === 0 -->
+                            <div class="policiesRulesContainer">
+                                <!-- ko foreach: $parent.ruleTypes -->
+                                    <div class="policiesNewRule" data-bind="click: function (data, event) { $parents[1].openCreateRuleModal(data, $parent); }, attr: { id: 'no_rules_new_rule_' + name + '_' + $parentContext.$index() }" id="no_rules_new_rule_firewall_1">
+                                        <div class="policiesNewRuleIcon firewallRowNewIcon" data-bind="css: name + 'RowNewIcon'"></div>
+                                        <span class="policiesNewRuleName" data-bind="localize: newTitleKey">New Firewall Rule</span>
+                                    </div>
+                                
+                                    <div class="policiesNewRule" data-bind="click: function (data, event) { $parents[1].openCreateRuleModal(data, $parent); }, attr: { id: 'no_rules_new_rule_' + name + '_' + $parentContext.$index() }" id="no_rules_new_rule_appControl_1">
+                                        <div class="policiesNewRuleIcon appControlRowNewIcon" data-bind="css: name + 'RowNewIcon'"></div>
+                                        <span class="policiesNewRuleName" data-bind="localize: newTitleKey">New Application Control Rule</span>
+                                    </div>
+                                <!-- /ko -->
+                            </div>
+                        <!-- /ko -->
+
+                        <!-- ko if: rules().length > 0 --><!-- /ko -->
+                    </div>
+
+                    <div class="policiesAdvancedLabel">
+                        <a href="#" class="commonAdvanced" tabindex="830" data-bind="click: $parent.toggleAdvanced, localize: showAdvanced() ? 'hide_advanced' : 'show_advanced', attr: { id: 'policies_advanced_' + $index(), tabindex: 800 + ($index() * 30) }" id="policies_advanced_1">Show Advanced</a>
+                    </div>
+                    <div class="policiesAdvanced" data-bind="visible: showAdvanced" style="display: none;">
+                        <div class="policiesRuleAdvanced">
+                            <div class="policiesField" data-bind="visible: type.value !== 'GLOBAL'">
+                                <div class="defaultQosContainer">
+                                    <span class="policiesFieldLabel defaultQosLabel" data-bind="localize: 'profile.config.policies.advanced.qos'">Default QoS:</span>
+                                    <input class="defaultQosInput spinner" min="0" max="3" data-bind="value: defaultQos, spinner: 1, attr: { tabindex: 800 + ($index() * 30) + 1}" type="text" tabindex="831"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                </div>
+
+                                <span class="policiesFieldLabel trafficPerArraySpan" data-bind="localize: 'profile.config.policies.advanced.limitArray'">Limit Traffic per Access Point at:</span>
+                                <div class="trafficPerArrayContainer">
+                                    <input class="trafficPerArrayInput spinner" min="10" data-bind="value: trafficPerArraySpeed, attr: { max: selectedTrafficPerArraySpeed() === &quot;Kbps&quot; ? &quot;400000&quot; : &quot;1000000&quot;, tabindex: 800 + ($index() * 30) + 2 }, spinner: 1" type="text" max="400000" tabindex="832"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                </div>
+                                <span class="ko_dropdownlist trafficPerArraySelect" tabindex="833"><a href="#" class="ko_dropdownlist_button"><span class="text" title="Kbps" data-origclass="text">Kbps</span><span class="arrow"></span></a></span><dl data-bind="ddlOptions: $parent.trafficSpeedTypes, value: selectedTrafficPerArraySpeed, attr: { tabindex: 800 + ($index() * 30) + 3}" tabindex="833" style="display: none;"></dl>
+
+                                <!-- ko if: type.value === 'USER_GROUP' --><!-- /ko -->
+                            </div>
+
+                            <div class="policiesField">
+                                <div class="stationCountLimitContainer">
+                                    <span class="policiesFieldLabel stationCountLimitLabel" data-bind="localize: 'profile.config.policies.advanced.stationCount'">Client Count Limit:</span>
+                                    <input class="stationCountLimitInput spinner" min="1" max="3840" data-bind="value: maxStations, spinner: 1, enable: !maxStationsUnlimited(), attr: { tabindex: 800 + ($index() * 30) + 6 }" type="text" disabled="" tabindex="836"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                </div>
+
+                                <!-- ko if: type.value !== 'GLOBAL' -->
+                                    <span class="policiesFieldLabel trafficPerStationSpan" data-bind="localize: 'profile.config.policies.advanced.limitStation'">Limit Traffic per Client at:</span>
+                                    <div class="trafficPerStationContainer">
+                                        <input class="trafficPerStationInput spinner" min="10" data-bind="value: trafficPerStationSpeed, attr: { max: selectedTrafficPerStationSpeed() === &quot;Kbps&quot; ? &quot;400000&quot; : &quot;1000000&quot;, tabindex: 800 + ($index() * 30) + 7 }, spinner: 1" type="text" max="400000" tabindex="837"><span class="spinner_controls"><a class="spinner_up up_arr"></a><a class="spinner_down down_arr"></a></span>
+                                    </div>
+                                    <span class="ko_dropdownlist trafficPerStationSelect" tabindex="838"><a href="#" class="ko_dropdownlist_button"><span class="text" title="Kbps" data-origclass="text">Kbps</span><span class="arrow"></span></a></span><dl data-bind="ddlOptions: $parent.trafficSpeedTypes, value: selectedTrafficPerStationSpeed, attr: { tabindex: 800 + ($index() * 30) + 8 }" tabindex="838" style="display: none;"></dl>
+                                <!-- /ko -->
+                            </div>
+
+                            <div class="policiesField stationCountUnlimitedField">
+                                <label class="policiesFieldLabel stationCountUnlimitedLabel" data-bind="localize: 'profile.config.policies.advanced.stationCountUnlimited', attr: { for: 'maxStationsUnlimited' + $index() }" for="maxStationsUnlimited1">Client Count Unlimited:</label>
+                                <input class="mac_chk" data-bind="macChecked: maxStationsUnlimited, attr: { id: 'maxStationsUnlimited' + $index(), tabindex: 800 + ($index() * 30) + 5 }" value="unlimited" type="checkbox" id="maxStationsUnlimited1" tabindex="835"><label class="stationCountUnlimitedInput mac_chk_label"></label>
+                            </div>
+
+                            <!-- ko if: type.value === 'GLOBAL' --><!-- /ko -->
+                        </div>
+                    </div>
+                </div>
+            </div>

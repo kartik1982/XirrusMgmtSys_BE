@@ -1,0 +1,108 @@
+{
+ 
+  "ssids": [
+    {
+     
+      "vlan": null,
+      "vlanOverrides": null,
+      "radius": null,
+      "captivePortal": null,
+      "ssidName": null,
+      "guestPortalId": null,
+      "band": "BOTH",
+      "enabled": false,
+      "broadcast": false,
+      "encryption": "NONE",
+      "authentication": "OPEN",
+      "dot1xType": null,
+      "wpaPassphrase": {
+        "value": null,
+        "isSet": false
+      },
+      "wpaTkipEnabled": null,
+      "wpaAesEnabled": null
+    }
+  ],
+  "dns": {
+   
+    "primaryServer": "208.67.222.222",
+    "secondaryServer": "208.67.220.220",
+    "tertiaryServer": "208.67.222.222",
+    "domain": "xirrus.com",
+    "useDhcp": null
+  },
+  "admin": null,
+ 
+  "aosVersion": null,
+  "locale": {
+    
+    "country": "US",
+    "timeZone": "-8:00",
+    "useDst": true,
+    "useNtp": true,
+    "primaryNtpServer": {
+    
+      "serverHostName": "time.nist.gov",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    },
+    "secondaryNtpServer": {
+     
+      "serverHostName": "pool.ntp.org",
+      "authentication": null,
+      "authenticationKeyId": null,
+      "authenticationKey": {
+        "value": null,
+        "isSet": false
+      }
+    }
+  },
+  "networking": {
+    "linkLayer": {
+    
+      "enable": false,
+      "requestPower": null,
+      "interval": null,
+      "holdtime": null
+    },
+    "useDhcp": null,
+    "cdp": {
+      
+      "enable": false,
+      "interval": null,
+      "holdtime": null
+    },
+    "useVlan": false,
+    "vlans": [],
+    "wiredConfiguration": null,
+    "wiredConfiguration320": null,
+    "useLed": false,
+    "autoNeg": true,
+    "speed": null,
+    "duplex": null,
+    "mtu": 1500,
+    "useVlan": false
+  },
+  "bonjour": {
+    
+    "enable": false,
+    "services": null,
+    "defaultVlans": [],
+    "overrides": []
+  },
+  "policies": [],
+  "optimization": null,
+  "security": null,
+  "syslog": {
+   
+    "enable": false,
+    "primaryServer": "",
+    "primaryPort": 514,
+    "primaryLevel": null,
+    "stationLogging": null
+  }
+}
