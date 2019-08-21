@@ -16,3 +16,4 @@ gem 'watir'
 gem 'rest-client'
 gem 'httparty'
 gem "time_diff"
+gem 'watir-scroll', '~> 0.4.0'
