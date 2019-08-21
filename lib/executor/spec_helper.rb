@@ -70,6 +70,11 @@ def self.get_token_by_email_password(email, password)
            @password = spec_settings[:password]
            @download = spec_settings[:download] || DEFAULT_DOWNLOAD
            puts "DOWNLOAD DIR: #{@download}"
+           if (spec_settings[:skip_api] != true)
+              @ng = api
+            else
+              @login_url = @xms_url
+           end
            puts "current user , @username: #{@username}"
            @settings = spec_settings
            @date_path = spec_settings[:date_path]

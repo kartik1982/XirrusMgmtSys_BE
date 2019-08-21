@@ -1,3 +1,5 @@
+require_relative "../context.rb"
+require_relative "./local_lib/profiles_lib.rb"
 ################################################################################################################
 ##############TEST CASE: Profile Configuration Policy Scheduling#############################################
 ################################################################################################################
@@ -23,8 +25,8 @@ describe "*************TEST CASE: Profile Configuration Policy Scheduling*******
     @serial = @array.serial
     @ssid_policy = @ssids[0].dup
     @each_sleep = 1
-    @firewall_rule_name = XMS.random_title[0..19]
-    @app_rule_name = XMS.random_title[0..19]
+    @firewall_rule_name = UTIL.random_title[0..19]
+    @app_rule_name = UTIL.random_title[0..19]
   end    
 
   context "*******Schedule Policy and Rules***********" do 
@@ -54,7 +56,7 @@ describe "*************TEST CASE: Profile Configuration Policy Scheduling*******
       
       update_policies = existing_config_policies.clone
       
-      new_rule = XMS.load_json("#{XMS.nfixtures_root}/json/profiles/firewall_rule.json")
+      new_rule = UTIL.load_json("#{UTIL.nfixtures_root}/json/profiles/firewall_rule.json")
 
       new_rule['name'] = @firewall_rule_name
       update_policies.each{|policy|
@@ -80,7 +82,7 @@ describe "*************TEST CASE: Profile Configuration Policy Scheduling*******
       
       update_policies = existing_config_policies.clone
       
-      new_rule = XMS.load_json("#{XMS.nfixtures_root}/json/profiles/app_rule.json")
+      new_rule = UTIL.load_json("#{UTIL.nfixtures_root}/json/profiles/app_rule.json")
 
       new_rule['name'] = @app_rule_name
 
@@ -110,7 +112,7 @@ describe "*************TEST CASE: Profile Configuration Policy Scheduling*******
         @start_time = "7:30am"
         @end_time = "3:00pm"
         @rule_start = "12:00pm"
-        @rule_end = "1:00pm"
+        @rule_end = "01:00pm"
         @rule_days = [1,2,3]
       end
 
@@ -160,9 +162,9 @@ describe "*************TEST CASE: Profile Configuration Policy Scheduling*******
           
           ### Removing '0' at beginning of am times here (CLI show SSID does not have it, CLI show policy filter does)
 
-          expect(time_settings[0]).to eql(XMS.to_24hour(@rule_start))
+          expect(time_settings[0]).to eql(UTIL.to_24hour(@start_time))
 
-          expect(time_settings[1]).to eql(XMS.to_24hour(@rule_end))
+          expect(time_settings[1]).to eql(UTIL.to_24hour(@end_time))
           @days.each {|day|
 
             dayName = @rule_days.map{|day_num| Date::DAYNAMES[day_num%7]}
@@ -181,6 +183,11 @@ describe "*************TEST CASE: Profile Configuration Policy Scheduling*******
             
             expect(firewall_rule_settings.include?(@firewall_rule_name)).to be true
           }
+         app_rule_settings = show_policy_output.get_line(@app_rule_name)
+         expect(app_rule_settings.include?("#{UTIL.to_24hour(@rule_start)}-#{UTIL.to_24hour(@rule_end)}")).to be true
+         @rule_days.each { |day_int|
+          expect(app_rule_settings.include?(DAYS_OF_WEEK[day_int][:ap])).to be true
+         }
 
         end
 

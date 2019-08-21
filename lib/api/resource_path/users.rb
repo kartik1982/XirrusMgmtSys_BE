@@ -24,8 +24,12 @@ module API
       end
 
       def delete_user_by_email(email)
-        user = user_by_email(email)
-        delete_user(user.body["id"])
+        user_res = get_user_by_email_for_any_tenant({:email=>email})
+          begin
+            delete_user(user_res.body["id"]) if user_res.code == 200
+          rescue => e
+            puts e
+        end        
       end
   end
 end

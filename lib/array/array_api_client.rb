@@ -5,10 +5,10 @@ require 'open-uri'
 require 'net/http'
 require 'net/smtp'
 
-module XMS
+module EXECUTOR
   
   def self.array_api_client(args = {})
-    XMS::ArrayApiClient.new(args)
+    EXECUTOR::ArrayApiClient.new(args)
   end
   
   class ArrayApiClient
@@ -109,4 +109,4 @@ module XMS
 
 
  
-end # XMS
+end # EXECUTOR

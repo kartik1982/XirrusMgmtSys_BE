@@ -1,6 +1,5 @@
-module XMS 
-   module NG 
-      class ApiClient 
+module API
+    class ApiClient
 # GET - List all SSIDs
 #
 # @return [XMS::NG::ApiClient::Response]
@@ -83,9 +82,12 @@ end
 # @param args [Hash] 
 # @custom args :profileId path string *required 
 # @return [XMS::NG::ApiClient::Response]
-def delete_profile(args = {}) 
- delete("/profiles.json/#{args[:profileId]}", args)
-end 
+# def delete_profile(args = {}) 
+ # delete("/profiles.json/#{args[:profileId]}", args)
+# end 
+  def delete_profile(_profile_id)
+    delete("/profiles.json/#{_profile_id}")
+  end
 
 # GET - Get Profile Configuration
 #
@@ -193,5 +195,4 @@ end
 
 
        end 
-   end 
   end

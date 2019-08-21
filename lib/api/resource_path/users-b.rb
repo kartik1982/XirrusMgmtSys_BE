@@ -71,9 +71,9 @@ end
 # @param args [Hash] 
 # @custom args :userId path string *required 
 # @return [XMS::NG::ApiClient::Response]
-def delete_user(args = {}) 
- delete("/users.json/#{args[:userId]}", args)
-end 
+# def delete_user(args = {}) 
+ # delete("/users.json/#{args[:userId]}", args)
+# end 
 
 # GET - Get User by email for current Tenant
 #

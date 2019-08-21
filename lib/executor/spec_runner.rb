@@ -58,7 +58,8 @@ module EXECUTOR
       download: download,
       array: array,
       array_serial: array_serial,
-      telnet: telnet
+      telnet: telnet,
+      skip_api: skip_api
       
     })
 

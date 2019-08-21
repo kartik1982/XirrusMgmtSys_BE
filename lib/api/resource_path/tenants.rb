@@ -21,6 +21,26 @@ module API
       def new_tenant(args = { name: nil, erpId: nil, products: nil, circleId: nil, shardId: nil, suspended: false, brand: nil, parentName: nil, parentId: nil, tenantOwnership: nil })
         post("/tenants.json", { name: args[:name], erpId: args[:erpId], products: args[:products], circleId: args[:circleId], shardId: args[:shardId], suspended: args[:suspended], brand: args[:brand],  parentName: args[:parentName], parentId: args[:parentId], tenantOwnership: args[:tenantOwnership]})
       end
+      # It is required to use new_tenant_to_shard method to create a tenant in specific shard other
+      # SHARD_ID is a constant defined
+      def add_tenant(args = {name: nil, erpId: nil, tenantProperties: nil, products: nil, circleId: nil, shardId: nil, suspended: false, hasXR320: false, parentId: nil, brand: nil, region: nil, apCount: 0, description: "", tenantOwnership: "SELF" })
+        post("/tenants.json/shard/#{SHARD_ID}", {
+          name: args[:name],
+          erpId: args[:erpId],
+          tenantProperties: args[:tenantProperties],
+          products: args[:products],
+          circleId: args[:circleId],
+          shardId: SHARD_ID,
+          suspended: args[:suspended],
+          hasXR320: args[:hasXR320],
+          parentId: args[:parentId],
+          brand: args[:brand],
+          region: args[:region],
+          apCount: args[:apCount],
+          description: args[:description],
+          tenantOwnership: args[:tenantOwnership]
+        })
+      end
 
       def new_tenant3(args = { name: nil, erpId: nil, products: nil, circleId: nil, shardId: nil, suspended: false, brand: nil, parentName: nil, parentID: nil, tenantOwnership: nil })
         post("/msp.json/tenants", { name: args[:name], erpId: args[:erpId], products: args[:products], circleId: args[:circleId], shardId: args[:shardId], suspended: args[:suspended], brand: args[:brand],  parentName: args[:parentName], parentID: args[:parentID], tenantOwnership: args[:tenantOwnership]})
@@ -81,6 +101,9 @@ module API
       def arrays_for_tenant(tenant_id)
         get("/tenants.json/#{tenant_id}/arrays")
       end
+      def add_user_for_tenant(tenantId, user)
+        post("/tenants.json/#{tenantId}/users", user)
+      end
 
       def delete_array_for_tenant(tenant_id, array_id)
         delete("/tenants.json/#{tenant_id}/arrays/#{array_id}")
@@ -105,6 +128,10 @@ module API
 
       def delete_user_for_tenant(tenant_id, user_id)
         delete("/tenants.json/#{tenant_id}/users/#{user_id}")
+      end
+      def delete_user_for_current_tenant(user_id)
+        current_tenant = current_tenant().body
+        delete("/tenants.json/#{current_tenant["id"]}/users/#{user_id}")
       end
 
       def new_user_for_tenant_by_name(tenant_name, user = File.read("#{XMS.fixtures_root}/json/kiladad.json").to_json )

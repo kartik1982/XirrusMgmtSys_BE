@@ -5,6 +5,25 @@ def log(text)
   end
 end
 
+ def log_body(body)
+   if body.respond_to?("each")
+     body.each{|b| 
+       log(b)    
+     }
+   elsif body.respond_to?(:body)
+     if body.body.respond_to?("each")
+       body.body.each{|key, val| 
+         log("#{key} : #{val}")    
+       }
+     else
+       log(body.body.to_s)
+     end
+   else
+   log(body.to_s)
+  end
+
+ end
+ 
 def test_profile_setup(test_profile = {},profile_config_json_file = "#{UTIL.nfixtures_root}/json/profiles/basic_profile_config.json")
    @token = API.get_backoffice_token({username: @username, password: @password, host: @xms_url})
    @ng = API::ApiClient.new(token: @token)
@@ -26,7 +45,7 @@ def test_profile_setup(test_profile = {},profile_config_json_file = "#{UTIL.nfix
    
   if test_profile[:ssids]
     puts "SSIDS... in test_profile_setup"
-    @ssid_starter = UTIL.load_json("#{XMS.nfixtures_root}/json/profiles/ssid_starter.json")
+    @ssid_starter = UTIL.load_json("#{UTIL.nfixtures_root}/json/profiles/ssid_starter.json")
     @ssids = test_profile[:ssids].split(',')
 
     ssids_to_add_to_config = []
@@ -114,3 +133,20 @@ def test_profile_setup(test_profile = {},profile_config_json_file = "#{UTIL.nfix
    @update_config
 end
 
+def api_assign_arrays_to_profile(profileId, array_of_ids )
+  assign_res = @ng.assign_arrays_to_profile(profileId: profileId, array_of_ids: array_of_ids)
+  expect(assign_res.code).to eql(200)
+  array_of_ids.each {|ai|
+    updated_xirrus_array = @ng.get_array(arrayId: ai).body
+    expect(updated_xirrus_array['profileId']).to eql(profileId)
+  }
+end
+def api_assign_array(profile_id, array_serial)
+  @ng = @ng || ngapi
+  xirrus_array = @ng.array_by_serial(array_serial).body
+  arrayId = xirrus_array['id']
+  ids = []
+  ids << arrayId 
+  assign_res = @ng.assign_arrays_to_profile({profileId: profile_id, array_of_ids: ids})
+  expect(assign_res.code).to eql(200)
+end

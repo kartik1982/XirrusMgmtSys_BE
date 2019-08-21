@@ -233,11 +233,13 @@ module EXECUTOR
         end
         ping_success
       end
+      def is_aos_light(model_type=self.model)
+        EXECUTOR::Array.is_aos_light(model_type)
+      end
+
+      def self.is_aos_light(model_type)
+        AOS_LIGHT_MODELS.include? model_type
+      end
 
   end # Array
-
-
-
-
-
 end # EXECUTOR

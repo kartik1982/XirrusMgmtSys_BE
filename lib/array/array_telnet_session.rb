@@ -29,40 +29,43 @@ module Net
       end
  
       if block_given?
-        line = waitfor(login_prompt){|c| yield c }
+        line = waitfor(login_prompt){|c| yield c } || ""
         if password
           line += cmd({"String" => username,
-                       "Match" => password_prompt}){|c| yield c }
-          line += cmd(password){|c| yield c }
+                       "Match" => password_prompt}){|c| yield c } || ""
+          line += cmd(password){|c| yield c } || ""
         else
-          line += cmd(username){|c| yield c }
+          line += cmd(username){|c| yield c } || ""
         end
       else
-        line = waitfor(login_prompt)
+        line = waitfor(login_prompt) || ""
         if password
           line += cmd({"String" => username,
-                       "Match" => password_prompt})
-          line += cmd(password)
+                       "Match" => password_prompt}) || ""
+          line += cmd(password) || ""
         else
-          line += cmd(username)
+          line += cmd(username) || ""
         end
       end
       line
     end
-
-
-
-
-
-
   end
 
 end
 
-module XMS
+module EXECUTOR
   
   def self.array_telnet_session(args = {})
-    XMS::ArrayTelnetSession.new(args)
+    EXECUTOR::ArrayTelnetSession.new(args)
+  end
+
+  ############################
+  ## CUSTOM EXCEPTION CLASS ##
+  ############################
+  class NoAraraytelnetDataError < StandardError
+    def initialize(msg="NO DATA Returned back from AP Telnet Session")
+      super
+    end
   end
   
   class ArrayTelnetSession
@@ -74,14 +77,10 @@ module XMS
       @username = args[:username] || "admin"
       @password = args[:password] || "admin"
       @initial_args = args 
-      @session = telnet_session(@ip,@username,@password)
-#puts @session
-      #@session.cmd(@username)#{ |c| print c}
-      #@session.cmd(@password){ |c| print c}
-      @session.cmd('configure'){|c| 
-       
-        print c.gsub(16.chr, '')
-      }
+      @session = telnet_session(@ip, @username, @password, args[:timeout], args[:waiting_time])
+      @session.cmd('configure') do |c|
+        print c.gsub(16.chr, '') unless c.nil? || c.empty?
+      end
      
       @setup = args[:setup] || true
 
@@ -91,82 +90,252 @@ module XMS
         cmd('snmp v2 off')
         cmd('snmp v3 off')
       end
-      cmd('syslog console disable')
+      #cmd('syslog console disable')
       end
-     # @session.cmd('exit') { |c| print c }
+      # @session.cmd('exit') { |c| print c }
     end
 
-    def telnet_session(ip, username, password)
+    def telnet_session(ip, username, password, timeout=nil, waiting_time=nil)
+      timeout ||= 60
+      waiting_time ||= 3
       array = Net::Telnet::new('Host' => ip,
-                               'Timeout' => 30,
-                               'Waittime' => 3,
-                               #'Binmode' => true,
-                               'Prompt' => /[$%#] /)
-      array.login(username,password){|c| print c.gsub(16.chr, '')}    
+         'Timeout' => timeout,
+         'Waittime' => waiting_time,
+         #'Binmode' => true,
+         'Prompt' => /[$%#] /)
+      array.login(username,password){|c|
+        print c.gsub(16.chr, '') unless c.nil? || c.empty?
+      }
       array      
-	  end    
+    end    
     
 
-  	def cmd(command)
-  	  output = @session.cmd(command){|c| 
-        unless c.nil?
-         print c.gsub(16.chr, '').gsub("\u0010","")
+    def cmd(command)
+      begin
+        output = @session.cmd(command) { |c| print c.gsub(16.chr, '').gsub("\u0010","") unless c.nil? || c.empty? }
+
+        if (output.nil? || output.empty?)
+          throw NoAraraytelnetDataError
         end
-      }
-      unless output.nil?
+      rescue Errno::EPIPE, NoAraraytelnetDataError, XMS::NoAraraytelnetDataError => e
+        puts e
+        puts "Hmmmmmmm AGAIN, Telnet Connection is broken! Trying to Reconnect..."
+        begin
+          puts "Close Connection"
+          @session.close()
+
+          puts "Let's ping to see an AP is dead or alive"
+          puts "Sleep 20 seconds before ping"
+          sleep 20
+
+          up = XMS::Utilities.ping(@ip, 4, 30, 10)
+          if up
+            puts "Successful Ping, AP is Online"
+          else
+            throw "AP is Ofline, Unsuccessful Ping, Please, check your AP's -> :#{@ip} connectivity to bring it Online"
+          end
+
+          puts "Trying to establish a new Telnet Connection..."
+          @session = telnet_session(@ip, @username, @password, 80, 8)
+
+          output = @session.cmd(command) {
+            i = 9
+            #|c| print c.gsub(16.chr, '').gsub("\u0010","") unless c.nil? || c.empty?
+          }
+
+        rescue => e
+          puts " - ***************** - \n\n -- Could't Reconnect \n\n - ***************** - \n"
+          puts " - ***************** - \n\n -- Actual Error \n  #{e} \n - ***************** - \n"
+
+          throw "Can't Reconnect to the AP: #{@ip}, Error: #{e}"
+        end
+      end
+
+
+      unless output.nil? || output.empty?
         output = output.gsub(16.chr,'').gsub("\u0010",'')
         output = output.split(/\n/)
       end
       output
-  	end
+    end
 
     def activation_done?(wait_time=10)
       top
       configure
-       # puts "Waiting 30 seconds to begin checking activation interval"
-      #  sleep 30
-        ready_to_move_on = false
-        attempts = 0
-        while ((ready_to_move_on == false) && attempts < 15)
-          man = cmd('show man')
-          attempts += 1
-          interval_line = man.select{|m| m.start_with?"Activation Interval"}.first 
-          interval = interval_line.split(' ')[2]
-         # log("Checking Activation Interval #{interval} - #{Time.now}")
-          if interval == "5"
-            ready_to_move_on = true 
-          else
-            sleep wait_time
-          end
-          
+      # puts "Waiting 30 seconds to begin checking activation interval"
+      sleep 30
+      ready_to_move_on = false
+      attempts = 0
+
+      while ((ready_to_move_on == false) && attempts < 35)
+        interval = activation_interval()
+        attempts += 1
+
+        if interval.nil?
+          throw("Unexpected Error. show man command return null which should't be the case")
         end
+
+        if interval == 20
+          ready_to_move_on = true
+        else
+          puts "- not configured yet. On attempt: #{attempts}"
+          sleep wait_time
+        end
+      end
+
       ready_to_move_on
     end
 
+
+    # should use show json settings for some commands. for example ->
+    # 1. show json settings management
+    # 2. show json settings iap-global-ac
+    # etc
+    # However, for some commands you do not need to add settings   for example -> show json running-config
     def show_json(_command)
-      JSON.parse(@session.cmd("show json #{_command}"){|c| print c}.gsub("show json #{_command}",'').gsub("#{self.hostname}(config)\#",'').gsub("\u0010",'').gsub("#{16.chr}",'').gsub("\n",''))
+      cleaned_show_json = @session.cmd("show json #{_command}"){|c|
+        print c.gsub(16.chr, '').gsub("\u0010","") unless c.nil? || c.empty?
+      }
+
+      if cleaned_show_json
+        cleaned_show_json = cleaned_show_json.gsub("show json #{_command}",'').gsub("#{self.hostname}(config)\#",'').gsub("\u0010",'').gsub("#{16.chr}",'').gsub("\n",'')
+        last_curly = cleaned_show_json.rindex('}')
+        final_json = cleaned_show_json[0..last_curly]
+        JSON.parse(final_json)
+      else
+        puts "\n\n\n Something Went Wrong NO DATA Returned back from AP Telnet Session \n\n\n"
+      end
     end
 
-    def close
+    def memfree
+      show_mem_free = cmd("show memfree")
+      show_mem_free.get_line("MemFree:").split(' ')[1]
+    end
+
+    def configure_date_time()
+      cmd("configure")
+      cmd("date-time")
+      cmd("dst-adjust enable")
+      cmd("ntp enable")
+      cmd("timezone -8")
+      cmd("exit")
+      cmd("exit")
+    end
+
+    def configure_dns_servers(s_1="10.100.1.10", s_2="10.100.2.10")
+      cmd("configure")
+      cmd("dns")
+      cmd("server1 #{s_1}")
+      cmd("server2 #{s_2}")
+      cmd("exit")
+      cmd("exit")
+    end
+
+    def close_connection
+      @session.close
+    end
+
+    def close(level=2)
       top
-      cmd('exit')
-      cmd('exit')
+      level.times {cmd('exit')}
     end
   
-  	def top
-  	  cmd('top')
+    def top
+      cmd('top')
+    end
+
+    def goto_management()
+      cmd('top')
+      configure()
+      management()
+    end
+
+    def activate(env='test03')
+      goto_management()
+      cmd('cloud off')
+      cmd("activation stop")
+      set_activation_url(env)
+      start_activation(true)
+    end
+
+    def start_activation(already_in_management=nil)
+      goto_management() unless already_in_management
+      cmd('activation interval 1')
+      cmd('cloud on')
+      cmd('activation start')
+      cmd('save')
+      cmd('exit')
+    end
+
+    def set_activation_url(env, times=1, url=nil)
+      url = url || ACTIVATION_URL.gsub("env", env)
+      times.times{ cmd("Activation Server #{url}") }
+    end
+
+    def activation_server()
+      show_management().select{|s| s.start_with?("Activation Server")}.first
+    end
+
+    def cloud_server()
+      show_management().select{|s| s.start_with?("Cloud Server")}.first
+    end
+
+    def set_offline(env='test03')
+      cmd('top')
+      configure()
+      management()
+      cmd('activation stop')
+      cmd('activation interval 1')
+      cmd('cloud off')
+      cmd('save')
+      cmd('exit')
+    end
+
+    def configure
+      cmd('configure') #{|c| print c}
     end
   
-  	def configure
-  	  cmd('configure') #{|c| print c}
-  	end
-  
-  	def management
-  	  cmd('management')#{|c| print c}
-  	end
-  
+    def management
+      cmd('management')#{|c| print c}
+    end
+
+    def get_aos_version_info()
+      show_json("running-config")["system"]["versionInfo"]
+    end
+
+    def activation_interval()
+        show_json_activation_interval()
+    end
+
+    def download_aos_version(aos_url)
+      cmd("configure")
+      cmd("file")
+      cmd("http-get #{aos_url}")
+      cmd("exit")
+      cmd("exit")
+      cmd("exit")
+    end
+
+    def upgrade_aos_version(aos_version)
+      cmd("configure")
+      cmd("file")
+      cmd("active-image #{aos_version}")
+      cmd("exit")
+      cmd("exit")
+    end
+
+    def enable_backdoor()
+      cmd("configure")
+      cmd("boot-env")
+      #AF - 6/15/18
+      #cmd("set bootargs CLIOPTS=b")
+      cmd("set bootargs console=ttyS0,115200n8 root=/dev/ram rw quiet ACTIVATION_URL=https://activate-test01.cloud.xirrus.com CLIOPTS=b")
+      cmd("exit")
+      cmd("exit")
+    end
+
     def show
-  	  cmd('show')
+      cmd('show')
     end
 
     def show_top
@@ -179,9 +348,11 @@ module XMS
       management
       show
     end
-  
-   
-  
+
+    def get_crash_log
+      cmd('show crash')
+    end
+
     def show_contact_info
       cmd('show contact-info')
     end
@@ -194,11 +365,19 @@ module XMS
     end
 
     def country_code_reset
-     # @session.cmd("top"){|c| print c}
       configure
       cmd("interface iap")
       cmd("global-settings")
       cmd("country-code-reset")#{|c| print c}
+    end
+
+    def set_country_code(code)
+      configure
+      cmd("interface iap")
+      cmd("global-settings")
+      cmd("country-code #{code}")
+      cmd("exit")
+      cmd("exit")
     end
 
     def show_global_settings
@@ -206,10 +385,9 @@ module XMS
       configure
       cmd('interface iap')
       cmd('global-settings')
-      #cmd('save')
       show
     end
-  
+
     def puts_out(output)
       output.each_with_index{|o,index|
          puts "#{index} : #{o}"
@@ -244,10 +422,55 @@ module XMS
        cmd('show')
      end
 
-     def show_ssid(ssid)
+    def show_ssid(ssid)
        top
        cmd('ssid')
        cmd("show ssid #{ssid}")
+     end
+
+     def ssid_whitelist(ssid_name)
+       top
+       cmd('ssid')
+       cmd("edit #{ssid_name}")
+       cmd('show wpr-whitelist all')
+     end
+
+     def show_timezone_offset()
+       cmd('configure')
+       cmd('date-time')
+       cmd('show').get_line("Offset").split(' ')[2].strip
+     end
+
+     def show_defaults_by_section(section_type)
+       valid_options = ["lldp", "security wep", "syslog", "contact-info", "interface iap"]  # TODO add more types in the future
+       raise(ArgumentError, "Section type must be one of : #{valid_options.to_s}") unless valid_options.include?(section_type.delete('\\"'))
+       x = cmd("show running-config inc-defaults section #{section_type}")
+
+       section_type = section_type.delete('\\"')
+       if section_type == "lldp"
+         x = {
+           "interval"=> x.get_line("interval").split(' ')[1].strip,
+           "hold-time"=> x.get_line("hold-time").split(' ')[1].strip,
+           "enable"=> x[x.index{|a|a.include?("hold-time")} + 1...x.index{|a|a.include?("request-power")}].first.strip,
+           "request-power"=> x.get_line("request-power").split(' ')[1].strip
+         }
+       elsif section_type == "security wep"
+         x = {"default-key"=> x.get_line("default-key").split(' ')[1].strip}
+       elsif section_type == "syslog"
+         x = {"enable"=> x[x.index{|a|a.include?("exit")}-1].strip}
+       elsif section_type == "contact-info"
+         x = {
+           "name"=> x.get_line("name").split(' ')[1].strip.delete('\\"'),
+           "phone"=> x.get_line("phone").split(' ')[1].strip.delete('\\"'),
+           "email"=> x.get_line("email").split(' ')[1].strip.delete('\\"')
+         }
+       elsif section_type == "interface iap"
+         # TODO Add more Global options if needed. For now we just return only multicasts.
+         x = {
+           "multicasts"=> x.get_lines(/multicast/).map{ |multicast| multicast.split(" ").drop(1).join(" ") }
+         }
+       end
+        x
      end
 
      def ssid_time_settings(ssid_name)
@@ -278,6 +501,17 @@ module XMS
         cmd('show filter-list')
       end
 
+      def change_filter_state(filter_name, state)
+        valid_options = ["enable", "disable"]
+        raise(ArgumentError, "Filter State option must be one of : #{valid_options.to_s}") unless valid_options.include?(state)
+        cmd('configure')
+        cmd('filter')
+        cmd("edit-list #{filter_name}")
+        cmd(state)
+        cmd("exit")
+        cmd("exit")
+        cmd("exit")
+      end
 
       def show_policy(name)
         show_filter_list
@@ -290,20 +524,69 @@ module XMS
         cmd("show saved-config inc-defaults section \"#{section}\"")
       end
 
+      def show_json_ssids()
+        show_json("no-header raw running-config")["system"]["ssidCfg"]["entries"]
+      end
+
+      def show_json_activation_interval()
+        show_json("no-header raw running-config")["system"]["extMgmt"]["mgmtCfg"]["activationInterval"]
+      end
+
+      def show_system_software()
+        k = show_json("running-config")["system"]["versionInfo"]["swName"]
+      end
+
+      def show_json_policies(_case = "filterListAll")
+        show_json("running-config")["system"][_case]["entries"]
+      end
+
+      def clear_syslog()
+        configure
+        cmd("clear syslog ")
+      end
+
+      def get_syslog()
+        cmd("show syslog")
+      end
+
+      def show_json_global_settings()
+        show_json("running-config")["system"]["iapGlbCfg"]
+      end
+
+      def show_json_dhcp_server_settings()
+       show_json("running-config")["system"]["dhcpServerCfg"]["entries"].first
+      end
+
+      def show_json_dhcp_gig_settings(port_type = "gig1")
+        show_json("running-config")["system"]["ethCfg"]["entries"].find { |entry| entry["dev"] == port_type }
+      end
+
       def show_running_config_section(section)
         configure
         cmd("show running-config inc-defaults section \"#{section}\"")
       end
 
+      def show_location_reporting()
+        show_json("running-config")["system"]["locationCfg"]
+      end
 
-      def iap_settings(name)
+      # Before running this method please, make sure CLIOPTS=b  is set on an AP. Here how to set it
+      # ssh to an AP and run  configure -> boot-env ->  the the remaining.
+      # X206439033B6E(config-boot)# edit bootargs console=ttyS0,115200n8 root=/dev/ram rw quiet ACTIVATION_URL=https://activate-test03.cloud.xirrus.com CLIOPTS=b
+      # X206439033B6E(config-boot)# save
+      # Saving boot environment ... OK
+      def show_passwords_enable()
+        configure
+        cmd("show clear-text enable")
+      end
+
+      def iap_settings(iap_number)
         top
         configure
         cmd('interface iap')
-        cmd('iap2')
+        cmd("iap#{iap_number}")
         cmd('show')
       end
-
 
       def global_iap_settings
         show_running_config_section("interface iap  ! (global settings)")
@@ -313,6 +596,10 @@ module XMS
         top
         cmd("interface gig#{gig_number}")
         cmd("show")
+      end
+
+      def show_profile_optimizations
+        show_json("settings iap-global-ac")
       end
 
       def show_gig1
@@ -563,10 +850,5 @@ module XMS
       @password
     end
 
-  end # Array
-
-
-
-
- 
-end # XMS
+  end # Array 
+end # EXECUTOR

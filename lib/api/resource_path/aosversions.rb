@@ -1,24 +1,6 @@
-module XMS
-  module NG
+module API
     class ApiClient
-
-## AOS Version Object
-=begin
-      {
-         "id": "string",
-         "enterpriseStatus": {
-             "active": "boolean",
-             "beta": "boolean"
-      },
-          "releaseDate": "Date",
-          "cloudStatus": {
-          "active": "boolean",
-          "beta": "boolean"
-      },
-      "upgradeUrl": "string",
-      "version": "string"
-      }
-=end
+      
       def add_aos_version(obj={})
         post("/aosversions.json/",obj)
       end  
@@ -114,9 +96,11 @@ module XMS
       end
 
       def delete_box_by_name(_name)
-      	box_res = box_by_name(_name)
-      	box_id  box_res.body['id']
-      	delete_box(_id)
+        box_res = box_by_name(_name)
+        if box_res.code == 200
+          box_id = box_res.body['id']
+          delete_box(box_id)
+        end
       end
 
       def circles_in_box(_box_id, params = {})
@@ -128,9 +112,5 @@ module XMS
         HTTParty.put("#{api_path}/aosversions.json/aosversionbox/circles/#{_box_id}", { :body => body_string, :headers => {"Authorization" => "Bearer #{token}",'Content-Type' => 'application/json', 'Accept' => 'application/json' }}) # RestClient Post
       end
 
-
-
-
     end # ApiClient
-  end # NG
-end # XMS
+end # API

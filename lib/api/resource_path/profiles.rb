@@ -1,5 +1,5 @@
-module XMS
-  module NG
+module API
+    class ApiClient
 
     def self.delete_id_keys(obj)
         if obj.respond_to?(:keys)
@@ -25,8 +25,6 @@ module XMS
         end
         obj
     end
-
-    class ApiClient
 
       def profiles(args={})
         get("/profiles.json",args)
@@ -88,10 +86,6 @@ module XMS
    ## not an hash or enumerable object, most likely a string or null
  end
 end
-      
 
-
-
-    end
   end
 end

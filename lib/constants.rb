@@ -105,3 +105,11 @@ CLIENT_GRID_DATA_FIELDS = {
     profileName: "Profile"
 }
 SINGLE_AP_REGRESSION_GLOBAL_CONFIGURATIONS = nil
+CELL_SIZE_PAIRINGS = [
+    {size: "Small", tx: 5, rx: -82},
+    {size: "Medium", tx: 12, rx: -86},
+    {size: "Large", tx: 19, rx: -89},
+    {size: "Max", tx: 20, rx: -90}
+  ]
+
+AOS_LIGHT_MODELS = ["XR320", "X2120", "WAP9112", "X2-120"]

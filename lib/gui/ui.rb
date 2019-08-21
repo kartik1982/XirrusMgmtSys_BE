@@ -1,15 +1,19 @@
+require_relative '../constants.rb'
 $:.unshift File.dirname(__FILE__)
 require 'login_page_objects'
 require 'guestportal_page_objects'
 require 'profiles_page_objects'
+require 'profile_config_view'
 require 'reports_page_objects'
 require 'settings_page_objects'
+require 'mynetwork_page_objects'
+require 'policy_toggle_div'
+require 'arrays_tab'
+require 'radios_tab'
 
 module GUI
   class UI
     include GUI::LoginPageObjects
-    # include GUI::GuestportalPageObjects
-    # include GUI::ProfilesPageObjects
     include GUI::ReportsPageObjects
     # include GUI::SettingsPageObjects
     attr_accessor :browser, :log_file
@@ -169,6 +173,28 @@ module GUI
     def refresh
       @browser.refresh
     end
+    
+    def ng_toggle_checked?(_id)
+      @browser.checkbox(id: _id).checked? ? true : false
+    end
+    def ng_toggle(_id)
+      label = @browser.checkbox(id: _id).parent.label
+      label.wait_until_present
+      # @browser.scroll.to label
+      label.click
+    end
+    def li_text_array(_ul)
+      _ul.lis.map {|l| l.text }
+    end
+    def ng_toggle_set(_id, value)
+      current_val = ng_toggle_checked?( _id )
+      if current_val == value
+      return
+      else
+        ng_toggle( _id )
+      end
+    end
+    
     def get_cell_text_on_ap_grid(ap_name,column_name,status_text,fake_ap)
         i = 0
         $expected_cell_string = ""
@@ -473,6 +499,17 @@ module GUI
           obj.clear
         end
       end
+    def set_text_field_by_id(_id, value)
+      tf = get(:text_field,{id: _id})
+      sleep 5
+      tf.wait_until_present
+      tf.clear
+      tf.value = value.strip
+      sleep 1
+      tf.fire_event("onblur")
+      @browser.send_keys :tab
+      sleep 1
+    end
  def set_input_val(cssval, val)
       if css(cssval).present? != true
         @css = cssval
@@ -668,6 +705,37 @@ def goto_mynetwork
        sleep 1
        view_all_guestportals_link.wait_until(&:present?)
        view_all_guestportals_link.click
+
+    end
+    def add_ssid(ssid_names)
+      ssid_id=ssid_names.split(",")
+
+      for i in 0..ssid_id.length-1
+        ssid = ssid_id[i]
+
+        if ssid == 'honeypot'
+
+          if @browser.div(:id => 'profile_config_ssids_view').a(:id => 'ssids_show_advanced').present?
+            @browser.div(:id => 'profile_config_ssids_view').a(:id => 'ssids_show_advanced').click
+            @browser.div(:id => 'profile_config_ssids_view').a(:id => 'ssids_show_advanced', :text => 'Hide Advanced').wait_until_present
+          end
+
+          @browser.div(:id => 'ssid_grid').div(:class => 'base_top').a(:id => 'ssid_honeypot_btn').wait_until_present
+          @browser.div(:id => 'ssid_grid').div(:class => 'base_top').a(:id => 'ssid_honeypot_btn').click
+
+        else
+
+          @browser.a(:id=> 'profile_ssid_addnew_btn').wait_until_present
+          @browser.a(:id=> 'profile_ssid_addnew_btn').click
+          sleep 2
+
+          @browser.tr(:class => 'nssg-tbody-tr is-active').text_field(:type => 'text').set "#{ssid}"
+          #@browser.div(:class => 'inner').text_field(:type => 'text').set "#{ssid}"
+          @browser.div(:text=> 'SSIDs').wait_until_present
+          @browser.div(:text=> 'SSIDs').click
+        end
+        sleep 2
+      end
 
     end
 

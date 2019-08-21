@@ -90,9 +90,13 @@ module GUI
         def initialize(name, browser)
           @name = name
           @browser = browser
-          title_span = @browser.send(:span,{title: name})
+          if @browser.send(:span,{title: name})==nil
+            title_span = @browser.send(:span,{title: name})
+          else
+            title_span = @browser.send(:a,{title: name})
+          end
           title_span.wait_until(&:present?)
-          @el = @browser.send(:span,{title: name}).parent.parent.parent
+          @el = title_span.parent.parent.parent
 
         end
 
@@ -117,7 +121,7 @@ module GUI
           end
 
           def select_column
-            el.td(css: ".select_column")
+            el.td(css: ".nssg-td-select")
           end
 
           def select

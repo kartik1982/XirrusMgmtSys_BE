@@ -9,7 +9,20 @@ module UTIL
       puts "log file or text nil log(text) - XMS Utilities"
     end
   end
+  def self.ngem_root
+     File.expand_path File.dirname(__FILE__).gsub("/lib/util","")
+   end
 
+   def self.nspec_root
+     "#{self.ngem_root}/spec"
+   end
+
+   def self.nfixtures_root
+     "#{self.ngem_root}/fixtures"
+   end
+  def self.load_json(json_file_path)
+    JSON.parse(File.read(json_file_path))
+  end
   def get(watir_browser_method, args = {})
     @browser.send(watir_browser_method.to_sym, args)
   end
@@ -29,6 +42,10 @@ module UTIL
 
   def self.random_email
     "#{random_fullname.downcase.gsub(' ','-')}@sqa-#{buildings.sample}-xirrus.com"
+  end
+    # '7:30 am' -> 7:30, '3:30 pm' -> 15:30
+  def self.to_24hour(time_string)
+    DateTime.parse(time_string.gsub(' ','')).strftime("%H:%M")
   end
   
   def self.random_mac
@@ -126,6 +143,21 @@ module UTIL
   def el
      @el
   end
+  ################################
+  ###### NEW HELPER METHODS ######
+  ################################
+  def self.wait_helper(wait_time=0, message1="do something", message2="doing something", inc=10)
+    i = inc
+    max_sleep_time = wait_time
+    puts " - Wait #{max_sleep_time} seconds to #{message1}"
+     while i < max_sleep_time
+      puts "#{i} seconds..."
+      sleep inc
+      i += inc
+    end
+    puts message2
+  end
+
   def wait_until_present
       if el.present? != true
         @position = el.wd.location
