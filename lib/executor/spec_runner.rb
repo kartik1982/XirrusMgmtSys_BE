@@ -44,6 +44,7 @@ module EXECUTOR
     download = args[:download] ||  Dir.home+"/Downloads" #DEFAULT_DOWNLOAD
     rspec_out = args[:rspec_out] || Dir.home+"/reports/" #RSPEC_OUT
     remote_srvr = args[:remote_srvr]
+    remote_report = args[:remote_report]
     skip_api = args[:skip_api] || false
     array = args[:array]
     array_serial= args[:array_serial]
@@ -95,58 +96,45 @@ module EXECUTOR
       run_spec(command)
       
       ###############################################################################################################
-      #post result into server using APIs
-      token = EXECUTOR.get_token_by_email_password('kartik.aiyar@riverbed.com','Kartik@123')
-      #old
-      # report_params={
-       # release_id: EXECUTOR.get_id_by_title('releases', release_id, token),
-       # testcycle_id: EXECUTOR.get_id_by_title('testcycles', testcycle_id, token),
-       # project_id: EXECUTOR.get_id_by_title('projects', project_id, token),
-       # build: $build_id,
-       # testsuite_id: EXECUTOR.get_id_by_title('testsuites', testsuite_id, token),
-       # testcase_id: EXECUTOR.get_id_by_title('testcases', testcase_id, token),
-       # pass: $pass_count,
-       # fail: $fail_count,
-       # pending: $pending_count,
-       # log_path: "http://"+remote_srvr+out_path.gsub("#{rspec_out}",''),
-       # start_at: start_time,
-       # end_at: Time.now #.strftime("%Y-%m-%d %H:%M:%S")
-      # }
-      #new
-      report_params={
-       release_name: release_id,
-       testcycle_name: testcycle_id,
-       project_name: project_id,
-       build: $build_id,
-       testsuite_name: testsuite_id,
-       testcase_name: testcase_id,
-       testuser: username,
-       testpassword: password,
-       testpath: spec,
-       pass: $pass_count,
-       fail: $fail_count,
-       pending: $pending_count,
-       log_path: "http://"+remote_srvr+out_path.gsub("#{rspec_out}",''),
-       start_at: start_time,
-       end_at: Time.now, #.strftime("%Y-%m-%d %H:%M:%S")
-       duration: Time.now-start_time,
-       browser: browser_name,
-       array_serial: array_serial || "none",
-       os: "any"
-      }
-        puts "EXECUTION PARAMETERS:- #{report_params}"
-        RestClient.post "http://10.100.185.250:3000/api/v1/reports", report_params.to_json, {Authorization: "Bearer #{token}", content_type: :json, accept: :json}
-      ###############################################################################################################      
-      #move all log files to remote location
-      if child_section
-        local_path="#{rspec_out}#{release_id}/#{testcycle_id}/#{project_id}/#{testsuite_id}/#{child_section}"
-        remote_path="./Results/#{release_id}/#{testcycle_id}/#{project_id}/#{testsuite_id}/#{child_section}"
-      else
-        local_path="#{rspec_out}#{release_id}/#{testcycle_id}/#{project_id}/#{testsuite_id}"
-        remote_path="./Results/#{release_id}/#{testcycle_id}/#{project_id}/#{testsuite_id}"
-      end
-      EXECUTOR.move_log_file_to_remote_server(remote_srvr,local_path, remote_path, testcase_id )
-      ###############################################################################################################
+      if remote_report
+        #post result into server using APIs
+        token = EXECUTOR.get_token_by_email_password('kartik.aiyar@riverbed.com','Kartik@123')
+        #report params
+        report_params={
+         release_name: release_id,
+         testcycle_name: testcycle_id,
+         project_name: project_id,
+         build: $build_id,
+         testsuite_name: testsuite_id,
+         testcase_name: testcase_id,
+         testuser: username,
+         testpassword: password,
+         testpath: spec,
+         pass: $pass_count,
+         fail: $fail_count,
+         pending: $pending_count,
+         log_path: "http://"+remote_srvr+out_path.gsub("#{rspec_out}",''),
+         start_at: start_time,
+         end_at: Time.now, #.strftime("%Y-%m-%d %H:%M:%S")
+         duration: Time.now-start_time,
+         browser: browser_name,
+         array_serial: array_serial || "none",
+         os: "any"
+        }
+          puts "EXECUTION PARAMETERS:- #{report_params}"
+          RestClient.post "http://10.100.185.250:3000/api/v1/reports", report_params.to_json, {Authorization: "Bearer #{token}", content_type: :json, accept: :json}
+        ###############################################################################################################      
+        #move all log files to remote location
+        if child_section
+          local_path="#{rspec_out}#{release_id}/#{testcycle_id}/#{project_id}/#{testsuite_id}/#{child_section}"
+          remote_path="./Results/#{release_id}/#{testcycle_id}/#{project_id}/#{testsuite_id}/#{child_section}"
+        else
+          local_path="#{rspec_out}#{release_id}/#{testcycle_id}/#{project_id}/#{testsuite_id}"
+          remote_path="./Results/#{release_id}/#{testcycle_id}/#{project_id}/#{testsuite_id}"
+        end
+        EXECUTOR.move_log_file_to_remote_server(remote_srvr,local_path, remote_path, testcase_id )
+        ###############################################################################################################
+      end #remote_report      
     end #each spec
   end #Run_Specs 
 end #module EXECUTOR

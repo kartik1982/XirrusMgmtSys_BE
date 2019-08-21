@@ -10,6 +10,7 @@ options[:headless] = true
 options[:skip_api] = false
 options[:ui] = true
 options[:telnet] = true
+options[:remote_report]= false
     
 opt_parser = OptionParser.new do |opts|
   opts.on('-e', '--env ENV') do |obj|
@@ -45,6 +46,9 @@ opt_parser = OptionParser.new do |opts|
   opts.on("-result_srvr","--result_srvr RESULT SERVER","Please provide REsult web server name or IP address") do |obj|
     options[:result_srvr] = obj
   end
+  opts.on("-remote_report","--remote_report REMOTE UPLOAD REPORTS","Please provide remote_report option true or false") do |obj|
+    options[:remote_report] = obj
+  end
   opts.on("-rspec_out","--rspec_out RSPEC OUTPUT","Please provide rspec output folder path") do |obj|
     options[:rspec_out] = obj
   end
@@ -74,6 +78,7 @@ settings={
   skip_api: options[:skip_api],  
   rspec_out: options[:rspec_out], #"E:/xmsc_results",
   remote_srvr: "10.100.185.250", #"http://10.100.185.3", 
+  remote_report: options[:remote_report],
   project_id: options[:project_id],
   testcycle_id: options[:testcycle_id],
   release_id: options[:release_id],

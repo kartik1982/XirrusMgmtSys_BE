@@ -8,7 +8,7 @@ require 'resource_path/profiles'
 require 'resource_path/profiles-b'
 require 'resource_path/users'
 require 'resource_path/users-b'
-# require 'api/resource_path/guestaccess'
+require 'resource_path/guestaccess'
 # require 'api/resource_path/guestaccess-b'
 require 'resource_path/tenants'
 # require 'api/resource_path/reports'
@@ -219,9 +219,11 @@ module API
 
       path = "#{@xms_url}/api/v2#{_path}"
       puts "PATH = #{path}"
-     if (_method == :get )
+     if (_method == :get || _method == :get_string || _method == :get_csv || _method == :get_csv_all_radios || _method == :put_with_query_params || _method == :post_with_query_params)
        query = build_query(params)
        path += "?#{query}"
+       # Escape if anu spaces in url
+       path = URI.escape(path)
      end
       success = false
       case _method

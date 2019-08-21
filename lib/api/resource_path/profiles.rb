@@ -33,6 +33,12 @@ module API
       def get_profiles(args={})
         profiles(args)
       end
+      
+      def get_profile_by_name(profile_name)
+        # we assume that there are no more then 1000 profiles
+        all_p = get_profiles({count: 1000}).body["data"]
+        all_p.find{|p| p["name"] == profile_name}
+      end
 
       def default_profile
         get("/profiles.json/default")

@@ -44,7 +44,7 @@ def self.get_token_by_email_password(email, password)
     $the_environment_used = spec_settings[:env] || "test03"
     $the_browser_used = spec_settings[:browser_name] || BROWSER_NAME
     $azure_user= "adinte@alexxirrusoutlook.onmicrosoft.com"
-    $azure_password= "Xirrus!23"
+    $azure_password= "Xirrus!234"
     $google_user="kartik@xirrus.org"
     $google_password="Xirrus!23"
     #custom rspec varaibles

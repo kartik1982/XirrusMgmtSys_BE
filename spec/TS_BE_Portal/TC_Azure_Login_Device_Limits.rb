@@ -1,12 +1,13 @@
 require_relative "../context.rb"
-require_relative "./local_lib/supportmgmt_lib.rb"
+require_relative "./local_lib/portal_lib.rb"
+require_relative "./local_lib/azure_google_lib.rb"
 ################################################################################################################
 ##########################TEST CASE: Azure Login - Add device limits############################################
 ################################################################################################################
 
 SPECIAL_AZURE_ACCOUNT_CREDENTIALS = {
-  email: "simon-admin@alexxirrusoutlook.onmicrosoft.com", # Armen.Zakaryan@alexxirrusoutlook.onmicrosoft.com
-  password: "Xirrus!23"
+  email: $azure_user, # Armen.Zakaryan@alexxirrusoutlook.onmicrosoft.com
+  password: $azure_password
 }
 PORTAL = {name: "Microsoft Azure", type: "AZURE_AD"}
 PROFILE = "8_23_AZURE"

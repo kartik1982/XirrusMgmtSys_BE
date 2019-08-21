@@ -157,7 +157,30 @@ module UTIL
     end
     puts message2
   end
+def self.gap_splash_page(args = {})
+  "https://guest-#{args[:env]}.cloud.xirrus.com/?challenge=1&uamip=#{args[:uamip]}&uamport=#{args[:uamport]}&apmac=#{args[:apmac]}&mac=#{args[:mac]}&userurl=http://www.google.com&ssid=#{args[:ssid_name]}"
+end
+  def self.update_mac_by_number(mac, number = 1)
+    index = 16
+    n = number.to_s
 
+    while n.length > 0
+      d = n.split(//).last(2).join
+      mac[index-1..index] = d.to_i > 9 ? d :  mac[index-1].concat(d)
+
+      n = n[0..-3]
+      index = index - 3
+    end
+
+    mac
+  end
+  ##################################
+  ####### NEW General methods ######
+  ##################################
+  # TODO Move to generic place
+  def self.new_chrome_incognito()
+    Watir::Browser.new :chrome, switches: ['--incognito']
+  end
   def wait_until_present
       if el.present? != true
         @position = el.wd.location

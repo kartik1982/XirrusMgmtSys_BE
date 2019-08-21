@@ -324,8 +324,8 @@ shared_examples "GAP Max Devices" do |opt, gap_name|
       opt[:maxDeviceCount].times do |index|
         puts "Adding new user #{index}"
 
-        @browser = XMS.new_chrome_incognito()
-        @browser.goto replace_splash_device_mac(XMS.update_mac_by_number(@device_mac, index))
+        @browser = UTIL.new_chrome_incognito()
+        @browser.goto replace_splash_device_mac(UTIL.update_mac_by_number(@device_mac, index))
         sleep 2
         gap_third_party_login(opt[:users].first.merge({type: opt[:portal_type]}))
 
@@ -342,8 +342,8 @@ shared_examples "GAP Max Devices" do |opt, gap_name|
     end
 
     it "Attempt to connect another device exceeding the maximum, The pop-up should appear indicating that the maximum number of devices has been reached and give you the option to delete a device" do
-      @browser = XMS.new_chrome_incognito()
-      @browser.goto replace_splash_device_mac(XMS.update_mac_by_number(@device_mac, opt[:maxDeviceCount] + 2))
+      @browser = UTIL.new_chrome_incognito()
+      @browser.goto replace_splash_device_mac(UTIL.update_mac_by_number(@device_mac, opt[:maxDeviceCount] + 2))
       gap_third_party_login(opt[:users].first.merge({type: opt[:portal_type]}), "guest-#{@env}.cloud.xirrus.com")
 
       sleep 4
@@ -362,8 +362,8 @@ shared_examples "GAP Max Devices" do |opt, gap_name|
   end
   context "Register a new device after an old device has been deleted" do
     before :all do
-      @browser = XMS.new_chrome_incognito()
-      @browser.goto replace_splash_device_mac(XMS.update_mac_by_number(@device_mac, opt[:maxDeviceCount] + 3))
+      @browser = UTIL.new_chrome_incognito()
+      @browser.goto replace_splash_device_mac(UTIL.update_mac_by_number(@device_mac, opt[:maxDeviceCount] + 3))
       gap_third_party_login(opt[:users].first.merge({type: opt[:portal_type]}), "guest-#{@env}.cloud.xirrus.com")
     end
 
@@ -435,8 +435,8 @@ shared_examples "GAP Max Devices" do |opt, gap_name|
   unless opt[:portal_type] == "AZURE_AD" || opt[:portal_type] == "VOUCHER"
     context "Allowed domains validation" do
       before :all do
-        @browser = XMS.new_chrome_incognito()
-        @browser.goto replace_splash_device_mac(XMS.update_mac_by_number(@device_mac, opt[:maxDeviceCount] + 4))
+        @browser = UTIL.new_chrome_incognito()
+        @browser.goto replace_splash_device_mac(UTIL.update_mac_by_number(@device_mac, opt[:maxDeviceCount] + 4))
       end
 
       after :all do @browser.quit unless @browser.nil? end

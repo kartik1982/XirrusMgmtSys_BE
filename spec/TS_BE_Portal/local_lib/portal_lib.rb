@@ -1,7 +1,3 @@
-#shared_context "GuestPortalView"
-require_relative '../api_client/context.rb'
-require_relative "../profiles/context.rb"
-
 
 def header_left_nav
   @ui.id("header_left_nav")
@@ -101,7 +97,7 @@ def chars_256
 end
 
 def url_longer_than_256
-  "#{XMS.random_title.gsub(' ','-')}#{chars_256.gsub(' ','-').gsub('.','-').gsub('_','-').gsub(',','')}.com"
+  "#{UTIL.random_title.gsub(' ','-')}#{chars_256.gsub(' ','-').gsub('.','-').gsub('_','-').gsub(',','')}.com"
 end
 
 def goto_config_view(viewname)
@@ -673,7 +669,7 @@ end
 def new_device_splash(new_mac = nil)
   begin
   if new_mac.nil?
-    new_mac = XMS.random_mac
+    new_mac = UTIL.random_mac
   end
   browser = Watir::Browser.new @browser_name
   @splash_url = @splash_url.gsub(@device_mac, new_mac)
@@ -728,7 +724,7 @@ end
 
 shared_context "combine portals gap splash setup" do |args = {}|
 
-  base_title = args[:base_title] || XMS.random_title
+  base_title = args[:base_title] || UTIL.random_title
   profile_name = args[:profile_name]
   ssid_name = args[:ssid_name]
   gap_name = args[:gap_name] || "GAP-#{base_title}"
@@ -784,7 +780,7 @@ shared_context "gap splash setup" do |args = {}|
 
   guest = args[:guest]
   guest_social = args[:guest]
-  base_title = args[:base_title] || XMS.random_title
+  base_title = args[:base_title] || UTIL.random_title
   profile_name = args[:profile_name] || "PRO-#{base_title}"
   ssid_name = args[:ssid_name] || "SSID-#{base_title}"
   gap_name = args[:gap_name] || "GAP-#{base_title}"
@@ -806,22 +802,22 @@ shared_context "gap splash setup" do |args = {}|
     if args[:mac] && args[:mac] == 'use current mac'
       @array_mac = @array.mac
     else
-      @array_mac = args[:mac] || XMS.random_mac
+      @array_mac = args[:mac] || UTIL.random_mac
     end
     if args[:iap_mac] && args[:iap_mac] == 'use current iap_mac'
       @array_iap_mac = @array.iapmac
     else
-      @array_iap_mac = args[:iap_mac] || XMS.random_mac
+      @array_iap_mac = args[:iap_mac] || UTIL.random_mac
     end
     if args[:device_mac] && args[:device_mac] == 'use current device_mac'
       @device_mac = @array.mac
     else
-      @device_mac = args[:device_mac] || XMS.random_mac
+      @device_mac = args[:device_mac] || UTIL.random_mac
     end
     if args[:serial] && args[:serial] == 'use current serial'
       @array_serial = @array.serial
     else
-      @array_serial = args[:serial] || XMS.random_serial
+      @array_serial = args[:serial] || UTIL.random_serial
     end
 
     @gap_name = gap_name
@@ -851,7 +847,7 @@ shared_context "gap splash setup" do |args = {}|
 
     @profile_id = @create_profile_res.body['id']
 
-    @basic_profile_config = JSON.parse(File.read("#{XMS.fixtures_root}/json/profiles/basic_profile_config.json"))
+    @basic_profile_config = JSON.parse(File.read("#{EXECUTOR.fixtures_root}/json/profiles/basic_profile_config.json"))
 
     @basic_profile_config['ssids'][0]['ssidName'] = @ssid_name
     @basic_profile_config['ssids'][0]["guestPortalId"] = @gap_id
@@ -911,7 +907,7 @@ shared_context "gap splash setup" do |args = {}|
 
     # puts @update_profile_configuration_res.body
 
-    @splash_url = XMS.gap_splash_page({ env: @env, uamip: @uamip, uamport: @uamport, apmac: @array_mac, mac: @device_mac, ssid_name: @ssid_name})
+    @splash_url = UTIL.gap_splash_page({ env: @env, uamip: @uamip, uamport: @uamport, apmac: @array_mac, mac: @device_mac, ssid_name: @ssid_name})
     puts "SPLASH URL: #{@splash_url}"
     log("\n\n\n SPLASH URL: #{@splash_url}")
     log("Profile #{profile_name} has SSID #{ssid_name} and associated with guestPortalId for GAP #{gap_name}")
@@ -1010,8 +1006,8 @@ shared_context "Marketing OPT-IN" do |opt, gap_name|
         sleep 8
       end
 
-      @_browser = XMS.new_chrome_incognito()
-      @_browser.goto replace_splash_device_mac(XMS.update_mac_by_number(@device_mac))
+      @_browser = UTIL.new_chrome_incognito()
+      @_browser.goto replace_splash_device_mac(UTIL.update_mac_by_number(@device_mac))
       sleep 2
 
       if opt[:external_sign_in] == "facebook"
@@ -1225,7 +1221,7 @@ end
 
 
 shared_context "gap simple setup" do |args = {}|
-  base_title = args[:base_title] || XMS.random_title
+  base_title = args[:base_title] || UTIL.random_title
   profile_name = args[:profile_name] || "PRO-#{base_title}"
   ssid_name = args[:ssid_name] || "SSID-#{base_title}"
   gap_name = args[:gap_name] || "GAP-#{base_title}"
@@ -1250,7 +1246,7 @@ shared_context "gap simple setup" do |args = {}|
     @create_profile_res = @ng.add_profile({name: @profile_name})
     expect(@create_profile_res.code).to eql(200)
     @profile_id = @create_profile_res.body['id']
-    @basic_profile_config = JSON.parse(File.read("#{XMS.fixtures_root}/json/profiles/basic_profile_config.json"))
+    @basic_profile_config = JSON.parse(File.read("#{EXECUTOR.fixtures_root}/json/profiles/basic_profile_config.json"))
     @basic_profile_config['profileId'] = @profile_id.dup
     @basic_profile_config['ssids'][0]['ssidName'] = @ssid_name
     @basic_profile_config['ssids'][0]["guestPortalId"] = @gap_id
